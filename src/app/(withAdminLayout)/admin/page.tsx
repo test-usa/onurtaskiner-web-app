@@ -1,10 +1,9 @@
-import React from "react";
-import Dashboard from "./dashboard/page";
+import DashboardPage from "./dashboard/page";
 
 const AdminPage = () => {
   return (
     <div>
-      <Dashboard />
+      <DashboardPage />
     </div>
   );
 };
