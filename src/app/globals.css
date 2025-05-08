@@ -50,6 +50,7 @@
   --color-foreground: #d4af37; /* FOR SOME BUTTON, AND SOME CARDS */
   --color-accent: #003366;
   --color-textSecondary: #333333;
+  --color-textThree: #797979;
 
   /**** FOR SHADCN UI ****/
   --radius: 0.625rem;
