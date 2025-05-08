@@ -16,7 +16,7 @@ import Image from "next/image";
 import { SlCalender } from "react-icons/sl";
 import { SiSimpleanalytics } from "react-icons/si";
 import { IoSettingsOutline } from "react-icons/io5";
-import { HiReceiptRefund } from "react-icons/hi";
+import { RiSupabaseLine } from "react-icons/ri";
 
 interface NavItem {
   title: string;
@@ -45,7 +45,7 @@ const navItems: NavItem[] = [
   {
     title: "Dispute & Refunds",
     href: "/admin/dispute-refunds",
-    icon: HiReceiptRefund,
+    icon: RiSupabaseLine,
   },
   {
     title: "Plartform Settings",
@@ -59,7 +59,7 @@ export function AdminSideBar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="h-full w-[300px] max-auto  ">
+    <div className="h-[1080] w-[300px] max-auto  ">
       <button
         className="md:hidden p-4 fixed top-4 left-8 z-50"
         onClick={() => setToggle(!toggle)}
@@ -123,7 +123,7 @@ export function AdminSideBar() {
       </motion.aside>
 
       <aside className="hidden md:flex w-72 h-screen flex-col bg-[#FFFFFF] dark:bg-gray-900 text-gray-800 dark:text-white  p-6">
-        <div className="flex justify-center items-center mb-10 space-x-2">
+        <div className="flex justify-start items-center mb-10 ">
           <Image
             src={logo.src}
             alt="Logo"
@@ -132,7 +132,7 @@ export function AdminSideBar() {
             height={42}
           />
 
-          <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-sansita">
+          <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-['Sansita_Swashed']">
             Blinqo
           </h1>
         </div>
