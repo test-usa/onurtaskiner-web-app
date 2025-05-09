@@ -30,11 +30,14 @@ const CalculateCard = () => {
         {/* SINGLE CARD */}
         {data?.map((singe) => {
           return (
-            <div className="flex-1 min-w-[210px] w-full max-w-[250px] sm:basis-[50%] lg:basis-[25%] p-[28px] bg-white rounded-[20px] ">
+            <div
+              key={singe.amount}
+              className="flex-1 min-w-[210px] w-full max-w-[250px] sm:basis-[50%] lg:basis-[25%] p-[28px] bg-white rounded-[20px] "
+            >
               {/* FIRST SECTION */}
               <div className="flex items-center justify-between">
                 <h1
-                  className="text-[12px] sm:text-[1rem] leading-[1.5rem] text-[var(--color-normalText)] font-semibold"
+                  className="text-[12px] sm:text-[1rem] leading-[1.5rem] text-[var(--color-normalText)] font-extrabold"
                   style={{ fontFamily: "var(--font-roboto)" }}
                 >
                   {singe?.title}
