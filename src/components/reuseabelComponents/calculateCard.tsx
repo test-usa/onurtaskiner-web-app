@@ -26,13 +26,13 @@ const CalculateCard = () => {
   ];
   return (
     <Wrapper>
-      <div className="flex flex-wrap items-center justify-center w-full gap-[18px] h-screen">
+      <div className="flex flex-wrap items-center justify-center w-full gap-[18px]">
         {/* SINGLE CARD */}
         {data?.map((singe) => {
           return (
             <div
               key={singe.amount}
-              className="flex-1 min-w-[210px] w-full max-w-[250px] sm:basis-[50%] lg:basis-[25%] p-[28px] bg-white rounded-[20px] "
+              className="flex-1 min-w-[210px] w-full max-w-[370px] sm:basis-[50%] lg:basis-[25%] p-[28px] bg-white rounded-[20px] "
             >
               {/* FIRST SECTION */}
               <div className="flex items-center justify-between">
