@@ -45,9 +45,28 @@
 
 :root {
   /**** PROJECT PLATE! ****/
-  --color-bgPrimary: #abb7c2; /**  FOR MANY BUTTON BG AND TEXT COLOR ALSO **/
-  --color-textPrimary: #32383d;
-  --color-foreground: #d4af37; /* FOR SOME BUTTON, AND SOME CARDS */
+  --color-bgPrimary: #f4f4f4; /**  FOR MANY BUTTON BG AND TEXT COLOR ALSO **/
+  --color-normalText: #767676;
+  --color-textGreen: #34c759;
+  --color-greenTwo: #6cb9ad;
+  --color-greenThree: #def3e6;
+  --color-greenFour: #def3e6;
+  --color-greenFive: #4aec73;
+  --color-blueOne: #324ddd;
+  --color-blueTwo: #86c2ff;
+  --color-purPole: #7a65e2;
+  --color-grayOne: #c0c0c0;
+  --color-grayTwo: #e6ebf0;
+  --color-textRed: #ff3b30;
+  --color-boldTextTwo: #d7dde4;
+  --color-secondary: #d4af37;
+  --color-orange: #f2c643;
+  --color-fundationYellow: #fbf7eb;
+  --color-yellowTwo: #fff5d6;
+  --color-boldText: #a1a1a1;
+  --color-textPrimary: #333333;
+  --color-coffeOne: #272a3e;
+  /* --color-foreground: #d4af37; FOR SOME BUTTON, AND SOME CARDS */
   --color-accent: #003366;
   --color-textSecondary: #333333;
   --color-textThree: #797979;

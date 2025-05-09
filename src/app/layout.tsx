@@ -4,6 +4,7 @@ import "./globals.css";
 import ReduxProviderWrapper from "@/redux/redux-provider/reduxProviderWrapper";
 import { DashboardToaster } from "@/components/ui/Toster";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <ReduxProviderWrapper>{children}</ReduxProviderWrapper>
         <DashboardToaster />
+
       </body>
     </html>
   );
