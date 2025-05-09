@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/table";
 import Image from "next/image";
 import { IoChevronDown } from "react-icons/io5";
+import Wrapper from "@/components/wrapper/wrapper";
 
 export type Venue = {
   id: string;
@@ -288,58 +289,60 @@ export function VenueListTable() {
   });
 
   return (
-    <div className="w-full bg-white  rounded-lg shadow-md p-4 ">
-      <div className="flex items-center justify-between py-4">
-        <h3 className="text-lg ml-4 font-semibold text-roboto  text-[14px] leading-[100%] tracking-[0px] align-middle">
-          All Venue List
-        </h3>
-      </div>
+    <Wrapper>
+      <div className="w-full bg-white  rounded-lg shadow-md p-4 ">
+        <div className="flex items-center justify-between py-4">
+          <h3 className="text-lg ml-4 font-semibold text-roboto  text-[14px] leading-[100%] tracking-[0px] align-middle">
+            All Venue List
+          </h3>
+        </div>
 
-      <div className="rounded-md ">
-        <Table>
-          <TableHeader className="h-[56px]">
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
+        <div className="rounded-md ">
+          <Table>
+            <TableHeader className="h-[56px]">
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </TableHead>
                   ))}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow key={row.id}>
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
