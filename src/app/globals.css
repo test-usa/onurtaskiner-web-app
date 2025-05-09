@@ -71,6 +71,12 @@
   --color-textSecondary: #333333;
   --color-textThree: #797979;
 
+  /* GOOGLE FONTS */
+  --font-roboto: "Roboto", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+
   /**** FOR SHADCN UI ****/
   --radius: 0.625rem;
   --background: oklch(1 0 0);
