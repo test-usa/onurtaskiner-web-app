@@ -1,9 +1,12 @@
+import { RecentActivityTable } from "@/components/AdminPage/VenueManagement/RecentActivityTable";
+import { VenueListTable } from "@/components/AdminPage/VenueManagement/VenueListTable";
 import React from "react";
 
 const venueManagementPage = () => {
   return (
     <div>
-      <h1>VenueManagementPage</h1>
+      <RecentActivityTable />
+      <VenueListTable />
     </div>
   );
 };

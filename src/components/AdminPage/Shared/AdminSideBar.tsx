@@ -59,18 +59,21 @@ export function AdminSideBar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="h-[1080] w-[300px] max-auto  ">
+    <div className="relative z-50">
+      {/* Mobile Toggle Button */}
       <button
-        className="md:hidden p-4 fixed top-4 left-8 z-50"
+        className="md:hidden fixed top-4 left-4 z-50 bg-white dark:bg-gray-900 p-2 rounded shadow"
         onClick={() => setToggle(!toggle)}
+        aria-label="Toggle sidebar"
       >
         {toggle ? (
-          <GoX className="text-3xl text-red-700" />
+          <GoX className="text-2xl text-red-600" />
         ) : (
-          <FcMenu className="text-3xl" />
+          <FcMenu className="text-2xl" />
         )}
       </button>
 
+      {/* Overlay */}
       {toggle && (
         <div
           className="fixed inset-0 bg-black/50 z-40"
@@ -78,34 +81,30 @@ export function AdminSideBar() {
         />
       )}
 
+      {/* Mobile Sidebar */}
       <motion.aside
-        initial={{ opacity: 0, x: "-100%" }}
-        animate={{ opacity: toggle ? 1 : 0, x: toggle ? 0 : "-100%" }}
+        initial={{ x: "-100%" }}
+        animate={{ x: toggle ? 0 : "-100%" }}
         transition={{ duration: 0.3 }}
-        className="md:hidden w-72 h-screen fixed bg-[#FFFFFF] dark:bg-gray-900 text-gray-800 dark:text-white  p-6 shadow-lg z-50 flex flex-col"
+        className="md:hidden fixed top-0 left-0 w-72 h-full bg-white dark:bg-gray-900 text-gray-800 dark:text-white p-6 shadow-lg z-50 flex flex-col"
       >
-        <button
-          className="absolute top-4 right-4 text-2xl"
-          onClick={() => setToggle(false)}
-        >
-          <GoX />
-        </button>
-
         <nav className="flex-grow space-y-2">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "flex items-center gap-4 px-4 py-3 rounded transition",
+                "flex items-center w-[227px] h-[40px] rounded-[8px] px-4 py-2 gap-[20px] transition",
                 pathname === item.href
                   ? "bg-blue-100 text-[var(--color-textThree)] dark:bg-blue-700 dark:text-white"
                   : "hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
               onClick={() => setToggle(false)}
             >
-              <item.icon className="h-5 w-5" />
-              {item.title}
+              <item.icon className="w-[24px] h-[24px]" />
+              <span className="w-[75px] h-[20px] font-roboto font-normal text-[16px] leading-[20px] tracking-[-0.02em]">
+                {item.title}
+              </span>
             </Link>
           ))}
         </nav>
@@ -122,22 +121,22 @@ export function AdminSideBar() {
         </div>
       </motion.aside>
 
-      <aside className="hidden md:flex w-72 h-screen flex-col bg-[#FFFFFF] dark:bg-gray-900 text-gray-800 dark:text-white  p-6">
-        <div className="flex justify-start items-center mb-10 ">
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-72 h-screen flex-col bg-white dark:bg-gray-900 text-gray-800 dark:text-white p-6">
+        <div className="flex items-center gap-3 mb-10">
           <Image
             src={logo.src}
             alt="Logo"
-            className="w-[42px] h-[42px]"
             width={42}
             height={42}
+            className="w-[42px] h-[42px]"
           />
-
-          <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-['Sansita_Swashed']">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-['Sansita_Swashed']">
             Blinqo
           </h1>
         </div>
         <div className="mb-4 text-[var(--color-textThree)]">Menu</div>
-        <nav className="flex-grow  w-[227px] h-[40px]">
+        <nav className="flex-grow space-y-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -154,7 +153,6 @@ export function AdminSideBar() {
             </Link>
           ))}
         </nav>
-
         <div className="mt-auto mb-10">
           <Button
             variant="destructive"
@@ -171,64 +169,3 @@ export function AdminSideBar() {
 }
 
 export default AdminSideBar;
-
-/* 
-import Image from "next/image";
-import logo from "../../../assets/icon/logo1.png";
-
-import { FaRegUser } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
-import { PiBuildingApartmentFill } from "react-icons/pi";
-import Link from "next/link";
-
-const AdminSideBar = () => {
-  return (
-    <aside className="bg-white text-black min-h-screen w-full px-4 py-6 shadow-lg">
-      <div className="flex justify-center items-center mb-10 space-x-2">
-        <Image
-          src={logo.src}
-          alt="Logo"
-          className="w-[42px] h-[42px]"
-          width={42}
-          height={42}
-        />
-
-        <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-sansita">
-          Blinqo
-        </h1>
-      </div>
-
-      <nav>
-        <ul className="space-y-3">
-          <p>Menu</p>
-          <li>
-            <Link href="/admin/dashboard">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <MdDashboard className="text-lg" />
-                <span>Dashboard</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/user-management">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <FaRegUser className="text-lg" />
-                <span>User Management</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/venue-management">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <PiBuildingApartmentFill className="text-lg" />
-                <span>Venu Management</span>
-              </div>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  );
-};
-
-export default AdminSideBar; */

@@ -17,20 +17,16 @@ export default function AdminLayout({
     <div className="flex flex-col min-h-screen bg-[#F4F4F4]">
       <div className="flex flex-col md:flex-row min-h-screen bg-[#F4F4F4]">
         {/* Sidebar */}
-        <aside className="w-[20%] bg-white shadow-md z-10">
+        <aside className=" bg-white shadow-md z-10">
           <AdminSideBar />
         </aside>
 
         {/* Main Content */}
-        <main className="w-[80%] flex-1 overflow-hidden bg-base-200 mt-10 md:mt-0">
+        <main className="w-[1060px] h-full flex-1 overflow bg-base-200 mt-10 md:mt-0">
           <AdminNavBar />
           <div className="p-4">{children}</div>
         </main>
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="flex justify-center items-center min-h-screen bg-[#F4F4F4]"></div> */
 }
