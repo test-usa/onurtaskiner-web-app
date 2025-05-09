@@ -144,32 +144,29 @@ export const columns: ColumnDef<Venue>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-  {
-    accessorKey: "photo",
-    header: "Photo",
-    cell: ({ row }) => {
-      const venuePhotoUrl = row.getValue("photo") as string;
-      return (
-        <div className="flex items-center justify-start">
-          <Image
-            src={venuePhotoUrl}
-            alt="Venue"
-            className="w-12 h-12 object-cover rounded"
-            width={48}
-            height={48}
-          />
-        </div>
-      );
-    },
-  },
+
   {
     accessorKey: "venueName",
     header: "Venue Name",
     cell: ({ row }) => {
       const venueName = row.getValue("venueName") as string;
-      return <div className="font-medium">{venueName}</div>;
+      const venuePhotoUrl = row.original.photo;
+
+      return (
+        <div className="flex items-center space-x-3">
+          <Image
+            src={venuePhotoUrl}
+            alt={venueName}
+            className="w-10 h-10 object-cover rounded"
+            width={40}
+            height={40}
+          />
+          <span className="font-medium">{venueName}</span>
+        </div>
+      );
     },
   },
+
   {
     accessorKey: "status",
     header: () => (
