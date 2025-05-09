@@ -1,4 +1,4 @@
-import Wrapper from "@/hooks/wrapper/wrapper";
+import Wrapper from "@/components/wrapper/wrapper";
 
 const Loader = () => {
   return (
