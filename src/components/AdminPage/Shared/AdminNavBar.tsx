@@ -6,8 +6,8 @@ import Wrapper from "@/components/wrapper/wrapper";
 const AdminNavBar = () => {
   return (
     <Wrapper>
-      {/* Hide on small devices */}
-      <div className="hidden sm:block w-full">
+      {/* Show only on large screens and hide on medium and small devices */}
+      <div className="hidden lg:block w-full">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 mt-4">
           <div className="w-full sm:w-auto px-2">
             <div className="w-full sm:w-[782px] h-[44px] bg-white border rounded-[10px] px-4 py-2 flex items-center">
