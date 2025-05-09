@@ -1,4 +1,6 @@
 "use client";
+
+import venuphoto1 from "@/assets/images/venuphoto1.png";
 import * as React from "react";
 import {
   ColumnDef,
@@ -43,8 +45,7 @@ const data: Venue[] = [
     address: "123 Main St, NY",
     totalEarning: 1200,
     commission: 200,
-    photo:
-      "http://localhost:3000/_next/image?url=https%3A%2F%…uploads%2F2019%2F06%2Fthe-big-clock.jpg&w=48&q=75",
+    photo: venuphoto1.src,
   },
   {
     id: "v002",
@@ -53,8 +54,7 @@ const data: Venue[] = [
     address: "456 Ocean Dr, CA",
     totalEarning: 950,
     commission: 150,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v003",
@@ -63,8 +63,7 @@ const data: Venue[] = [
     address: "789 Garden Rd, TX",
     totalEarning: 0,
     commission: 0,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v004",
@@ -73,8 +72,7 @@ const data: Venue[] = [
     address: "101 Sky Blvd, LA",
     totalEarning: 5000,
     commission: 800,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v005",
@@ -83,8 +81,7 @@ const data: Venue[] = [
     address: "202 City Ave, NY",
     totalEarning: 3500,
     commission: 500,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v006",
@@ -93,8 +90,7 @@ const data: Venue[] = [
     address: "303 River Rd, FL",
     totalEarning: 1300,
     commission: 250,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v007",
@@ -103,8 +99,7 @@ const data: Venue[] = [
     address: "404 Hilltop Ln, CO",
     totalEarning: 2100,
     commission: 350,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v008",
@@ -113,8 +108,7 @@ const data: Venue[] = [
     address: "505 Sunset Blvd, NV",
     totalEarning: 0,
     commission: 0,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
   {
     id: "v009",
@@ -123,8 +117,7 @@ const data: Venue[] = [
     address: "606 Palace Rd, MA",
     totalEarning: 8500,
     commission: 1200,
-    photo:
-      "https://discoverholidaysbd.com/wp-content/uploads/2019/06/the-big-clock.jpg",
+    photo: venuphoto1.src,
   },
 ];
 
@@ -152,24 +145,29 @@ export const columns: ColumnDef<Venue>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "photo",
+    header: "Photo",
+    cell: ({ row }) => {
+      const venuePhotoUrl = row.getValue("photo") as string;
+      return (
+        <div className="flex items-center justify-start">
+          <Image
+            src={venuePhotoUrl}
+            alt="Venue"
+            className="w-12 h-12 object-cover rounded"
+            width={48}
+            height={48}
+          />
+        </div>
+      );
+    },
+  },
+  {
     accessorKey: "venueName",
     header: "Venue Name",
     cell: ({ row }) => {
       const venueName = row.getValue("venueName") as string;
-      const venuePhotoUrl = row.getValue("photo") as string;
-
-      return (
-        <div className="flex items-center">
-          <Image
-            src={venuePhotoUrl}
-            width={40}
-            height={40}
-            alt={venueName}
-            className="w-10 h-10 rounded-full mr-3"
-          />
-          <div className="font-medium">{venueName}</div>
-        </div>
-      );
+      return <div className="font-medium">{venueName}</div>;
     },
   },
   {
@@ -187,19 +185,19 @@ export const columns: ColumnDef<Venue>[] = [
 
       switch (status) {
         case "active":
-          colorClass = "bg-green-500"; // Green for active
+          colorClass = "bg-green-500";
           statusText = "Active";
           break;
         case "hold":
-          colorClass = "bg-yellow-500"; // Yellow for hold
+          colorClass = "bg-yellow-500";
           statusText = "Hold";
           break;
         case "suspend":
-          colorClass = "bg-red-500"; // Red for suspend
+          colorClass = "bg-red-500";
           statusText = "Suspend";
           break;
         default:
-          colorClass = "bg-gray-500"; // Default gray
+          colorClass = "bg-gray-500";
           statusText = "Unknown";
           break;
       }
@@ -246,7 +244,7 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     id: "details",
-    header: () => <div className="text-center"></div>,
+    header: () => <div className="text-center">Details</div>,
     cell: ({ row }) => (
       <ul>
         <a
