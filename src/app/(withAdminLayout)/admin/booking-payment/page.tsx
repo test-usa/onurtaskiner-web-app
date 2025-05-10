@@ -7,8 +7,8 @@ const bookingPaymentPage = () => {
   return (
     <div className="">
       <Wrapper>
-        <div className="space-y-4 mt-60">
-          <Title>Booking Payment</Title>
+        <div className="space-y-4 ">
+          <Title title="Booking Payment" />
           <CalculateCard />
           <BookingPayment />
         </div>

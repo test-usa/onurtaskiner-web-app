@@ -8,7 +8,7 @@ import Wrapper from "@/components/wrapper/wrapper";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-const PaymentProfile = () => {
+const ReuseProfile = () => {
   return (
     <div
       style={{
@@ -168,4 +168,4 @@ const PaymentProfile = () => {
   );
 };
 
-export default PaymentProfile;
+export default ReuseProfile;

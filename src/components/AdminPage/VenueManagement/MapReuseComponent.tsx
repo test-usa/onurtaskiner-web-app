@@ -37,7 +37,7 @@ const offices = [
 ];
 
 const MapReuseComponent = () => {
-  const [activeOffice, setActiveOffice] = useState(offices[2]);
+  const [activeOffice] = useState(offices[2]);
 
   return (
     <Wrapper>
@@ -45,23 +45,6 @@ const MapReuseComponent = () => {
         <h2 className="text-1xl font-semibold text-start text-[#0C121D] mt-32 mb-6">
           Map
         </h2>
-
-        {/*  <div className="flex flex-wrap justify-center gap-4 my-8">
-        {offices.map((office, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveOffice(office)}
-            className={`px-4 py-2 rounded border ${
-              activeOffice.name === office.name
-                ? "bg-[#004D3F] text-white"
-                : "bg-white text-[#004D3F]"
-            }`}
-          >
-            {office.name}
-          </button>
-        ))}
-      </div> */}
-
         <div className="mapouter relative w-full h-[389px] mb-24 ">
           <div className="gmap_canvas w-full h-full rounded-[12px]  ">
             <iframe
