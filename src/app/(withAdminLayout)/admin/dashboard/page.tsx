@@ -5,6 +5,7 @@ import Title from "@/components/reuseabelComponents/Title";
 import AllCharts from "@/components/Dashboard/AllCharts";
 import Wrapper from "@/components/wrapper/wrapper";
 import { ActivityTable } from "@/components/Dashboard/ActivityTable";
+import { Calendar } from "@/components/Dashboard/Calendar";
 
 const DashboardPage = () => {
   return (
@@ -26,8 +27,9 @@ const DashboardPage = () => {
           <AllCharts />
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 pt-3">
           <ActivityTable />
+          <Calendar />
         </div>
       </div>
     </Wrapper>
