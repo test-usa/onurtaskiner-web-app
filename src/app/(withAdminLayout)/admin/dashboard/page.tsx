@@ -1,7 +1,6 @@
 import Professionals from "@/components/Dashboard/proffesionals";
 import Tabs from "@/components/Dashboard/Tabs";
 import CalculateCard from "@/components/reuseabelComponents/calculateCard";
-import Chart from "@/components/Charts/Linechart";
 import Title from "@/components/reuseabelComponents/Title";
 import AllCharts from "@/components/Dashboard/AllCharts";
 import Wrapper from "@/components/wrapper/wrapper";
