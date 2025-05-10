@@ -1,8 +1,15 @@
+import CalculateCard from "@/components/reuseabelComponents/calculateCard";
+import Title from "@/components/reuseabelComponents/Title";
+import Wrapper from "@/components/wrapper/wrapper";
+
 const DashboardPage = () => {
   return (
-    <div className="w-full  min-h-screen bg-red-300 rounded-box ">
-      <h1 className="text-4xl font-bold">Admin Dashboard </h1>
-    </div>
+    <Wrapper>
+      <div className="space-y-4">
+        <Title>Admin Dashboard</Title>
+        <CalculateCard />
+      </div>
+    </Wrapper>
   );
 };
 
