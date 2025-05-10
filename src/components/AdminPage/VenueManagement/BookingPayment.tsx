@@ -1,7 +1,8 @@
 "use client";
 
-import venuphoto1 from "@/assets/images/venuphoto1.png";
 import * as React from "react";
+import Image from "next/image";
+import { IoChevronDown } from "react-icons/io5";
 import {
   ColumnDef,
   SortingState,
@@ -23,25 +24,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import Image from "next/image";
-import { IoChevronDown } from "react-icons/io5";
 import Wrapper from "@/components/wrapper/wrapper";
+import venuphoto1 from "@/assets/images/venuphoto1.png";
 
+// Define Venue type
 export type Venue = {
   id: string;
   venueName: string;
-  status: "active" | "hold" | "suspend";
+  status: "bloked" | "refund" | "completed";
   address: string;
   totalEarning: number;
   commission: number;
   photo: string;
 };
 
+// Sample data
 const data: Venue[] = [
   {
     id: "v001",
     venueName: "The Grand Hall",
-    status: "active",
+    status: "bloked",
     address: "123 Main St, NY",
     totalEarning: 1200,
     commission: 200,
@@ -50,7 +52,7 @@ const data: Venue[] = [
   {
     id: "v002",
     venueName: "Ocean View Hall",
-    status: "hold",
+    status: "refund",
     address: "456 Ocean Dr, CA",
     totalEarning: 950,
     commission: 150,
@@ -59,7 +61,7 @@ const data: Venue[] = [
   {
     id: "v003",
     venueName: "Garden Plaza",
-    status: "suspend",
+    status: "completed",
     address: "789 Garden Rd, TX",
     totalEarning: 0,
     commission: 0,
@@ -68,7 +70,7 @@ const data: Venue[] = [
   {
     id: "v004",
     venueName: "Skyline Event Center",
-    status: "active",
+    status: "bloked",
     address: "101 Sky Blvd, LA",
     totalEarning: 5000,
     commission: 800,
@@ -77,7 +79,7 @@ const data: Venue[] = [
   {
     id: "v005",
     venueName: "City Lights Ballroom",
-    status: "active",
+    status: "bloked",
     address: "202 City Ave, NY",
     totalEarning: 3500,
     commission: 500,
@@ -86,7 +88,7 @@ const data: Venue[] = [
   {
     id: "v006",
     venueName: "Riverfront Conference Hall",
-    status: "hold",
+    status: "refund",
     address: "303 River Rd, FL",
     totalEarning: 1300,
     commission: 250,
@@ -95,7 +97,7 @@ const data: Venue[] = [
   {
     id: "v007",
     venueName: "Mountain Retreat",
-    status: "active",
+    status: "bloked",
     address: "404 Hilltop Ln, CO",
     totalEarning: 2100,
     commission: 350,
@@ -104,7 +106,7 @@ const data: Venue[] = [
   {
     id: "v008",
     venueName: "Sunset Pavilion",
-    status: "suspend",
+    status: "completed",
     address: "505 Sunset Blvd, NV",
     totalEarning: 0,
     commission: 0,
@@ -113,7 +115,7 @@ const data: Venue[] = [
   {
     id: "v009",
     venueName: "The Royal Palace",
-    status: "active",
+    status: "bloked",
     address: "606 Palace Rd, MA",
     totalEarning: 8500,
     commission: 1200,
@@ -121,6 +123,7 @@ const data: Venue[] = [
   },
 ];
 
+// Table columns
 export const columns: ColumnDef<Venue>[] = [
   {
     id: "select",
@@ -144,7 +147,6 @@ export const columns: ColumnDef<Venue>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-
   {
     accessorKey: "venueName",
     header: "Venue Name",
@@ -157,22 +159,21 @@ export const columns: ColumnDef<Venue>[] = [
           <Image
             src={venuePhotoUrl}
             alt={venueName}
-            className="w-10 h-10 object-cover rounded"
             width={40}
             height={40}
+            className="w-10 h-10 object-cover rounded"
           />
           <span className="font-medium">{venueName}</span>
         </div>
       );
     },
   },
-
   {
     accessorKey: "status",
     header: () => (
       <div className="flex items-center justify-start">
         <span>Status</span>
-        <IoChevronDown className="text-gray-500" />
+        <IoChevronDown className="text-gray-500 ml-1" />
       </div>
     ),
     cell: ({ row }) => {
@@ -181,31 +182,30 @@ export const columns: ColumnDef<Venue>[] = [
       let statusText = "";
 
       switch (status) {
-        case "active":
-          colorClass = "bg-green-500";
-          statusText = "Active";
+        case "bloked":
+          colorClass = "bg-[#DEF3E6] text-[#2D6A4F]";
+          statusText = "Bloked";
           break;
-        case "hold":
-          colorClass = "bg-yellow-500";
-          statusText = "Hold";
+        case "refund":
+          colorClass = "bg-[#FFF5D6] text-[#B68900]";
+          statusText = "Refund";
           break;
-        case "suspend":
-          colorClass = "bg-red-500";
-          statusText = "Suspend";
+        case "completed":
+          colorClass = "bg-[#86C2FF] text-[#004080]";
+          statusText = "Completed";
           break;
         default:
-          colorClass = "bg-gray-500";
+          colorClass = "bg-red-500 text-white";
           statusText = "Unknown";
-          break;
       }
 
       return (
         <div className="flex items-center justify-start">
           <span
-            className={`inline-block w-2.5 h-2.5 mr-2 rounded-full ${colorClass}`}
-          ></span>
-          <span className="capitalize">{statusText}</span>
-          <IoChevronDown className="text-gray-500" />
+            className={`capitalize px-2 py-1 rounded text-sm font-medium ${colorClass}`}
+          >
+            {statusText}
+          </span>
         </div>
       );
     },
@@ -241,21 +241,20 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     id: "details",
-    header: () => <div className="text-center">Details</div>,
+    header: () => <div className="text-center">Action</div>,
     cell: ({ row }) => (
-      <ul>
-        <a
-          onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
-          className="text-[var(--color-accent)] underline flex items-center justify-center cursor-pointer w-[44px] h-[16px] font-roboto font-medium text-[14px] leading-[14px]"
-        >
-          Details
-        </a>
-      </ul>
+      <a
+        onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
+        className="text-[var(--color-accent)] underline flex items-end justify-end cursor-pointer w-[44px] h-[16px] font-roboto font-medium text-[14px] leading-[14px]"
+      >
+        Details
+      </a>
     ),
   },
 ];
 
-export function VenueListTable() {
+// BookingPayment Component
+export function BookingPayment() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -285,14 +284,8 @@ export function VenueListTable() {
 
   return (
     <Wrapper>
-      <div className="w-full bg-white  rounded-lg shadow-md p-4 ">
-        <div className="flex items-center justify-between py-4">
-          <h3 className="text-lg ml-4 font-semibold text-roboto  text-[14px] leading-[100%] tracking-[0px] align-middle">
-            All Venue List
-          </h3>
-        </div>
-
-        <div className="rounded-md ">
+      <div className="w-full bg-white rounded-lg shadow-md p-4">
+        <div className="rounded-md">
           <Table>
             <TableHeader className="h-[56px]">
               {table.getHeaderGroups().map((headerGroup) => (

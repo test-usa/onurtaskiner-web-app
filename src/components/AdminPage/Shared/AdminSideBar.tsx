@@ -16,11 +16,7 @@ import Image from "next/image";
 import { SlCalender } from "react-icons/sl";
 import { SiSimpleanalytics } from "react-icons/si";
 import { IoSettingsOutline } from "react-icons/io5";
-<<<<<<< HEAD
-import { HiReceiptRefund } from "react-icons/hi";
-=======
 import { RiSupabaseLine } from "react-icons/ri";
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748
 
 interface NavItem {
   title: string;
@@ -49,11 +45,7 @@ const navItems: NavItem[] = [
   {
     title: "Dispute & Refunds",
     href: "/admin/dispute-refunds",
-<<<<<<< HEAD
-    icon: HiReceiptRefund,
-=======
     icon: RiSupabaseLine,
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748
   },
   {
     title: "Plartform Settings",
@@ -67,11 +59,7 @@ export function AdminSideBar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-<<<<<<< HEAD
-    <div className="h-full w-[300px] max-auto  ">
-=======
     <div className=" max-auto  ">
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748
       <button
         className="md:hidden p-4 fixed top-4 left-8 z-50"
         onClick={() => setToggle(!toggle)}
@@ -135,11 +123,7 @@ export function AdminSideBar() {
       </motion.aside>
 
       <aside className="hidden md:flex w-72 h-screen flex-col bg-[#FFFFFF] dark:bg-gray-900 text-gray-800 dark:text-white  p-6">
-<<<<<<< HEAD
-        <div className="flex justify-center items-center mb-10 space-x-2">
-=======
         <div className="flex justify-start items-center mb-10 ">
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748
           <Image
             src={logo.src}
             alt="Logo"
@@ -148,11 +132,7 @@ export function AdminSideBar() {
             height={42}
           />
 
-<<<<<<< HEAD
-          <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-sansita">
-=======
           <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-['Sansita_Swashed']">
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748
             Blinqo
           </h1>
         </div>
@@ -193,67 +173,6 @@ export function AdminSideBar() {
 export default AdminSideBar;
 
 /* 
-<<<<<<< HEAD
-import Image from "next/image";
-import logo from "../../../assets/icon/logo1.png";
-
-import { FaRegUser } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
-import { PiBuildingApartmentFill } from "react-icons/pi";
-import Link from "next/link";
-
-const AdminSideBar = () => {
-  return (
-    <aside className="bg-white text-black min-h-screen w-full px-4 py-6 shadow-lg">
-      <div className="flex justify-center items-center mb-10 space-x-2">
-        <Image
-          src={logo.src}
-          alt="Logo"
-          className="w-[42px] h-[42px]"
-          width={42}
-          height={42}
-        />
-
-        <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-sansita">
-          Blinqo
-        </h1>
-      </div>
-
-      <nav>
-        <ul className="space-y-3">
-          <p>Menu</p>
-          <li>
-            <Link href="/admin/dashboard">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <MdDashboard className="text-lg" />
-                <span>Dashboard</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/user-management">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <FaRegUser className="text-lg" />
-                <span>User Management</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/venue-management">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <PiBuildingApartmentFill className="text-lg" />
-                <span>Venu Management</span>
-              </div>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  );
-};
-
-export default AdminSideBar; */
-=======
 
 "use client";
 import logo from "../../../assets/icon/logo1.png";
@@ -426,4 +345,3 @@ export function AdminSideBar() {
 
 export default AdminSideBar;
  */
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748

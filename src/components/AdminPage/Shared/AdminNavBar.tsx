@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-const AdminNavBar = () => {
-  return (
-    <div className="w-full bg-[var-(--color-bgPrimary)] ">
-      <div className="flex items-center justify-between p-4 ">
-        <h1 className="text-xl font-bold">Admin Dashboard</h1>
-        <button className="btn btn-primary">Logout</button>
-      </div>
-    </div>
-=======
 import profile from "../../../assets/images/profile.png";
 import { IoIosSearch, IoMdNotificationsOutline } from "react-icons/io";
 import Image from "next/image";
@@ -45,7 +35,6 @@ const AdminNavBar = () => {
         </div>
       </div>
     </Wrapper>
->>>>>>> f26a56f2b4c1bb7588e4fcd957fc6c2e36a1a748
   );
 };
 
