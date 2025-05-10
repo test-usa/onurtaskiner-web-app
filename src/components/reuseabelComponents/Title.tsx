@@ -1,11 +1,11 @@
 type SectionTitleProps = {
-  children: React.ReactNode;
+  title: string;
 };
 
-export const Title = ({ children }: SectionTitleProps) => {
+export const Title = ({ title }: SectionTitleProps) => {
   return (
-    <h1 className="text-[#1B1F28] font-public-sans text-[34px] font-bold leading-[40px] tracking-[-0.68px]">
-      {children}
+    <h1 className="text-[var(--color-textSecondary)] font-public-sans text-4xl font-medium leading-[40px] tracking-[-0.68px]">
+      {title}
     </h1>
   );
 };
