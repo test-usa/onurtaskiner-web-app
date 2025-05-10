@@ -2,12 +2,14 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Menu from "../reuseabelComponents/Menu";
+import { Avatar, AvatarImage } from "../ui/avatar";
+import { AvatarFallback } from "@radix-ui/react-avatar";
 
 const invoices = [
   {
@@ -35,47 +37,46 @@ const invoices = [
     paymentMethod: "Credit Card",
   },
   {
-    invoice: "INV005",
+    invoice: "INV004",
     paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
+    totalAmount: "$450.00",
     paymentMethod: "Credit Card",
   },
+  {
+    invoice: "INV004",
+    paymentStatus: "Paid",
+    totalAmount: "$450.00",
+    paymentMethod: "Credit Card",
+  },
+
 ];
 
 export const ActivityTable = () => {
   return (
-    <div className="w-full sm:w-1/2 bg-white p-6 rounded-2xl">
+    <div className="w-full sm:max-w-[60%] bg-white p-2 rounded-2xl h-[346px]">
       {" "}
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Invoice</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Method</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="w-[100px]">
+              <Menu />
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {invoices.map((invoice) => (
             <TableRow key={invoice.invoice}>
-              <TableCell className="font-medium">{invoice.invoice}</TableCell>
-              <TableCell>{invoice.paymentStatus}</TableCell>
-              <TableCell>{invoice.paymentMethod}</TableCell>
-              <TableCell className="text-right">
-                {invoice.totalAmount}
+              <TableCell className="font-medium">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
               </TableCell>
+              <TableCell>New Booking: Venue A</TableCell>
+              <TableCell>25 March,2025</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -8,10 +8,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   Bar,
-  CartesianAxis,
-  Line,
 } from "recharts";
 const BarCharts = () => {
   const data = [
