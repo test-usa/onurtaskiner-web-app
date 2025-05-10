@@ -4,7 +4,7 @@ import Wrapper from "../wrapper/wrapper";
 import { cn } from "@/lib/utils";
 
 const Tabs = () => {
-  const [tabs, setTabs] = useState<boolean>(true);
+  const [tabs] = useState<boolean>(true);
   return (
     <Wrapper>
       <div>
