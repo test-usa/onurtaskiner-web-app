@@ -241,15 +241,17 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     id: "details",
-    header: () => <div className="text-center">Details</div>,
+    /*  header: () => <div className="text-center">Details</div>, */
     cell: ({ row }) => (
       <ul>
-        <a
-          onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
-          className="text-[var(--color-accent)] underline flex items-center justify-center cursor-pointer w-[44px] h-[16px] font-roboto font-medium text-[14px] leading-[14px]"
-        >
-          Details
-        </a>
+        <div className="flex justify-end">
+          <a
+            onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
+            className="text-[var(--color-accent)] underline cursor-pointer w-[44px] h-[16px] font-roboto font-medium text-[14px] leading-[14px] flex items-center justify-end"
+          >
+            Details
+          </a>
+        </div>
       </ul>
     ),
   },
