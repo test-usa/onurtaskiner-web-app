@@ -1,18 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Outfit, Roboto } from "next/font/google";
 import "./globals.css";
 import ReduxProviderWrapper from "@/redux/redux-provider/reduxProviderWrapper";
 import { DashboardToaster } from "@/components/ui/Toster";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-roboto",
 });
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-outfit",
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,9 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} ${roboto.variable} ${outfit.variable}  antialiased`}>
         <ReduxProviderWrapper>{children}</ReduxProviderWrapper>
         <DashboardToaster />
       </body>
