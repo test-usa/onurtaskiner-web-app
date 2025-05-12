@@ -33,7 +33,7 @@ export type Venue = {
   venueName: string;
   status: "bloked" | "refund" | "completed";
   address: string;
-  totalEarning: number;
+  amount: number;
   commission: number;
   photo: string;
 };
@@ -45,7 +45,7 @@ const data: Venue[] = [
     venueName: "The Grand Hall",
     status: "bloked",
     address: "123 Main St, NY",
-    totalEarning: 1200,
+    amount: 1200,
     commission: 200,
     photo: venuphoto1.src,
   },
@@ -54,7 +54,7 @@ const data: Venue[] = [
     venueName: "Ocean View Hall",
     status: "refund",
     address: "456 Ocean Dr, CA",
-    totalEarning: 950,
+    amount: 950,
     commission: 150,
     photo: venuphoto1.src,
   },
@@ -63,7 +63,7 @@ const data: Venue[] = [
     venueName: "Garden Plaza",
     status: "completed",
     address: "789 Garden Rd, TX",
-    totalEarning: 0,
+    amount: 0,
     commission: 0,
     photo: venuphoto1.src,
   },
@@ -72,7 +72,7 @@ const data: Venue[] = [
     venueName: "Skyline Event Center",
     status: "bloked",
     address: "101 Sky Blvd, LA",
-    totalEarning: 5000,
+    amount: 5000,
     commission: 800,
     photo: venuphoto1.src,
   },
@@ -81,7 +81,7 @@ const data: Venue[] = [
     venueName: "City Lights Ballroom",
     status: "bloked",
     address: "202 City Ave, NY",
-    totalEarning: 3500,
+    amount: 3500,
     commission: 500,
     photo: venuphoto1.src,
   },
@@ -90,7 +90,7 @@ const data: Venue[] = [
     venueName: "Riverfront Conference Hall",
     status: "refund",
     address: "303 River Rd, FL",
-    totalEarning: 1300,
+    amount: 1300,
     commission: 250,
     photo: venuphoto1.src,
   },
@@ -99,7 +99,7 @@ const data: Venue[] = [
     venueName: "Mountain Retreat",
     status: "bloked",
     address: "404 Hilltop Ln, CO",
-    totalEarning: 2100,
+    amount: 2100,
     commission: 350,
     photo: venuphoto1.src,
   },
@@ -108,7 +108,7 @@ const data: Venue[] = [
     venueName: "Sunset Pavilion",
     status: "completed",
     address: "505 Sunset Blvd, NV",
-    totalEarning: 0,
+    amount: 0,
     commission: 0,
     photo: venuphoto1.src,
   },
@@ -117,7 +117,7 @@ const data: Venue[] = [
     venueName: "The Royal Palace",
     status: "bloked",
     address: "606 Palace Rd, MA",
-    totalEarning: 8500,
+    amount: 8500,
     commission: 1200,
     photo: venuphoto1.src,
   },
@@ -216,10 +216,10 @@ export const columns: ColumnDef<Venue>[] = [
     cell: ({ row }) => <div>{row.getValue("address")}</div>,
   },
   {
-    accessorKey: "totalEarning",
-    header: () => <div className="text-right">Total Earning</div>,
+    accessorKey: "amount",
+    header: () => <div className="text-right">Amount</div>,
     cell: ({ row }) => {
-      const amount = row.getValue("totalEarning") as number;
+      const amount = row.getValue("amount") as number;
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -227,28 +227,27 @@ export const columns: ColumnDef<Venue>[] = [
       return <div className="text-right font-medium">{formatted}</div>;
     },
   },
-  {
-    accessorKey: "commission",
-    header: () => <div className="text-right">Commission</div>,
-    cell: ({ row }) => {
-      const amount = row.getValue("commission") as number;
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-      return <div className="text-right font-medium">{formatted}</div>;
-    },
-  },
+
   {
     id: "details",
     header: () => <div className="text-center">Action</div>,
     cell: ({ row }) => (
-      <a
-        onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
-        className="text-[var(--color-accent)] underline flex items-end justify-end cursor-pointer w-[44px] h-[16px] font-roboto font-medium text-[14px] leading-[14px]"
-      >
-        Details
-      </a>
+      <div className="flex items-center justify-center space-x-2">
+        <a
+          onClick={() => alert(`Chat with ${row.getValue("venueName")}`)}
+          className="flex justify-center items-center bg-[var(--color-grayTwo)] w-[89px] h-auto px-[10px] py-[7px] rounded-[8px] gap-[10px] text-[var(--color-primary)] cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
+        >
+          Chat
+        </a>
+
+        <a
+          href="/admin/user-payment"
+          onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
+          className="text-[var(--color-accent)] underline cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
+        >
+          Details
+        </a>
+      </div>
     ),
   },
 ];

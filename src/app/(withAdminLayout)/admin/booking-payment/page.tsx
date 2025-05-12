@@ -6,14 +6,15 @@ import Wrapper from "@/components/wrapper/wrapper";
 
 const bookingPaymentPage = () => {
   return (
-    <Wrapper>
-      <div className="space-y-4">
-        <Title>Booking Payment</Title>
-        <CalculateCard />
-        <BookingPayment />
-        <Conversation />
-      </div>
-    </Wrapper>
+    <div className="">
+      <Wrapper>
+        <div className="space-y-4 ">
+          <Title title="Booking Payment" />
+          <CalculateCard />
+          <BookingPayment />
+        </div>
+      </Wrapper>
+    </div>
   );
 };
 

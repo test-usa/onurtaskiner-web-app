@@ -1,9 +1,13 @@
-import React from "react";
+import UserManagement from "@/components/AdminPage/UserManagement/UserManagement";
+import MapReuseComponent from "@/components/AdminPage/VenueManagement/MapReuseComponent";
+import ReuseProfile from "@/components/AdminPage/VenueManagement/ReuseProfile";
 
 const UserManagementPage = () => {
   return (
     <div>
-      <h1>UserManagementPage</h1>
+      <ReuseProfile />
+      <UserManagement />
+      <MapReuseComponent />
     </div>
   );
 };
