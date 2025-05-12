@@ -36,36 +36,42 @@ export default function DisputeList() {
 
       <div className="space-y-4">
         {paginatedDisputes.map((dispute, index) => (
-          <div key={index} className="rounded-lg bg-[#E1E3E9] shadow-sm p-4">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-              <div className="mb-3 sm:mb-0">
-                <Image
-                  src={disputeImg}
-                  alt="disputeImg"
-                  width={80}
-                  height={60}
-                  className="h-[60px] w-[80px] rounded-md object-cover"
-                />
-              </div>
+          <div key={index} className="rounded-lg bg-[#E1E3E9] shadow-sm ">
+        <div className="flex flex-col sm:flex-row gap-4 mb-3">
+  {/* Image section */}
+  <div className="w-full sm:w-[200px] flex-shrink-0">
+    <Image
+      src={disputeImg}
+      alt="disputeImg"
+      width={200}
+      height={150}
+      className="h-[150px] w-full rounded-md object-cover"
+    />
+  </div>
 
-              <div className="flex-1 space-y-1 text-sm text-[#1B1E28]">
-                <div className="font-medium text-base">Booking ID: {dispute.id}</div>
-                <div>User: {dispute.user}, Venue: {dispute.venue}</div>
-                <div>Dispute {dispute.disputeNumber}</div>
-              </div>
+  {/* Text + Buttons */}
+  <div className="flex-1 p-3">
+    <div className="text-sm text-[#1B1E28] space-y-1">
+      <div className="font-semibold text-[17px]">Booking ID: {dispute.id}</div>
+      <div className="text-[15px]">User: {dispute.user}, Venue: {dispute.venue}</div>
+      <div className="text-[15px] font-medium">Dispute {dispute.disputeNumber}</div>
+    </div>
 
-              <div className="mt-4 flex flex-wrap gap-2 sm:mt-0 sm:justify-end sm:flex-nowrap">
-                <button className="rounded-lg bg-[#003366] px-4 py-2 text-sm text-[#FAFBFF] w-full sm:w-auto">
-                  View Details
-                </button>
-                <button className="rounded-lg border border-[#003366] bg-white px-4 py-2 text-sm text-[#003366] w-full sm:w-auto">
-                  Chat
-                </button>
-                <button className="rounded-lg bg-[#D4AF37] px-4 py-2 text-sm text-[#FAFBFF] w-full sm:w-auto">
-                  Pay Refund
-                </button>
-              </div>
-            </div>
+    <div className="flex flex-col sm:flex-row gap-2 pt-6">
+      <button className="rounded-lg bg-[#003366] px-4 py-2 text-sm text-white w-full sm:w-auto">
+        View Details
+      </button>
+      <button className="rounded-lg border border-[#003366] bg-white px-4 py-2 text-sm text-[#003366] w-full sm:w-auto">
+        Chat
+      </button>
+      <button className="rounded-lg bg-[#D4AF37] px-4 py-2 text-sm text-white w-full sm:w-auto">
+        Pay Refund
+      </button>
+    </div>
+  </div>
+</div>
+
+
           </div>
         ))}
       </div>

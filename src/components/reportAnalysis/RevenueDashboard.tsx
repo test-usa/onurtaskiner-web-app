@@ -45,11 +45,11 @@ export default function RevenueDashboard() {
           <CardContent className="p-4">
             <div className="h-[320px]">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={barData} barCategoryGap="20%">
+                <BarChart data={barData} barCategoryGap="10%">
                   <XAxis dataKey="name" />
                   <YAxis tickFormatter={(val) => `${val}k`} domain={[0, 11]} />
                   <Tooltip />
-                  <Legend iconType="circle" />
+                  <Legend iconType="plainline"  />
                   <Bar dataKey="Ads" fill="#6CB9AD">
                     <LabelList dataKey="Ads" position="top" formatter={(val:number) => `${val}k`} />
                   </Bar>
@@ -68,18 +68,18 @@ export default function RevenueDashboard() {
 
         {/* Donut Chart */}
         <Card className="bg-[#FFF9EC] shadow-sm rounded-2xl">
-          <CardContent className="p-4">
+          <CardContent className="p-1">
             <div className="h-[320px] flex items-center justify-center">
               <div className="relative w-full h-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
+                  <PieChart>          
                     <Pie
                       data={donutData}
                       dataKey="value"
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      innerRadius={70}
+                      innerRadius={50}
                       outerRadius={100}
                       paddingAngle={1}
                       labelLine={false}
@@ -95,7 +95,7 @@ export default function RevenueDashboard() {
                   </PieChart>
                 </ResponsiveContainer>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                  <div className="text-sm font-medium text-[#333]">Revenue in %</div>
+                  <div className="text-xs font-bold text-[#333]">Revenue in %</div>
                 </div>
               </div>
             </div>
