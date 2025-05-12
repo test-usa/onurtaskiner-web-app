@@ -1,4 +1,230 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+import { MdDashboard } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa6";
+import { PiBuildingApartmentFill } from "react-icons/pi";
+import { SlCalender } from "react-icons/sl";
+import { SiSimpleanalytics } from "react-icons/si";
+import {
+  RiSupabaseLine,
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+} from "react-icons/ri";
+import { IoSettingsOutline } from "react-icons/io5";
+import { TbLogout } from "react-icons/tb";
+import { IoIosSearch, IoMdNotificationsOutline } from "react-icons/io";
+
+import logo from "../../../assets/icon/logo1.png";
+import profile from "../../../assets/images/profile.png";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import AdminNavBar from "@/components/AdminPage/Shared/AdminNavBar";
+
+interface NavItem {
+  title: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const navItems: NavItem[] = [
+  { title: "Dashboard", href: "/admin/dashboard", icon: MdDashboard },
+  { title: "User Management", href: "/admin/user-management", icon: FaRegUser },
+  {
+    title: "Venue Management",
+    href: "/admin/venue-management",
+    icon: PiBuildingApartmentFill,
+  },
+  {
+    title: "Booking & Payment",
+    href: "/admin/booking-payment",
+    icon: SlCalender,
+  },
+  {
+    title: "Reports & Analytics",
+    href: "/admin/report-analysis",
+    icon: SiSimpleanalytics,
+  },
+  {
+    title: "Dispute & Refunds",
+    href: "/admin/dispute-refunds",
+    icon: RiSupabaseLine,
+  },
+  {
+    title: "Platform Settings",
+    href: "/admin/plartform-settings",
+    icon: IoSettingsOutline,
+  },
+];
+
+const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <div className="flex flex-col min-h-screen bg-[#F4F4F4]">
+      <div className="flex flex-col md:flex-row min-h-screen">
+        {/* Sidebar for Desktop */}
+        <aside
+          className={cn(
+            "hidden md:flex transition-all duration-300 h-screen bg-white dark:bg-gray-900 shadow-md p-4 flex-col",
+            collapsed ? "w-[80px]" : "w-64"
+          )}
+        >
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <div className=" w-[40px] h-[40px]">
+                <Image src={logo} alt="Logo" width={52} height={52} />
+              </div>
+              {!collapsed && (
+                <h1 className="text-xl font-bold bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text">
+                  Blinqo
+                </h1>
+              )}
+            </div>
+            <button
+              onClick={() => setCollapsed(!collapsed)}
+              className="text-3xl text-[var(--color-textThree)]"
+            >
+              {collapsed ? <RiArrowRightSLine /> : <RiArrowLeftSLine />}
+            </button>
+          </div>
+
+          {!collapsed && (
+            <div className="text-[var(--color-textThree)] mb-2">Menu</div>
+          )}
+          <nav className="flex-grow space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-4 px-4 py-3 rounded transition",
+                  pathname === item.href
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "hover:bg-gray-200 dark:hover:bg[var(--color-textThree)]"
+                )}
+              >
+                <item.icon className="h-5 w-5 shrink-0" />
+                {!collapsed && <span>{item.title}</span>}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-auto">
+            <Button
+              variant="destructive"
+              className={cn(
+                "w-full justify-start gap-3",
+                collapsed
+                  ? "bg-white hover:bg-gray-100 px-2 py-2"
+                  : "bg-white hover:bg-gray-100"
+              )}
+              onClick={() => alert("Logout")}
+            >
+              <TbLogout className="h-5 w-5 text-red-600" />
+              {!collapsed && <span className="text-black">Logout</span>}
+            </Button>
+          </div>
+        </aside>
+
+        {/* Mobile Topbar */}
+        <div className=" md:hidden sticky top-0 z-20 bg-white shadow-sm flex justify-between items-center px-4 py-3">
+          <Image src={logo} alt="Logo" width={40} height={40} />
+          <div className="flex items-center gap-4">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <Image
+                src={profile}
+                alt="Profile"
+                width={36}
+                height={36}
+                className="rounded-full"
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Drawer */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-30 bg-black bg-opacity-40 flex">
+            <aside className="bg-white w-64 h-full p-4 space-y-4 shadow-lg relative">
+              <button
+                className="absolute top-3 right-3 text-[var(--color-textThree)]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                ✕
+              </button>
+              <div className="flex flex-col items-center gap-2 mb-4">
+                <Image
+                  src={profile}
+                  alt="Profile"
+                  width={60}
+                  height={60}
+                  className="rounded-full"
+                />
+                <h2 className="font-semibold text-lg">Admin Panel</h2>
+              </div>
+              <nav className="space-y-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={cn(
+                      "flex items-center gap-3 px-4 py-2 rounded transition",
+                      pathname === item.href
+                        ? "bg-[var(--color-accent)] text-white"
+                        : "hover:bg-gray-200"
+                    )}
+                  >
+                    <item.icon className="h-5 w-5" />
+                    <span>{item.title}</span>
+                  </Link>
+                ))}
+              </nav>
+
+              <Button
+                variant="destructive"
+                className="w-full justify-start gap-3 mt-6"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  alert("Logout");
+                }}
+              >
+                <TbLogout className="h-5 w-5 text-red-600" />
+                <span className="text-black">Logout</span>
+              </Button>
+            </aside>
+            <div
+              className="flex-1"
+              onClick={() => setMobileMenuOpen(false)}
+            ></div>
+          </div>
+        )}
+
+        {/* Main Content */}
+        <main className="flex-1 overflow-y-auto bg-base-200">
+          {/* Desktop Topbar */}
+          <div className="hidden md:block sticky top-0 z-10 ">
+            <AdminNavBar />
+          </div>
+
+          <div className="p-4">{children}</div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default AdminLayout;
+
+/* import AdminNavBar from "@/components/AdminPage/Shared/AdminNavBar";
 import AdminSideBar from "@/components/AdminPage/Shared/AdminSideBar";
 import type { Metadata } from "next";
 
@@ -15,13 +241,12 @@ export default function AdminLayout({
   return (
     <div className="flex flex-col min-h-screen bg-[#F4F4F4]">
       <div className="flex flex-col md:flex-row min-h-screen bg-[#F4F4F4]">
-        {/* Sidebar */}
+   
         <aside className=" w-[300px] bg-white shadow-md z-10">
           <AdminSideBar />
         </aside>
 
-        {/* Main Content */}
-        <main className=" h-full flex-1 overflow bg-base-200 mt-10 md:mt-0">
+        <main className=" h-full flex-1 overflow  mt-10 md:mt-0">
           <AdminNavBar />
           <div className="p-4">{children}</div>
         </main>
@@ -29,38 +254,4 @@ export default function AdminLayout({
     </div>
   );
 }
-
-/* <div className="flex justify-center items-center min-h-screen bg-[#F4F4F4]"></div>
-  
-  import AdminNavBar from "@/components/AdminPage/Shared/AdminNavBar";
-import AdminSideBar from "@/components/AdminPage/Shared/AdminSideBar";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: " Blinqo- Admin",
-  description: "Admin Dashboard for Blinqo",
-};
-
-export default function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex justify-center items-center min-h-screen ">
-      <div className="flex min-h-screen font-manrope bg-[var(--color-dashboardbg)]">
-   
-        <AdminSideBar />
-      
-        <main className="flex-1 font-manrope min-h-screen  transition-all duration-300 bg-[var(--color-dashboardbg)] ease-in-out">
-          <div>
-            <AdminNavBar />
-            {children}
-          </div>
-        </main>
-      </div>
-    </div>
-  );
-}
-
-  */
+ */

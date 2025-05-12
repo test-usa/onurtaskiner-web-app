@@ -1,13 +1,15 @@
 import UserManagement from "@/components/AdminPage/UserManagement/UserManagement";
-import MapReuseComponent from "@/components/AdminPage/VenueManagement/MapReuseComponent";
-import ReuseProfile from "@/components/AdminPage/VenueManagement/ReuseProfile";
+import MapReuseComponent from "@/components/AdminPage/Shared/MapReuseComponent";
+import ReuseProfile from "@/components/AdminPage/Shared/ReuseProfile";
+import InputStatusForm from "@/components/AdminPage/VenueManagement/InputStatusForm";
 
 const UserManagementPage = () => {
   return (
-    <div>
+    <div className="space-y-5">
       <ReuseProfile />
       <UserManagement />
       <MapReuseComponent />
+      <InputStatusForm />
     </div>
   );
 };

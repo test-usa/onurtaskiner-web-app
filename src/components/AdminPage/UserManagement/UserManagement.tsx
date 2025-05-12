@@ -3,12 +3,13 @@ import iconLocation from "@/assets/icon/location.png";
 import iconStar from "@/assets/icon/star.png";
 import iconMans from "@/assets/icon/mans.png";
 import iconWifi from "@/assets/icon/wifi.png";
+import booking from "@/assets/icon/booking.png";
 import Wrapper from "@/components/wrapper/wrapper";
 
 const UserManagement = () => {
   return (
     <Wrapper>
-      <div className="mt-60">
+      <div className="mt-50">
         <div className="space-y-5">
           <div className="flex justify-baseline items-center mt-2 space-x-7.5">
             <div className="flex items-center gap-2">
@@ -24,17 +25,27 @@ const UserManagement = () => {
                 (345 reviews)
               </p>
             </div>
+
             <div className="flex items-center gap-2">
-              <Image src={iconMans} alt="" height={24} width={24} />
-              <p>200 Guests</p>
+              <Image src={booking} alt="" height={24} width={24} />
+              <p>Total Booking: 125+ </p>
             </div>
+            <div className="flex items-center gap-2">
+              <Image src={booking} alt="" height={24} width={24} />
+              <p>Current Booking: 18</p>
+            </div>
+            <br />
+          </div>
+          <div className="flex items-center gap-2">
+            <Image src={iconMans} alt="" height={24} width={24} />
+            <p>200 Guests</p>
           </div>
           {/* Amenitics */}
-          <div>
+          <div className="space-y-4">
             <h2 className="text-[#333] font-roboto text-[20px] font-semibold leading-[120%] capitalize">
               Amenities
             </h2>
-            <div className="flex justify-baseline items-center mt-2 space-x-7.5">
+            <div className="flex justify-baseline items-center space-x-7.5">
               <div className="flex justify-end items-center gap-2 px-3 py-2 rounded-[34px] bg-[#FBF7EB] shadow-[0_3px_10px_rgba(0,0,0,0.06)]">
                 <Image src={iconWifi} alt="" height={16} width={16} />
                 <p className="text-[#333] text-center font-roboto text-sm not-italic font-normal leading-[120%] capitalize">

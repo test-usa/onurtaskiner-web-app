@@ -4,8 +4,8 @@ import CalculateCard from "@/components/reuseabelComponents/calculateCard";
 import Title from "@/components/reuseabelComponents/Title";
 import AllCharts from "@/components/Dashboard/AllCharts";
 import Wrapper from "@/components/wrapper/wrapper";
-import { ActivityTable } from "@/components/Dashboard/ActivityTable";
 import { Calendar } from "@/components/Dashboard/Calendar";
+import { ActivityTable } from "@/components/Dashboard/ActivityTable";
 
 const DashboardPage = () => {
   return (
