@@ -1,7 +1,9 @@
+import DisputeRefandsComponents from "@/components/disputeRefands/DisputeRefandsComponents";
+
 const disputeRefundsPage = () => {
   return (
     <div>
-      <h1>disputeRefundsPage</h1>
+    <DisputeRefandsComponents/>
     </div>
   );
 };
