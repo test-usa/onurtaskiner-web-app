@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
 
       <section className="mb-6">
         <h2 className="text-lg font-semibold mb-2 text-[#1F4B78]">1. Introduction:</h2>
-        <p className="text-sm">
+        <p className="text-base">
           Welcome to [Your App Name]. Your privacy is important to us. This Privacy Policy explains how we collect, use,
           and protect your personal information when you use our event management platform.
         </p>
@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
             <span className="text-green-600 mr-2">✓</span>
             <span>
               Event Data: Information about events you create, book, or participate in, including venue details and
-              guest lists.
+              guest listss.
             </span>
           </li>
           <li className="flex items-start">
