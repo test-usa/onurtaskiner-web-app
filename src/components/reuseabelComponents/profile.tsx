@@ -21,7 +21,7 @@ const Profile = () => {
         <div className="space-y-[8px] sm:pt-36 gap-6 sm:gap-9">
           <Avatar className="w-28 h-28 border-2 border-white">
             <AvatarImage src={profile.src} alt="profile-photo" />
-            <AvatarFallback>Alex</AvatarFallback>
+            <AvatarFallback>Alex Jones</AvatarFallback>
           </Avatar>
           <div className="flex flex-col md:flex-row gap-3.5 sm:gap-7.5">
             <div className="flex items-center justify-between gap-1.5">
