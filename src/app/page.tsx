@@ -8,15 +8,19 @@ const Page = async () => {
       resolve("janina");
     }, 2000);
   }); // just see loader use-case only
-  
+
   return (
     <div className="bg-[var(--color-bgPrimary)] px-4 sm:px-20">
       <div className="flex flex-col md:flex-row ">
-        <div className="w-full h-screen lg:block hidden">
+        {/* <div className="w-full h-screen lg:block hidden">
           <Welcome />
         </div>
         <div className="w-full">
           <LoginForm />
+        </div> */}
+
+        <div>
+          
         </div>
       </div>
     </div>
