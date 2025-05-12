@@ -10,7 +10,7 @@ export default function PlatformSettings() {
     <div className="">
       <h1 className="md:text-4xl text-2xl font-medium text-primary ">Platform Setting</h1>
       {/* Booking Commissions Section */}
-      <div className="mb-10 pt-10">
+    <div className="mb-10 pt-10">
         <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
           <h2 className="text-2xl md:text-[28px] font-bold text-[#1D1B28]">
             Booking Commissions
@@ -20,26 +20,26 @@ export default function PlatformSettings() {
 
         <div className="space-y-6 mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-            <label className="md:w-[800px] w-full text-base md:text-2xl text-[#1D1B28] font-medium">
+            <label className="md:w-3xl w-full text-base md:text-2xl text-[#1D1B28] font-medium">
               Venue :
             </label>
-            <div className="relative flex-1 w-full">
+            <div className="relative  w-full">
               <Input
                 type="text"
                 className="pr-8 w-full"
-                placeholder="0%"
+                placeholder="5%"
               />
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-            <label className="md:w-[800px] w-full text-base md:text-2xl text-[#1D1B28] font-medium">
+            <label className=" md:w-3xl w-full text-base md:text-2xl text-[#1D1B28] font-medium">
               Service Provider :
             </label>
-            <div className="relative flex-1 w-full">
+            <div className="relative  w-full">
               <Input
                 type="text"
-                placeholder="0%"
+                placeholder="5%"
                 className="pr-8 w-full"
               />
             </div>
@@ -64,7 +64,7 @@ export default function PlatformSettings() {
 
         <div className="grid grid-cols-2 gap-4">
           {/* Standard Plan */}
-          <div className="p-6 border-r border-l ">
+          <div className="p-6 border-r-2 border-l-2  ">
             <div className="text-center mb-3">
               <p className="text-base font-bold text-[#1D1B28] mb-1">Standard</p>
               <p className="md:text-[28px] text-lg font-bold text-[#1D1B28]">Free</p>
