@@ -13,7 +13,7 @@ const UserManagement = () => {
           <div className="flex justify-baseline items-center mt-2 space-x-7.5">
             <div className="flex items-center gap-2">
               <Image src={iconLocation} alt="" height={24} width={24} />
-              <p>New York, USA</p>
+              <p>New York, USAA</p>
             </div>
             <div className="flex items-center gap-2">
               <Image src={iconStar} alt="" height={24} width={24} />
