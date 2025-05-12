@@ -5,11 +5,8 @@ import Wrapper from "@/components/wrapper/wrapper";
 const partformSettingPage = () => {
   return (
     <Wrapper>
-
-      <div>
-     <PlatformSettings/>
-     <PrivacyPolicy/>
-    </div>
+      <PlatformSettings />
+      <PrivacyPolicy />
     </Wrapper>
   );
 };

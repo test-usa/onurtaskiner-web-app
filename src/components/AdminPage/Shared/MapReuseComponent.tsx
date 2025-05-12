@@ -40,21 +40,20 @@ const MapReuseComponent = () => {
   const [activeOffice] = useState(offices[2]);
 
   return (
-    <Wrapper>
-      <div className="w-full ">
-        <h2 className="text-1xl font-semibold text-start text-[#0C121D] mb-4 ">
-          Map
-        </h2>
-        <div className="mapouter relative w-full h-[389px] mb-6">
-          <div className="gmap_canvas w-full h-full rounded-[12px]  ">
-            <iframe
-              title="Google Map"
-              className="gmap_iframe w-full h-full "
-              src={`https://maps.google.com/maps?width=600&height=400&hl=en&q=${activeOffice.lat},${activeOffice.lng}&t=&z=15&ie=UTF8&iwloc=B&output=embed`}
-            ></iframe>
-          </div>
-          <style>
-            {`
+    <div className="w-full ">
+      <h2 className="text-1xl font-semibold text-start text-[#0C121D] mb-4 ">
+        Map
+      </h2>
+      <div className="mapouter relative w-full h-[389px] mb-6">
+        <div className="gmap_canvas w-full h-full rounded-[12px]  ">
+          <iframe
+            title="Google Map"
+            className="gmap_iframe w-full h-full "
+            src={`https://maps.google.com/maps?width=600&height=400&hl=en&q=${activeOffice.lat},${activeOffice.lng}&t=&z=15&ie=UTF8&iwloc=B&output=embed`}
+          ></iframe>
+        </div>
+        <style>
+          {`
             .mapouter {
               position: relative;
               width: 100%;
@@ -71,10 +70,9 @@ const MapReuseComponent = () => {
               height: 400px !important;
             }
           `}
-          </style>
-        </div>
+        </style>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
