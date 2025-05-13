@@ -191,10 +191,7 @@ import {
 } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
-import { IoIosSearch, IoMdNotificationsOutline } from "react-icons/io";
-
 import logo from "../../../assets/icon/logo1.png";
-import profile from "../../../assets/images/profile.png";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -249,7 +246,7 @@ const AdminSideBar = ({ children }: { children: React.ReactNode }) => {
             collapsed ? "w-[300px]" : "w-302"
           )}
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 mt-16">
             <div className="flex items-center gap-2">
               <Image
                 src={logo.src}

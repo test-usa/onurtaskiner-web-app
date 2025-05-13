@@ -1,28 +1,23 @@
-
-
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import CalculateCard from "../reuseabelComponents/calculateCard"
-import RevenueDashboard from "./RevenueDashboard"
-import ActiveUsersDashboard from "./ActiveUsersDashboard"
-import BookingsDashboard from "./BookingsDashboard"
-import Wrapper from "../wrapper/wrapper"
-
+} from "@/components/ui/select";
+import CalculateCard from "../reuseabelComponents/calculateCard";
+import RevenueDashboard from "./RevenueDashboard";
+import ActiveUsersDashboard from "./ActiveUsersDashboard";
+import BookingsDashboard from "./BookingsDashboard";
 
 const ReportAnalysisComponents = () => {
-    
   return (
-  
-      <Wrapper>
-         <div className="w-full  mx-auto  ">
+    <div className="w-full  mx-auto  ">
       <div className="flex justify-between items-center mb-10">
-        <h1 className="text-4xl font-medium text-primary ">Reports & Analytics</h1>
-        <Select >
+        <h1 className="text-4xl font-medium text-primary ">
+          Reports & Analytics
+        </h1>
+        <Select>
           <SelectTrigger className="w-[120px] bg-white border-[#EBEBEB] text-base text-primary">
             <SelectValue placeholder="Select time" />
           </SelectTrigger>
@@ -36,15 +31,12 @@ const ReportAnalysisComponents = () => {
       </div>
       <h2 className="text-xl text-primary font-semibold pb-5">Key Metrics</h2>
 
-     <CalculateCard/>
-     <RevenueDashboard/>
-     <ActiveUsersDashboard/>
-     <BookingsDashboard/>
+      <CalculateCard />
+      <RevenueDashboard />
+      <ActiveUsersDashboard />
+      <BookingsDashboard />
     </div>
-      </Wrapper>
- 
-  
-  )
-}
+  );
+};
 
-export default ReportAnalysisComponents
+export default ReportAnalysisComponents;

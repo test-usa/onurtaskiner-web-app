@@ -17,7 +17,6 @@ import {
 } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
-import { IoIosSearch, IoMdNotificationsOutline } from "react-icons/io";
 
 import logo from "../../../assets/icon/logo1.png";
 import profile from "../../../assets/images/profile.png";
@@ -68,13 +67,13 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F4F4F4]">
-      <div className="flex flex-col md:flex-row min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#F4F4F4] overflow-hidden">
+      <div className="flex flex-col md:flex-row h-screen overflow-hidden">
         {/* Sidebar for Desktop */}
         <aside
           className={cn(
-            "hidden md:flex transition-all duration-300 h-screen bg-white dark:bg-gray-900 shadow-md p-4 flex-col",
-            collapsed ? "w-[80px]" : "w-64"
+            "hidden md:flex transition-all duration-300 bg-white dark:bg-gray-900 shadow-md p-4 flex-col fixed top-0 left-0 h-screen z-20",
+            collapsed ? "w-[80px]" : "w-74"
           )}
         >
           <div className="flex items-center justify-between mb-6">
@@ -99,7 +98,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           {!collapsed && (
             <div className="text-[var(--color-textThree)] mb-2">Menu</div>
           )}
-          <nav className="flex-grow space-y-1">
+          <nav className="flex-grow space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -135,7 +134,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
         </aside>
 
         {/* Mobile Topbar */}
-        <div className=" md:hidden sticky top-0 z-20 bg-white shadow-sm flex justify-between items-center px-4 py-3">
+        <div className=" md:hidden sticky top-0 z-20 bg-black/20 backdrop-blur-lg shadow-sm flex justify-between items-center px-4 py-3">
           <Image src={logo} alt="Logo" width={40} height={40} />
           <div className="flex items-center gap-4">
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -209,13 +208,18 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
         )}
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto bg-base-200">
+        <main
+          className={cn(
+            "flex-1 bg-base-200 overflow-y-auto ml-0 md:ml-[296px] transition-all duration-300",
+            collapsed && "md:ml-[80px]"
+          )}
+        >
           {/* Desktop Topbar */}
-          <div className="hidden md:block sticky top-0 z-10 ">
+          <div className="hidden md:block sticky top-0 z-10">
             <AdminNavBar />
           </div>
 
-          <div className="p-4">{children}</div>
+          <div className="">{children}</div>
         </main>
       </div>
     </div>
