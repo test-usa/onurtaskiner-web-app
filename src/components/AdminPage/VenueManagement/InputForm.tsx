@@ -6,99 +6,101 @@ const InputForm = () => {
   return (
     <Wrapper>
       <div>
-        {/* Form */}
-        <div className="w-full flex justify-between items-center gap-4 ">
-          <div className="flex-1 min-w-[300px]">
-            <Label
-              htmlFor="event"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
-            >
-              Event Name
-            </Label>
+        {/* Showing  Form Data */}
+        <div>
+          <div className="w-full flex justify-between items-center gap-4 ">
+            <div className="flex-1 min-w-[300px]">
+              <Label
+                htmlFor="event"
+                className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
+              >
+                Event Name
+              </Label>
 
-            <Input
-              className="mb-4 bg-white"
-              type="text"
-              id="event"
-              placeholder="John's Birthday"
-            />
+              <Input
+                className="mb-4 bg-white"
+                type="text"
+                id="event"
+                placeholder="John's Birthday"
+              />
+            </div>
+            <div className="flex-1 min-w-[300px] mb-4">
+              <Label
+                htmlFor="organizer"
+                className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
+              >
+                Organizer
+              </Label>
+              <Input
+                className="bg-white"
+                type="text"
+                id="organizer"
+                placeholder="Jhon Deo"
+              />
+            </div>
           </div>
-          <div className="flex-1 min-w-[300px] mb-4">
-            <Label
-              htmlFor="organizer"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
-            >
-              Organizer
-            </Label>
-            <Input
-              className="bg-white"
-              type="text"
-              id="organizer"
-              placeholder="Jhon Deo"
-            />
-          </div>
-        </div>
-        <div className="w-full flex justify-between items-center gap-4 ">
-          <div className="flex-1 min-w-[300px]">
-            <Label
-              htmlFor="event"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
-            >
-              Date
-            </Label>
+          <div className="w-full flex justify-between items-center gap-4 ">
+            <div className="flex-1 min-w-[300px]">
+              <Label
+                htmlFor="event"
+                className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
+              >
+                Date
+              </Label>
 
-            <Input
-              className="mb-4 bg-white"
-              type="text"
-              id="event"
-              placeholder="15/03/2025"
-            />
+              <Input
+                className="mb-4 bg-white"
+                type="text"
+                id="event"
+                placeholder="15/03/2025"
+              />
+            </div>
+            <div className="flex-1 min-w-[300px] mb-4">
+              <Label
+                htmlFor="organizer"
+                className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
+              >
+                Time
+              </Label>
+              <Input
+                className="bg-white"
+                type="text"
+                id="time"
+                placeholder="Jhon Deo"
+              />
+            </div>
           </div>
-          <div className="flex-1 min-w-[300px] mb-4">
-            <Label
-              htmlFor="organizer"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
-            >
-              Time
-            </Label>
-            <Input
-              className="bg-white"
-              type="text"
-              id="time"
-              placeholder="Jhon Deo"
-            />
-          </div>
-        </div>
 
-        <div className="w-full flex justify-between items-center gap-4 ">
-          <div className="flex-1 min-w-[300px]">
-            <Label
-              htmlFor="event"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
-            >
-              Event Type
-            </Label>
+          <div className="w-full flex justify-between items-center gap-4 ">
+            <div className="flex-1 min-w-[300px]">
+              <Label
+                htmlFor="event"
+                className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
+              >
+                Event Type
+              </Label>
 
-            <Input
-              className="mb-4 bg-white"
-              type="text"
-              id="event"
-              placeholder="Birthday"
-            />
-          </div>
-          <div className="flex-1 min-w-[300px] mb-4">
-            <Label
-              htmlFor="organizer"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
-            >
-              Guest
-            </Label>
-            <Input
-              className="bg-white"
-              type="number"
-              id="guest"
-              placeholder="100"
-            />
+              <Input
+                className="mb-4 bg-white"
+                type="text"
+                id="event"
+                placeholder="Birthday"
+              />
+            </div>
+            <div className="flex-1 min-w-[300px] mb-4">
+              <Label
+                htmlFor="organizer"
+                className="mb-2 text-[20px] font-normal leading-6 text-[var-(--color-textPrimary)] font-['Roboto'] truncate"
+              >
+                Guest
+              </Label>
+              <Input
+                className="bg-white"
+                type="number"
+                id="guest"
+                placeholder="100"
+              />
+            </div>
           </div>
         </div>
 

@@ -39,7 +39,7 @@ export default function BookingsDashboard() {
         {/* Bookings Section */}
         <div>
           <h1 className="text-2xl font-medium text-[#003366] mb-4">Bookings</h1>
-          <div className="w-full rounded-xl bg-white p-4 shadow-md h-[300px]">
+          <div className="w-full rounded-xl bg-white p-4 shadow-md h-[238px]">
             <div className="w-full h-full">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={data}>
@@ -79,12 +79,12 @@ export default function BookingsDashboard() {
         {/* Top Venues Section */}
         <div>
           <h2 className="text-2xl font-medium text-[#003366] mb-4">Top Venues</h2>
-          <div className=" p-3 h-[300px] overflow-auto">
-            <div className="space-y-3">
+          <div className=" p-3 h-[238px] ">
+            <div className="space-y-3 ">
               {venues.map((venue, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition"
+                  className="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition mb-4"
                 >
                   <div className="flex items-center gap-3">
                     <Image

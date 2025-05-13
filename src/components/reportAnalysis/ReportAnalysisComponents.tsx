@@ -11,13 +11,15 @@ import CalculateCard from "../reuseabelComponents/calculateCard"
 import RevenueDashboard from "./RevenueDashboard"
 import ActiveUsersDashboard from "./ActiveUsersDashboard"
 import BookingsDashboard from "./BookingsDashboard"
+import Wrapper from "../wrapper/wrapper"
 
 
 const ReportAnalysisComponents = () => {
     
   return (
   
-       <div className="w-full  mx-auto p-4 ">
+      <Wrapper>
+         <div className="w-full  mx-auto  ">
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-4xl font-medium text-primary ">Reports & Analytics</h1>
         <Select >
@@ -39,6 +41,7 @@ const ReportAnalysisComponents = () => {
      <ActiveUsersDashboard/>
      <BookingsDashboard/>
     </div>
+      </Wrapper>
  
   
   )

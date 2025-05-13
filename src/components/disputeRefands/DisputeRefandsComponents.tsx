@@ -1,11 +1,13 @@
 import React from 'react'
 import CalculateCard from '../reuseabelComponents/calculateCard'
 import DisputeList from './DisputeList'
+import Wrapper from '../wrapper/wrapper'
 
 const DisputeRefandsComponents = () => {
   return (
-
-       <div className="w-full  mx-auto p-4 ">
+<Wrapper>
+  
+       <div className="w-full  mx-auto  ">
       <div className="flex justify-between items-center mb-10">
         <h1 className="md:text-4xl text-2xl font-medium text-primary ">Dispute & Refund Management</h1>
         
@@ -14,6 +16,7 @@ const DisputeRefandsComponents = () => {
               <CalculateCard/>
               <DisputeList/>
     </div>
+</Wrapper>
   
   )
 }

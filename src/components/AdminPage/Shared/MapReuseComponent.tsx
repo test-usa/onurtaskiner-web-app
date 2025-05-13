@@ -41,11 +41,11 @@ const MapReuseComponent = () => {
 
   return (
     <Wrapper>
-      <div className="w-full mt-90 ">
-        <h2 className="text-1xl font-semibold text-start text-[#0C121D] mt-32 mb-6">
+      <div className="w-full ">
+        <h2 className="text-1xl font-semibold text-start text-[#0C121D] mb-4 ">
           Map
         </h2>
-        <div className="mapouter relative w-full h-[389px] mb-24 ">
+        <div className="mapouter relative w-full h-[389px] mb-6">
           <div className="gmap_canvas w-full h-full rounded-[12px]  ">
             <iframe
               title="Google Map"
