@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-
-import Wrapper from "../wrapper/wrapper";
 import BarCharts from "../Charts/BarCharts";
 import { LineCharts } from "../Charts/Linechart";
 

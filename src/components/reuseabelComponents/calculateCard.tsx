@@ -1,5 +1,4 @@
 import React from "react";
-import Wrapper from "../wrapper/wrapper";
 
 const CalculateCard = () => {
   const data = [

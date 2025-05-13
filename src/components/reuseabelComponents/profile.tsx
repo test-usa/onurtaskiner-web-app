@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Wrapper from "../wrapper/wrapper";
 import bgImage from "@/assets/images/profilebg.jpg";
 import profile from "@/assets/images/profile.png";
-import EventOne from "@/assets/images/serviceOne.jpg";
-import EventTow from "@/assets/images/serviceTwo.jpg";
-import EventThree from "@/assets/images/serviceThree.jpg";
-import EventFour from "@/assets/images/serviceFour.jpg";
-import EventFive from "@/assets/images/serviceFive.jpg";
-import EventSix from "@/assets/images/serviceSix.jpg";
+// import EventOne from "@/assets/images/serviceOne.jpg";
+// import EventTow from "@/assets/images/serviceTwo.jpg";
+// import EventThree from "@/assets/images/serviceThree.jpg";
+// import EventFour from "@/assets/images/serviceFour.jpg";
+// import EventFive from "@/assets/images/serviceFive.jpg";
+// import EventSix from "@/assets/images/serviceSix.jpg";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { MapPin } from "lucide-react";
@@ -25,38 +25,38 @@ import { cn } from "@/lib/utils";
 import { Progress } from "../ui/progress";
 const Profile = () => {
   const [tabChange] = useState<boolean>(true);
-  const event = [
-    {
-      eventTitle: "Tech Innovators Summit 2025",
-      eventOwner: "InnovateX",
-      image: EventOne,
-    },
-    {
-      eventTitle: "Global Health Conference",
-      eventOwner: "MediWorld",
-      image: EventTow,
-    },
-    {
-      eventTitle: "Startup Launchpad Expo",
-      eventOwner: "FoundersHub",
-      image: EventThree,
-    },
-    {
-      eventTitle: "Creative Design Workshop",
-      eventOwner: "DesignSpark",
-      image: EventFour,
-    },
-    {
-      eventTitle: "AI & Future Tech Forum",
-      eventOwner: "NeuroNext",
-      image: EventFive,
-    },
-    {
-      eventTitle: "Green Earth Sustainability Fair",
-      eventOwner: "EcoVerse",
-      image: EventSix,
-    },
-  ];
+  // const event = [
+  //   {
+  //     eventTitle: "Tech Innovators Summit 2025",
+  //     eventOwner: "InnovateX",
+  //     image: EventOne,
+  //   },
+  //   {
+  //     eventTitle: "Global Health Conference",
+  //     eventOwner: "MediWorld",
+  //     image: EventTow,
+  //   },
+  //   {
+  //     eventTitle: "Startup Launchpad Expo",
+  //     eventOwner: "FoundersHub",
+  //     image: EventThree,
+  //   },
+  //   {
+  //     eventTitle: "Creative Design Workshop",
+  //     eventOwner: "DesignSpark",
+  //     image: EventFour,
+  //   },
+  //   {
+  //     eventTitle: "AI & Future Tech Forum",
+  //     eventOwner: "NeuroNext",
+  //     image: EventFive,
+  //   },
+  //   {
+  //     eventTitle: "Green Earth Sustainability Fair",
+  //     eventOwner: "EcoVerse",
+  //     image: EventSix,
+  //   },
+  // ];
 
   return (
     <div

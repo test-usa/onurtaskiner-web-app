@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Card, CardContent } from "../ui/card";
+import { Card } from "../ui/card";
 import {
   CartesianGrid,
   Line,
@@ -42,7 +42,7 @@ const Management = () => {
     },
   ];
 
-  const COLORS = ["#D1A13D", "#2D4CE0", "#58B1AC"];
+  // const COLORS = ["#D1A13D", "#2D4CE0", "#58B1AC"];
   const chartData = [
     { name: "Jan", eventPlanner: 1000, venueOwner: 900, serviceProvider: 800 },
     {
