@@ -2,6 +2,7 @@ import bgImage from "@/assets/images/profilebg.jpg";
 import profile12 from "@/assets/images/profile12.png";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 const ReuseProfile = () => {
   return (
     <div
@@ -12,22 +13,21 @@ const ReuseProfile = () => {
         backgroundPosition: "center",
         fontFamily: "var(--font-roboto)",
       }}
-      className="max-w-full mx-auto h-48 relative"
+      className="max-w-full mx-auto h-48 relative "
     >
       {/* BG IMAGE TO OVERLAY PROFILE SECTION */}
-      <div className="space-y-5 ">
-        <div className="space-y-[8px] sm:pt-36 gap-6 sm:gap-9 ml-[40px] ">
+      <div className="space-y-5">
+        <div className="space-y-[8px] pt-36 gap-9 ml-[40px]">
           <Avatar className="w-28 h-28 border-2 border-white">
             <AvatarImage src={profile12.src} alt="profile-photo" />
             <AvatarFallback>Alex</AvatarFallback>
           </Avatar>
-          <div className="ml-5 flex flex-col md:flex-row gap-3.5 sm:gap-7.5">
+          <div className="ml-5 flex flex-col md:flex-row gap-3.5">
             {/* Name And Email */}
-
-            <div className="flext justify-center items-center">
+            <div className="flex justify-start items-center">
               <div>
                 <div className="flex items-center justify-between gap-1.5">
-                  <h1 className="text-[20px] sm:text-[15px] font-medium leading-[24px] text-black font-['Roboto']">
+                  <h1 className="text-[20px] font-medium leading-[24px] text-black font-['Roboto']">
                     Jhonn Deos
                   </h1>
 
@@ -49,7 +49,7 @@ const ReuseProfile = () => {
                   </svg>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[12px] sm:text-[15px] leading-5 font-normal">
+                  <p className="text-[15px] leading-5 font-normal">
                     @alex.jones
                   </p>
                 </div>
@@ -57,16 +57,17 @@ const ReuseProfile = () => {
             </div>
           </div>
         </div>
+
         {/* Part -2 */}
-        <div className="space-y-5">
-          <div className="flex justify-between items-center">
+        <div className="space-y-8">
+          <div className="flex justify-between items-center ">
             <h2 className="overflow-hidden text-[#333] text-ellipsis font-roboto text-2xl font-semibold leading-[120%]">
               The Grand Hall
             </h2>
 
             <Button
               size="lg"
-              className="bg-[var(--color-grayTwo)] hover:bg-[var(--color-grayTwo)] cursor-pointer px-[15px] sm:px-[24px] py-[10px] sm:py-[16px] flex items-center gap-[8px] sm:gap-[10px] mt-2 sm:mt-4"
+              className="bg-[var(--color-grayTwo)] hover:bg-[var(--color-grayTwo)] cursor-pointer px-[24px] py-[16px] flex items-center gap-[10px] mt-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +95,7 @@ const ReuseProfile = () => {
                   />
                 </g>
               </svg>
-              <span className="text-[12px] sm:text-[16px] font-medium text-[var(--color-accent)]">
+              <span className="text-[16px] font-medium text-[var(--color-accent)]">
                 Messagee
               </span>
             </Button>

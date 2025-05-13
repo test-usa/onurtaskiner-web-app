@@ -1,6 +1,5 @@
 "use client";
 
-import Wrapper from "@/components/wrapper/wrapper";
 import { useState } from "react";
 
 const offices = [

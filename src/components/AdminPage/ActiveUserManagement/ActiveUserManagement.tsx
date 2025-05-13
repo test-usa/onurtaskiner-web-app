@@ -4,37 +4,48 @@ import iconStar from "@/assets/icon/star.png";
 import iconMans from "@/assets/icon/mans.png";
 import iconWifi from "@/assets/icon/wifi.png";
 import booking from "@/assets/icon/booking.png";
-import Wrapper from "@/components/wrapper/wrapper";
 
-const UserManagement = () => {
+const ActiveUserManagement = () => {
   return (
-    <div className="mt-50">
+    <div className="mt-56">
       <div className="space-y-5">
-        <div className="flex justify-baseline items-center mt-2 space-x-7.5">
+        <div className="flex flex-wrap justify-start md:justify-baseline items-center mt-2 gap-x-6 gap-y-4">
           <div className="flex items-center gap-2">
-            <Image src={iconLocation} alt="" height={24} width={24} />
-            <p>New York, USAA</p>
+            <Image
+              src={iconLocation}
+              alt="Location Icon"
+              height={24}
+              width={24}
+            />
+            <p className="text-sm md:text-base">New York, USAA</p>
           </div>
+
           <div className="flex items-center gap-2">
-            <Image src={iconStar} alt="" height={24} width={24} />
-            <p className="text-black text-base font-semibold leading-[120%] font-['Roboto']">
+            <Image src={iconStar} alt="Star Icon" height={24} width={24} />
+            <p className="text-black text-sm md:text-base font-semibold leading-[120%] font-['Roboto']">
               5.0
             </p>
-            <p className="text-[#ABB7C2] font-roboto text-base not-italic font-normal leading-[120%]">
+            <p className="text-[#ABB7C2] font-roboto text-sm md:text-base not-italic font-normal leading-[120%]">
               (345 reviews)
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <Image src={booking} alt="" height={24} width={24} />
-            <p>Total Booking: 125+ </p>
+            <Image src={booking} alt="Booking Icon" height={24} width={24} />
+            <p className="text-sm md:text-base">Total Booking: 125+</p>
           </div>
+
           <div className="flex items-center gap-2">
-            <Image src={booking} alt="" height={24} width={24} />
-            <p>Current Booking: 18</p>
+            <Image
+              src={booking}
+              alt="Current Booking Icon"
+              height={24}
+              width={24}
+            />
+            <p className="text-sm md:text-base">Current Booking: 18</p>
           </div>
-          <br />
         </div>
+
         <div className="flex items-center gap-2">
           <Image src={iconMans} alt="" height={24} width={24} />
           <p>200 Guests</p>
@@ -87,4 +98,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default ActiveUserManagement;

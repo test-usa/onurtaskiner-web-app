@@ -24,10 +24,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import Wrapper from "@/components/wrapper/wrapper";
 import venuphoto1 from "@/assets/images/venuphoto1.png";
 
-// Define Venue type
 export type Venue = {
   id: string;
   venueName: string;
@@ -38,7 +36,6 @@ export type Venue = {
   photo: string;
 };
 
-// Sample data
 const data: Venue[] = [
   {
     id: "v001",
@@ -123,8 +120,11 @@ const data: Venue[] = [
   },
 ];
 
-// Table columns
-export const columns: ColumnDef<Venue>[] = [
+// Columns — no React Hook inside
+export const columns = (
+  setStatusFilter: (status: string | null) => void,
+  statusFilterDropdown: React.ReactNode
+): ColumnDef<Venue>[] => [
   {
     id: "select",
     header: ({ table }) => (
@@ -170,41 +170,43 @@ export const columns: ColumnDef<Venue>[] = [
   },
   {
     accessorKey: "status",
-    header: () => (
-      <div className="flex items-center justify-start">
-        <span>Status</span>
-        <IoChevronDown className="text-gray-500 ml-1" />
-      </div>
-    ),
+    header: () => statusFilterDropdown,
     cell: ({ row }) => {
       const status = row.getValue("status") as string;
-      let colorClass = "";
-      let statusText = "";
 
-      switch (status) {
-        case "bloked":
-          colorClass = "bg-[#DEF3E6] text-[#2D6A4F]";
-          statusText = "Bloked";
-          break;
-        case "refund":
-          colorClass = "bg-[#FFF5D6] text-[#B68900]";
-          statusText = "Refund";
-          break;
-        case "completed":
-          colorClass = "bg-[#86C2FF] text-[#004080]";
-          statusText = "Completed";
-          break;
-        default:
-          colorClass = "bg-red-500 text-white";
-          statusText = "Unknown";
-      }
+      const statusMap: Record<
+        string,
+        { text: string; bg: string; textColor: string }
+      > = {
+        bloked: {
+          text: "Bloked",
+          bg: "bg-[#DEF3E6]",
+          textColor: "text-[#2D6A4F]",
+        },
+        refund: {
+          text: "Refund",
+          bg: "bg-[#FFF5D6]",
+          textColor: "text-[#B68900]",
+        },
+        completed: {
+          text: "Completed",
+          bg: "bg-[#86C2FF]",
+          textColor: "text-[#004080]",
+        },
+      };
+
+      const { text, bg, textColor } = statusMap[status] || {
+        text: "Unknown",
+        bg: "bg-red-500",
+        textColor: "text-white",
+      };
 
       return (
         <div className="flex items-center justify-start">
           <span
-            className={`capitalize px-2 py-1 rounded text-sm font-medium ${colorClass}`}
+            className={`capitalize px-2 py-1 rounded-full text-xs font-semibold ${bg} ${textColor}`}
           >
-            {statusText}
+            {text}
           </span>
         </div>
       );
@@ -227,13 +229,13 @@ export const columns: ColumnDef<Venue>[] = [
       return <div className="text-right font-medium">{formatted}</div>;
     },
   },
-
   {
     id: "details",
     header: () => <div className="text-center">Action</div>,
     cell: ({ row }) => (
       <div className="flex items-center justify-center space-x-2">
         <a
+          href="/admin/chat-conversation"
           onClick={() => alert(`Chat with ${row.getValue("venueName")}`)}
           className="flex justify-center items-center bg-[var(--color-grayTwo)] w-[89px] h-auto px-[10px] py-[7px] rounded-[8px] gap-[10px] text-[var(--color-primary)] cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
         >
@@ -252,7 +254,7 @@ export const columns: ColumnDef<Venue>[] = [
   },
 ];
 
-// BookingPayment Component
+// ✅ BookingPayment component
 export function BookingPayment() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -261,10 +263,51 @@ export function BookingPayment() {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const [statusFilter, setStatusFilter] = React.useState<string | null>(null);
+  const [statusDropdownOpen, setStatusDropdownOpen] = React.useState(false);
+
+  const filteredData = React.useMemo(() => {
+    if (!statusFilter) return data;
+    return data.filter((venue) => venue.status === statusFilter.toLowerCase());
+  }, [statusFilter]);
+
+  const statusFilterDropdown = (
+    <div className="relative inline-block text-left">
+      <button
+        type="button"
+        onClick={() => setStatusDropdownOpen((prev) => !prev)}
+        className="flex items-center gap-1 font-medium text-sm text-gray-800 hover:text-black focus:outline-none"
+      >
+        <span>Status</span>
+        <IoChevronDown className="text-gray-500" />
+      </button>
+
+      {statusDropdownOpen && (
+        <div className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md border border-gray-200 bg-white shadow-lg focus:outline-none">
+          <div className="py-1 text-sm text-gray-700">
+            {["All", "Bloked", "Refund", "Completed"].map((option) => (
+              <div
+                key={option}
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                onClick={() => {
+                  setStatusFilter(
+                    option === "All" ? null : option.toLowerCase()
+                  );
+                  setStatusDropdownOpen(false);
+                }}
+              >
+                {option}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
   const table = useReactTable({
-    data,
-    columns,
+    data: filteredData,
+    columns: columns(setStatusFilter, statusFilterDropdown),
     state: {
       sorting,
       columnFilters,
@@ -302,7 +345,7 @@ export function BookingPayment() {
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows.length ? (
+            {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
@@ -317,10 +360,7 @@ export function BookingPayment() {
               ))
             ) : (
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
+                <TableCell colSpan={6} className="h-24 text-center">
                   No results.
                 </TableCell>
               </TableRow>

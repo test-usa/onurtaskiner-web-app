@@ -1,7 +1,6 @@
 import React from "react";
 import CalculateCard from "../reuseabelComponents/calculateCard";
 import DisputeList from "./DisputeList";
-import Wrapper from "../wrapper/wrapper";
 
 const DisputeRefandsComponents = () => {
   return (

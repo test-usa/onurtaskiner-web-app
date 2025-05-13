@@ -11,7 +11,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import Wrapper from "@/components/wrapper/wrapper";
 
 const InputStatusForm = () => {
   const [status, setStatus] = useState("active");
@@ -36,10 +35,16 @@ const InputStatusForm = () => {
                 Active
               </div>
             </SelectItem>
-            <SelectItem value="deactivated">
+            <SelectItem value="hold">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-yellow-500" />
+                Hold
+              </div>
+            </SelectItem>
+            <SelectItem value="suspend">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-500" />
-                Deactivated
+                Suspended
               </div>
             </SelectItem>
           </SelectContent>
