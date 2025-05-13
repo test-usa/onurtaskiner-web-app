@@ -1,5 +1,6 @@
 // components/UserCard.tsx
 
+import Image from "next/image";
 import { Button } from "../ui/button";
 
 const users = [
@@ -63,7 +64,9 @@ const UserCard = () => {
           key={user.id}
           className="flex flex-col sm:flex-row bg-white shadow rounded-lg overflow-hidden border hover:shadow-lg transition-all "
         >
-          <img
+          <Image
+            width="200"
+            height="200"
             src={user.imageUrl}
             alt={user.name}
             className="min-h-fit object-cover w-fit"
