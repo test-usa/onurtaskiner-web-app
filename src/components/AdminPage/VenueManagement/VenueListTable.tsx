@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/table";
 import Image from "next/image";
 import { IoChevronDown } from "react-icons/io5";
-import Wrapper from "@/components/wrapper/wrapper";
 
 // ------------------ TYPES ------------------
 export type Venue = {
@@ -322,57 +321,55 @@ export function VenueListTable() {
   });
 
   return (
-    <Wrapper>
-      <div className="w-full bg-white rounded-lg shadow-md p-4">
-        <div className="flex items-center justify-between py-4">
-          <h3 className="text-lg ml-4 font-semibold text-roboto text-[14px] leading-[100%] tracking-[0px] align-middle">
-            All Venue List
-          </h3>
-        </div>
+    <div className="w-full bg-white rounded-lg shadow-md p-4">
+      <div className="flex items-center justify-between py-4">
+        <h3 className="text-lg ml-4 font-semibold text-roboto text-[14px] leading-[100%] tracking-[0px] align-middle">
+          All Venue List
+        </h3>
+      </div>
 
-        <div className="rounded-md">
-          <Table>
-            <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
+      <div className="rounded-md">
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
                   ))}
                 </TableRow>
-              ))}
-            </TableHeader>
-            <TableBody>
-              {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
-                  <TableRow key={row.id}>
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={7} className="h-24 text-center">
-                    No results.
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={7} className="h-24 text-center">
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
       </div>
-    </Wrapper>
+    </div>
   );
 }

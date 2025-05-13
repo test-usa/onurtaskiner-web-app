@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-
-import Wrapper from "../wrapper/wrapper";
 import BarCharts from "../Charts/BarCharts";
 import { LineCharts } from "../Charts/Linechart";
 
@@ -22,12 +20,10 @@ const AllCharts = () => {
     { name: "Mar 26", bookings: 250 },
   ]);
   return (
-    <Wrapper>
-      <div className="flex flex-col sm:flex-row items-center gap-4">
-        <LineCharts data={bookingsData} />
-        <BarCharts />
-      </div>
-    </Wrapper>
+    <div className="flex flex-col sm:flex-row items-center gap-4">
+      <LineCharts data={bookingsData} />
+      <BarCharts />
+    </div>
   );
 };
 

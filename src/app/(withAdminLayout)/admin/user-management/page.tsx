@@ -1,19 +1,14 @@
-import UserManagement from "@/components/AdminPage/ActiveUserManagement/ActiveUserManagement";
-import MapReuseComponent from "@/components/AdminPage/Shared/MapReuseComponent";
-import ReuseProfile from "@/components/AdminPage/Shared/ReuseProfile";
-import InputStatusForm from "@/components/AdminPage/VenueManagement/InputStatusForm";
-import Wrapper from "@/components/wrapper/wrapper";
+import Profile from "@/components/reuseabelComponents/profile";
 
 const UserManagementPage = () => {
   return (
-    <Wrapper>
-      <div className="space-y-5">
-        <ReuseProfile />
-        <UserManagement />
-        <MapReuseComponent />
-        <InputStatusForm />
-      </div>
-    </Wrapper>
+    <div>
+      {/* <ReuseProfile />
+      <UserManagement />
+      <MapReuseComponent /> */}
+      {/* <Management /> */}
+      <Profile />
+    </div>
   );
 };
 
