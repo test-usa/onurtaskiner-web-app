@@ -1,7 +1,7 @@
-// components/UserCard.tsx
-
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Images from "@/assets/images/serviceOne.jpg";
+import Link from "next/link";
 
 const users = [
   {
@@ -12,7 +12,7 @@ const users = [
     email: "john.doe@example.com",
     status: "Active",
     score: 895,
-    imageUrl: "https://randomuser.me/api/portraits/men/1.jpg",
+    imageUrl: Images,
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const users = [
     email: "wade.warren@example.com",
     status: "Active",
     score: 712,
-    imageUrl: "https://randomuser.me/api/portraits/men/2.jpg",
+    imageUrl: Images,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const users = [
     email: "jenny.wilson@example.com",
     status: "Active",
     score: 948,
-    imageUrl: "https://randomuser.me/api/portraits/women/3.jpg",
+    imageUrl: Images,
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const users = [
     email: "courtney.henry@example.com",
     status: "Active",
     score: 843,
-    imageUrl: "https://randomuser.me/api/portraits/women/4.jpg",
+    imageUrl: Images,
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const users = [
     email: "guy.hawkins@example.com",
     status: "Active",
     score: 776,
-    imageUrl: "https://randomuser.me/api/portraits/men/5.jpg",
+    imageUrl: Images,
   },
 ];
 
@@ -62,12 +62,12 @@ const UserCard = () => {
       {users.map((user) => (
         <div
           key={user.id}
-          className="flex flex-col sm:flex-row bg-white shadow rounded-lg overflow-hidden border hover:shadow-lg transition-all "
+          className="flex flex-col sm:flex-row bg-white shadow rounded-lg overflow-hidden border hover:shadow-lg transition-all"
         >
           <Image
-            width="200"
-            height="200"
-            src={user.imageUrl}
+            width={200}
+            height={200}
+            src={user.imageUrl.src}
             alt={user.name}
             className="min-h-fit object-cover w-fit"
           />
@@ -148,7 +148,10 @@ const UserCard = () => {
                 </>{" "}
                 <span>Delete</span>
               </button>
-              <button className="sm:ml-auto flex items-center gap-x-3 text-sm text-[var(--color-accent)] hover:underline cursor-pointer">
+              <Link
+                href={`/admin/user-management/${5}`}
+                className="sm:ml-auto flex items-center gap-x-3 text-sm text-[var(--color-accent)] hover:underline cursor-pointer"
+              >
                 <>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +183,7 @@ const UserCard = () => {
                   </svg>
                 </>
                 <span>View Profile</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

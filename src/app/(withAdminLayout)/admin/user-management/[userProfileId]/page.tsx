@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Wrapper from "../wrapper/wrapper";
 import bgImage from "@/assets/images/profilebg.jpg";
 import profile from "@/assets/images/profile.png";
 // import EventOne from "@/assets/images/serviceOne.jpg";
@@ -9,9 +8,8 @@ import profile from "@/assets/images/profile.png";
 // import EventFour from "@/assets/images/serviceFour.jpg";
 // import EventFive from "@/assets/images/serviceFive.jpg";
 // import EventSix from "@/assets/images/serviceSix.jpg";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
-import { MapPin } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -20,11 +18,13 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { Progress } from "../ui/progress";
+import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
-const Profile = () => {
+import Wrapper from "@/components/wrapper/wrapper";
+
+const UserProfile = () => {
   const [tabChange] = useState<boolean>(true);
   // const event = [
   //   {
@@ -58,7 +58,6 @@ const Profile = () => {
   //     image: EventSix,
   //   },
   // ];
-
   return (
     <div
       style={{
@@ -134,14 +133,18 @@ const Profile = () => {
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <h1 className="text-sm sm:text-lg font-semibold ">The Grand Hall</h1>
+                <h1 className="text-sm sm:text-lg font-semibold ">
+                  The Grand Hall
+                </h1>
               </div>
               <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-amber-300 rounded-full"/>
-                  <p>active</p>
+                <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                <p>active</p>
               </div>
               <h1>New york</h1>
-              <Link href="#" className="underline font-semibold text-sm ">Details</Link>
+              <Link href="#" className="underline font-semibold text-sm ">
+                Details
+              </Link>
             </div>
             <div className="bg-white px-14 py-3 flex items-center justify-between rounded-lg">
               <div className="flex items-center space-x-5">
@@ -152,14 +155,18 @@ const Profile = () => {
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <h1 className="text-sm sm:text-lg font-semibold ">The Grand Hall</h1>
+                <h1 className="text-sm sm:text-lg font-semibold ">
+                  The Grand Hall
+                </h1>
               </div>
               <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-amber-300 rounded-full"/>
-                  <p>active</p>
+                <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                <p>active</p>
               </div>
               <h1>New york</h1>
-              <Link href="#" className="underline font-semibold text-sm ">Details</Link>
+              <Link href="#" className="underline font-semibold text-sm ">
+                Details
+              </Link>
             </div>
             <div className="bg-white px-14 py-3 flex items-center justify-between rounded-lg">
               <div className="flex items-center space-x-5">
@@ -170,14 +177,18 @@ const Profile = () => {
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <h1 className="text-sm sm:text-lg font-semibold ">The Grand Hall</h1>
+                <h1 className="text-sm sm:text-lg font-semibold ">
+                  The Grand Hall
+                </h1>
               </div>
               <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-amber-300 rounded-full"/>
-                  <p>active</p>
+                <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                <p>active</p>
               </div>
               <h1>New york</h1>
-              <Link href="#" className="underline font-semibold text-sm ">Details</Link>
+              <Link href="#" className="underline font-semibold text-sm ">
+                Details
+              </Link>
             </div>
           </div>
 
@@ -356,4 +367,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserProfile;
