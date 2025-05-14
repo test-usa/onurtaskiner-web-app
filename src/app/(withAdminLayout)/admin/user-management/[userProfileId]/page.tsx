@@ -1,64 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import bgImage from "@/assets/images/profilebg.jpg";
 import profile from "@/assets/images/profile.png";
-// import EventOne from "@/assets/images/serviceOne.jpg";
-// import EventTow from "@/assets/images/serviceTwo.jpg";
-// import EventThree from "@/assets/images/serviceThree.jpg";
-// import EventFour from "@/assets/images/serviceFour.jpg";
-// import EventFive from "@/assets/images/serviceFive.jpg";
-// import EventSix from "@/assets/images/serviceSix.jpg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Wrapper from "@/components/wrapper/wrapper";
 import { MapPin } from "lucide-react";
 import Venue from "@/components/Dashboard/Venue";
 import Status from "@/components/Dashboard/Status";
 import Form from "@/components/Dashboard/Form";
+import Service from "@/components/Dashboard/Service";
 
 const UserProfile = () => {
-  const [tabChange] = useState<boolean>(true);
-  // const event = [
-  //   {
-  //     eventTitle: "Tech Innovators Summit 2025",
-  //     eventOwner: "InnovateX",
-  //     image: EventOne,
-  //   },
-  //   {
-  //     eventTitle: "Global Health Conference",
-  //     eventOwner: "MediWorld",
-  //     image: EventTow,
-  //   },
-  //   {
-  //     eventTitle: "Startup Launchpad Expo",
-  //     eventOwner: "FoundersHub",
-  //     image: EventThree,
-  //   },
-  //   {
-  //     eventTitle: "Creative Design Workshop",
-  //     eventOwner: "DesignSpark",
-  //     image: EventFour,
-  //   },
-  //   {
-  //     eventTitle: "AI & Future Tech Forum",
-  //     eventOwner: "NeuroNext",
-  //     image: EventFive,
-  //   },
-  //   {
-  //     eventTitle: "Green Earth Sustainability Fair",
-  //     eventOwner: "EcoVerse",
-  //     image: EventSix,
-  //   },
-  // ];
+  
   return (
     <div
       style={{
@@ -71,12 +25,15 @@ const UserProfile = () => {
       className="max-w-full mx-auto h-48 relative"
     >
       <Wrapper>
+
         {/* BG IMAGE TO OVERLAY PROFILE SECTION */}
-        <div className="space-y-[8px] pt-32 sm:pt-36 gap-6 sm:gap-9">
+        <div className="space-y-[8px] pt-32 sm:pt-28 gap-6 sm:gap-9 text-[var(--font-roboto)]">
+
           <Avatar className="w-28 h-28 border-2 border-white">
             <AvatarImage src={profile.src} alt="profile-photo" />
             <AvatarFallback>Alex Jones</AvatarFallback>
           </Avatar>
+
           <div className="flex flex-col lg:flex-row gap-10">
             <div>
               <div className="flex items-center space-x-3">
@@ -141,7 +98,8 @@ const UserProfile = () => {
               </div>
             </div>
             {/* DYNAMIC COMPONENTS SHOWING */}
-            <Venue />
+            {/* <Venue /> */}
+            <Service />
           </div>
 
           {/* DIVIDER */}
@@ -149,6 +107,7 @@ const UserProfile = () => {
 
           {/*  STATUS SECTION */}
           <Status />
+
           {/* DIVIDER */}
           <div className="w-full h-[1px] bg-[var(--color-grayOne)] my-8" />
 
