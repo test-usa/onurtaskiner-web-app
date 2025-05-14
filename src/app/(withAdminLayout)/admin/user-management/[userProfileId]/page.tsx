@@ -19,10 +19,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { cn } from "@/lib/utils";
-import { Progress } from "@/components/ui/progress";
-import Link from "next/link";
 import Wrapper from "@/components/wrapper/wrapper";
+import { MapPin } from "lucide-react";
+import Venue from "@/components/Dashboard/Venue";
+import Status from "@/components/Dashboard/Status";
+import Form from "@/components/Dashboard/Form";
 
 const UserProfile = () => {
   const [tabChange] = useState<boolean>(true);
@@ -76,16 +77,17 @@ const UserProfile = () => {
             <AvatarImage src={profile.src} alt="profile-photo" />
             <AvatarFallback>Alex Jones</AvatarFallback>
           </Avatar>
-          <div className="flex items-center gap-x-8 ">
-            <div className="flex items-center space-x-3">
-              <h1>Alex Jones</h1>
-              <>
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div>
+              <div className="flex items-center space-x-3">
+                <h1>Alex Jones</h1>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
                   height="16"
                   viewBox="0 0 17 16"
                   fill="none"
+                  className="inline-block"
                 >
                   <path
                     fillRule="evenodd"
@@ -94,273 +96,64 @@ const UserProfile = () => {
                     fill="#003366"
                   />
                 </svg>
-              </>
+              </div>{" "}
+              <div className="space-y-1.5">
+                <p>@alex.jones</p>
+                <p>Photographer</p>
+                <div className="flex items-center space-x-1">
+                  <MapPin className="w-5" />
+                  <p>New York</p>
+                </div>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="flex items-center space-x-0.5 py-2 px-4 bg-[#DCE1E6] cursor-pointer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <mask
+                      id="mask0_549_9774"
+                      style={{ maskType: "alpha" }}
+                      maskUnits="userSpaceOnUse"
+                      x="0"
+                      y="0"
+                      width="24"
+                      height="24"
+                      className="w-6 h-5 text-white"
+                    >
+                      <rect width="24" height="24" fill="#D9D9D9" />
+                    </mask>
+                    <g mask="url(#mask0_549_9774)">
+                      <path
+                        d="M6 18L3.7 20.3C3.38333 20.6167 3.02083 20.6875 2.6125 20.5125C2.20417 20.3375 2 20.025 2 19.575V4C2 3.45 2.19583 2.97917 2.5875 2.5875C2.97917 2.19583 3.45 2 4 2H20C20.55 2 21.0208 2.19583 21.4125 2.5875C21.8042 2.97917 22 3.45 22 4V16C22 16.55 21.8042 17.0208 21.4125 17.4125C21.0208 17.8042 20.55 18 20 18H6ZM5.15 16H20V4H4V17.125L5.15 16ZM7 14H13C13.2833 14 13.5208 13.9042 13.7125 13.7125C13.9042 13.5208 14 13.2833 14 13C14 12.7167 13.9042 12.4792 13.7125 12.2875C13.5208 12.0958 13.2833 12 13 12H7C6.71667 12 6.47917 12.0958 6.2875 12.2875C6.09583 12.4792 6 12.7167 6 13C6 13.2833 6.09583 13.5208 6.2875 13.7125C6.47917 13.9042 6.71667 14 7 14ZM7 11H17C17.2833 11 17.5208 10.9042 17.7125 10.7125C17.9042 10.5208 18 10.2833 18 10C18 9.71667 17.9042 9.47917 17.7125 9.2875C17.5208 9.09583 17.2833 9 17 9H7C6.71667 9 6.47917 9.09583 6.2875 9.2875C6.09583 9.47917 6 9.71667 6 10C6 10.2833 6.09583 10.5208 6.2875 10.7125C6.47917 10.9042 6.71667 11 7 11ZM7 8H17C17.2833 8 17.5208 7.90417 17.7125 7.7125C17.9042 7.52083 18 7.28333 18 7C18 6.71667 17.9042 6.47917 17.7125 6.2875C17.5208 6.09583 17.2833 6 17 6H7C6.71667 6 6.47917 6.09583 6.2875 6.2875C6.09583 6.47917 6 6.71667 6 7C6 7.28333 6.09583 7.52083 6.2875 7.7125C6.47917 7.90417 6.71667 8 7 8Z"
+                        fill="#003366"
+                      />
+                    </g>
+                  </svg>
+
+                  <span>Message</span>
+                </Button>
+              </div>
             </div>
-            {/* changeable content button */}
-            <div className="flex items-center gap-4">
-              <button
-                className={cn(
-                  "text-[var(--color-boldText)] text-sm sm:text-lg cursor-pointer",
-                  tabChange &&
-                    "text-[var(--color-secondary)] font-semibold border-b-[1px] border-[var(--color-secondary)] text-sm sm:text-lg"
-                )}
-              >
-                Work
-              </button>
-              <button
-                className={cn(
-                  "text-[var(--color-boldText)] text-sm sm:text-lg cursor-pointer",
-                  !tabChange &&
-                    "text-[var(--color-secondary)] font-semibold border-b-[1px] border-[var(--color-secondary)] text-sm sm:text-lg"
-                )}
-              >
-                Review
-              </button>
-            </div>
+            {/* DYNAMIC COMPONENTS SHOWING */}
+            <Venue />
           </div>
 
-          {/* vanue */}
-          <div className="space-y-4">
-            <h1 className="text-sm px-2 py-0.5 rounded-sm inline-block  bg-white">
-              Total Venue 3
-            </h1>
-            <div className="bg-white px-14 py-3 flex flex-1 items-center justify-between rounded-lg">
-              <div className="flex items-center space-x-5">
-                <Avatar className="w-12 h-12 rounded-md">
-                  <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <h1 className="text-sm sm:text-lg font-semibold ">
-                  The Grand Hall
-                </h1>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-amber-300 rounded-full" />
-                <p>active</p>
-              </div>
-              <h1>New york</h1>
-              <Link href="#" className="underline font-semibold text-sm ">
-                Details
-              </Link>
-            </div>
-            <div className="bg-white px-14 py-3 flex items-center justify-between rounded-lg">
-              <div className="flex items-center space-x-5">
-                <Avatar className="w-12 h-12 rounded-md">
-                  <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <h1 className="text-sm sm:text-lg font-semibold ">
-                  The Grand Hall
-                </h1>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-amber-300 rounded-full" />
-                <p>active</p>
-              </div>
-              <h1>New york</h1>
-              <Link href="#" className="underline font-semibold text-sm ">
-                Details
-              </Link>
-            </div>
-            <div className="bg-white px-14 py-3 flex items-center justify-between rounded-lg">
-              <div className="flex items-center space-x-5">
-                <Avatar className="w-12 h-12 rounded-md">
-                  <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <h1 className="text-sm sm:text-lg font-semibold ">
-                  The Grand Hall
-                </h1>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-amber-300 rounded-full" />
-                <p>active</p>
-              </div>
-              <h1>New york</h1>
-              <Link href="#" className="underline font-semibold text-sm ">
-                Details
-              </Link>
-            </div>
-          </div>
-
-          {/* divider */}
+          {/* DIVIDER */}
           <div className="w-full h-[1px] bg-[var(--color-grayOne)] my-8" />
 
-          {/* status */}
-          <div className="space-y-7">
-            <h1 className="text-sm sm:text-2xl">Account Status</h1>
-            <div className="flex justify-between ">
-              <div>
-                <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
-                  Active
-                </h1>
-                <p className="text-xs sm:text-sm">Toggle user status</p>
-              </div>
-              <label
-                htmlFor="Toggle1"
-                className="inline-flex items-center space-x-4 cursor-pointer"
-              >
-                <span className="relative">
-                  <input id="Toggle1" type="checkbox" className="hidden peer" />
-
-                  {/* conditional Track */}
-                  <div className="w-10 h-6 rounded-full shadow-inner bg-[#333333] peer-checked:bg-[#333333]"></div>
-
-                  {/* Knob */}
-                  <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow bg-white peer-checked:right-0 peer-checked:left-auto"></div>
-                </span>
-              </label>
-            </div>
-            <div className="flex justify-between ">
-              <div>
-                <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
-                  Suspended
-                </h1>
-                <p className="text-xs sm:text-sm">Toggle user status</p>
-              </div>
-              <label
-                htmlFor="Toggle1"
-                className="inline-flex items-center space-x-4 cursor-pointer"
-              >
-                <span className="relative">
-                  <input id="Toggle1" type="checkbox" className="hidden peer" />
-
-                  {/* conditional Track */}
-                  <div className="w-10 h-6 rounded-full shadow-inner bg-[#333333] peer-checked:bg-[#333333]"></div>
-
-                  {/* Knob */}
-                  <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow bg-white peer-checked:right-0 peer-checked:left-auto"></div>
-                </span>
-              </label>
-            </div>
-            <div className="flex justify-between ">
-              <div>
-                <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
-                  Reset Password
-                </h1>
-                <p className="text-xs sm:text-sm">Toggle user status</p>
-              </div>
-              <label
-                htmlFor="Toggle1"
-                className="inline-flex items-center space-x-4 cursor-pointer"
-              >
-                <span className="relative">
-                  <input id="Toggle1" type="checkbox" className="hidden peer" />
-
-                  {/* conditional Track */}
-                  <div className="w-10 h-6 rounded-full shadow-inner bg-[#333333] peer-checked:bg-[#333333]"></div>
-
-                  {/* Knob */}
-                  <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow bg-white peer-checked:right-0 peer-checked:left-auto"></div>
-                </span>
-              </label>
-            </div>
-            <div className="flex justify-between ">
-              <div>
-                <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
-                  View Booking History
-                </h1>
-                <p className="text-xs sm:text-sm">Toggle user status</p>
-              </div>
-              <label
-                htmlFor="Toggle1"
-                className="inline-flex items-center space-x-4 cursor-pointer"
-              >
-                <span className="relative">
-                  <input id="Toggle1" type="checkbox" className="hidden peer" />
-
-                  {/* conditional Track */}
-                  <div className="w-10 h-6 rounded-full shadow-inner bg-[#333333] peer-checked:bg-[#333333]"></div>
-
-                  {/* Knob */}
-                  <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow bg-white peer-checked:right-0 peer-checked:left-auto"></div>
-                </span>
-              </label>
-            </div>
-          </div>
-          {/* divider */}
+          {/*  STATUS SECTION */}
+          <Status />
+          {/* DIVIDER */}
           <div className="w-full h-[1px] bg-[var(--color-grayOne)] my-8" />
 
           {/* FORM */}
-          <div className="w-full">
-            <h1 className="text-sm sm:text-xl">User Information</h1>
-            <div className="space-y-3 my-4">
-              <div className="w-full flex flex-col sm:flex-row items-center gap-4">
-                <div className="flex flex-col w-full space-y-3">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    placeholder="Enter your mail"
-                    className="bg-white py-2 px-4 w-full rounded-lg"
-                  />
-                </div>
-                <div className="flex flex-col w-full  space-y-3">
-                  <label htmlFor="email">Phone</label>
-                  <input
-                    type="tel"
-                    placeholder="Enter your phone"
-                    className="bg-white py-2 px-4 w-full rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col w-full space-y-3">
-                <label htmlFor="email">Role</label>
-                <Select>
-                  <SelectTrigger className="w-full bg-white py-5">
-                    <SelectValue placeholder="Role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Fruits</SelectLabel>
-                      <SelectItem value="apple">Apple</SelectItem>
-                      <SelectItem value="banana">Banana</SelectItem>
-                      <SelectItem value="blueberry">Blueberry</SelectItem>
-                      <SelectItem value="grapes">Grapes</SelectItem>
-                      <SelectItem value="pineapple">Pineapple</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex flex-col w-full space-y-3">
-                <label htmlFor="email">Email</label>
-                <textarea
-                  placeholder="Additional info"
-                  rows={4}
-                  cols={50}
-                  className="bg-white py-2 px-4 w-full rounded-lg"
-                />
-              </div>
-
-              {/* button section */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center  my-4">
-                <Button
-                  variant="outline"
-                  className="flex bg-none items-center space-x-2 py-3 px-5 border border-[var(--color-accent)] hover:bg-[var(--color-accent)] w-full sm:w-fit cursor-pointer group"
-                >
-                  <span className="text-[var(--color-accent)] group-hover:text-white">
-                    Delete Account
-                  </span>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="flex bg-none items-center space-x-2 py-3 px-5 border border-[var(--color-accent)] hover:bg-[var(--color-accent)] w-full sm:w-fit cursor-pointer group"
-                >
-                  <span className="text-[var(--color-accent)] group-hover:text-white">
-                    Suspend Profile
-                  </span>
-                </Button>
-              </div>
-            </div>
-          </div>
+          <Form />
         </div>
       </Wrapper>
     </div>
