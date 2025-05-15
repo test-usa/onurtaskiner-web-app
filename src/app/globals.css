@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-Robot: var(--font-roboto);
+  --font-Pop:var(--font-poppins);
+  --font-FontFit:var(--font-outfit);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -68,7 +72,7 @@
   --color-coffeOne: #272a3e;
   /* --color-foreground: #d4af37; FOR SOME BUTTON, AND SOME CARDS */
   --color-accent: #003366;
-  --color-textThree: #797979;;
+  --color-textThree: #797979;
 
   /* GOOGLE FONTS */
   --font-roboto: "Roboto", sans-serif;
@@ -150,5 +154,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  
   }
 }
+
+
