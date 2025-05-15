@@ -1,12 +1,12 @@
 export default function PrivacyPolicy() {
   return (
     <div className="pt-10">
-      <h1 className="md:text-[28px] text-lg font-bold text-[#1D1B28] mb-4">
+      <h1 className="text-[28px] text-lg font-bold text-[#1D1B28] mb-4">
         Privacy Policy
       </h1>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           1. Introduction:
         </h2>
         <p className="text-lg">
@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] ">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot ">
           2. Information We Collect:
         </h2>
         <p className="text-lg mb-2">
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           3. How We Use Your Information:
         </h2>
         <p className="text-lg mb-2">
@@ -90,7 +90,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           4. Sharing Your Information:
         </h2>
         <p className="text-lg mb-2">
@@ -127,7 +127,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           5. Data Security:
         </h2>
         <p className="text-lg">
@@ -139,7 +139,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           6. Your Rights and Choices:
         </h2>
         <p className="text-lg mb-2">You have the right to:</p>
@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           7. Cookies and Tracking Technologies:
         </h2>
         <p className="text-lg">
@@ -177,7 +177,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           8. Changes to This Privacy Policy:
         </h2>
         <p className="text-lg">
@@ -188,7 +188,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78]">
+        <h2 className="text-2xl font-semibold mb-2 text-[#1F4B78] font-Robot">
           9. Contact Us:
         </h2>
         <p className="text-lg mb-2">

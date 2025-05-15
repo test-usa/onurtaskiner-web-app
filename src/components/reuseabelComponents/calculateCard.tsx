@@ -33,7 +33,7 @@ const CalculateCard = () => {
         >
           {/* Top Row */}
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-sm sm:text-base font-extrabold text-[var(--color-normalText)] font-roboto">
+            <h1 className="text-sm sm:text-base font-extrabold text-[var(--color-normalText)] font-Robot">
               {single.title}
             </h1>
             <button className="cursor-pointer">
@@ -56,10 +56,10 @@ const CalculateCard = () => {
 
           {/* Bottom Row */}
           <div>
-            <h2 className="text-xl sm:text-3xl font-semibold text-[var(--color-accent)] font-roboto">
+            <h2 className="text-xl sm:text-3xl font-semibold text-[var(--color-accent)] font-Robot tracking-[-0.68px]">
               {single.amount}
             </h2>
-            <p className="text-sm text-[var(--color-textRed)] font-roboto">
+            <p className="text-sm text-[var(--color-textRed)] font-Robot ">
               {single.change} price range
             </p>
           </div>

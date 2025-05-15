@@ -7,7 +7,7 @@ import booking from "@/assets/icon/booking.png";
 
 const ActiveUserManagement = () => {
   return (
-    <div className="mt-56">
+    <div className="mt-50 font-Robot">
       <div className="space-y-5">
         <div className="flex flex-wrap justify-start md:justify-baseline items-center mt-2 gap-x-6 gap-y-4">
           <div className="flex items-center gap-2">
@@ -17,7 +17,7 @@ const ActiveUserManagement = () => {
               height={24}
               width={24}
             />
-            <p className="text-sm md:text-base">New York, USAA</p>
+            <p className="text-sm md:text-base font-Robot">New York, USA</p>
           </div>
 
           <div className="flex items-center gap-2">
@@ -52,7 +52,7 @@ const ActiveUserManagement = () => {
         </div>
         {/* Amenitics */}
         <div className="space-y-4">
-          <h2 className="text-[#333] font-roboto text-[20px] font-semibold leading-[120%] capitalize">
+          <h2 className=" font-Robot text-[#333] font-roboto text-[20px] font-semibold leading-[120%] capitalize">
             Amenities
           </h2>
           <div className="flex justify-baseline items-center space-x-7.5">
@@ -86,7 +86,7 @@ const ActiveUserManagement = () => {
         </div>
       </div>
       <div className="mt-4">
-        <h1 className="font-semibold">Description</h1>
+        <h1 className="font-semibold text-[20px] font-Robot">Description</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur. Interdum ac hac nec etiam.
           Augue etiam ornare eu velit ultrices pharetra. Velit fringilla tellus

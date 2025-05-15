@@ -23,7 +23,7 @@ const BarCharts = () => {
     <div className="rounded-2xl bg-[var(--color-accent)] p-6 text-white h-full shadow-md w-full sm:w-1/2">
       <div className="flex justify-between items-start space-y-8">
         <div className="space-y-3">
-          <p className="text-sm font-medium text-[var(--color-boldTextTwo)]">
+          <p className="text-[15px] leading-[20px] font-bold text-[var(--color-boldTextTwo)]">
             Earnings
           </p>
           <div className="flex items-center space-x-2">

@@ -3,10 +3,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
-type InputFormProps = {
-  _id: string;
-};
-
 const InputForm = () => {
   const _id = "12345";
   return (
@@ -17,7 +13,7 @@ const InputForm = () => {
           <div className="flex-1 min-w-[395px]">
             <Label
               htmlFor="event"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var(--color-textPrimary)] font-['Roboto'] truncate"
+              className="mb-2 text-[20px] font-normal leading-6 text-[var(--color-textPrimary)] font- truncate"
             >
               Event Name
             </Label>

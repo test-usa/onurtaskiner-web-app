@@ -159,3 +159,117 @@ const MoneyRefundForm = () => {
 };
 
 export default MoneyRefundForm;
+/* 
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { useRefundMoneyMutation } from "@/features/refund/refundApi";
+
+const MoneyRefundForm = () => {
+  const [formData, setFormData] = useState({
+    eventName: "",
+    organizer: "",
+    date: "",
+    time: "",
+    eventType: "",
+    guest: 0,
+    amount: 6500, // example
+  });
+
+  const [refundMoney, { isLoading, isSuccess, isError }] =
+    useRefundMoneyMutation();
+
+  const handleChange = (e: any) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: id === "guest" ? parseInt(value) : value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const res = await refundMoney(formData).unwrap();
+      alert("Refund successful!");
+      console.log(res);
+    } catch (err) {
+      console.error("Refund failed:", err);
+      alert("Refund failed");
+    }
+  };
+
+  return (
+    <div>
+
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="flex-1 min-w-[395px]">
+          <Label htmlFor="eventName">Event Name</Label>
+          <Input
+            id="eventName"
+            onChange={handleChange}
+            placeholder="John's Birthday"
+          />
+        </div>
+        <div className="flex-1 min-w-[395px]">
+          <Label htmlFor="organizer">Organizer</Label>
+          <Input
+            id="organizer"
+            onChange={handleChange}
+            placeholder="John Deo"
+          />
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
+        <div className="flex-1 min-w-[395px]">
+          <Label htmlFor="date">Date</Label>
+          <Input id="date" onChange={handleChange} placeholder="15/03/2025" />
+        </div>
+        <div className="flex-1 min-w-[395px]">
+          <Label htmlFor="time">Time</Label>
+          <Input id="time" onChange={handleChange} placeholder="10:00 AM" />
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
+        <div className="flex-1 min-w-[395px]">
+          <Label htmlFor="eventType">Event Type</Label>
+          <Input
+            id="eventType"
+            onChange={handleChange}
+            placeholder="Birthday"
+          />
+        </div>
+        <div className="flex-1 min-w-[395px]">
+          <Label htmlFor="guest">Guest</Label>
+          <Input
+            id="guest"
+            onChange={handleChange}
+            type="number"
+            placeholder="100"
+          />
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <Button
+          onClick={handleSubmit}
+          disabled={isLoading}
+          className="bg-[var(--color-secondary)] text-white hover:opacity-90 w-32 h-9"
+        >
+          {isLoading ? "Processing..." : "Confirm Refund"}
+        </Button>
+      </div>
+
+      {isSuccess && <p className="text-green-600 mt-2">Refund Successful</p>}
+      {isError && <p className="text-red-600 mt-2">Refund Failed</p>}
+    </div>
+  );
+};
+
+export default MoneyRefundForm;
+
+ */

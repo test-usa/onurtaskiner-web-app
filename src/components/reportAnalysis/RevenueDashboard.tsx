@@ -23,7 +23,13 @@ const barData = [
   { name: "May", Ads: 8.3, Subscriptions: 9.2, Bookings: 8 },
   { name: "Jun", Ads: 4, Subscriptions: 8.1, Bookings: 9.9 },
 ]
+const donutData = [
+  { name: "Subscriptions", value: 26.9 },
+  { name: "Bookings", value: 48.8 },
+  { name: "Ads", value: 24.3 },
+];
 
+const COLORS = ["#324DDD", "#272A3E", "#6CB9AD"];
 
 
 export default function RevenueDashboard() {

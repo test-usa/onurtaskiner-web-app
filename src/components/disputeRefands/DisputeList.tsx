@@ -33,6 +33,30 @@ export default function DisputeList() {
       venue: "Sydney Opera House",
       disputeNumber: 6,
     },
+    {
+      id: 12351,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
+    {
+      id: 12352,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
+    {
+      id: 12353,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
+    {
+      id: 12354,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
   ];
 
   const itemsPerPage = 4;
