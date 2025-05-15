@@ -7,7 +7,7 @@ import Image from "next/image";
 const Professionals = () => {
   const images = [imageOne, imageTwo, imageThree, imageFour];
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center space-x-3 font-Pop">
       <div className="flex items-center -space-x-2">
         {images?.map((image, index) => {
           return (

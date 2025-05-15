@@ -51,7 +51,7 @@ export const Calendar = () => {
           >
             <ChevronLeft size={20} />
           </button>
-          <h2 className="text-sm font-semibold text-gray-900 dark:text-white">
+          <h2 className="text-[15px] font-bold text-[#615E83]">
             {formatMonth(currentMonth)}
           </h2>
           <button

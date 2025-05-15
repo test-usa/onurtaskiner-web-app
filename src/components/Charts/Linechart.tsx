@@ -20,10 +20,10 @@ interface BookingsChartProps {
 
 export function LineCharts({ data }: BookingsChartProps) {
   return (
-    <div className="rounded-2xl bg-[var(--color-accent)] p-6 text-white h-full shadow-md w-full sm:w-1/2 ">
+    <div className="rounded-2xl bg-[var(--color-accent)] p-6 text-white h-full shadow-md w-full sm:w-1/2 font-Robot">
       <div className="flex justify-between items-start space-y-8">
         <div className="space-y-3">
-          <p className="text-sm font-medium text-[var(--color-boldTextTwo)]">Bookings</p>
+          <p className="text-[15px] leading-[20px] font-bold text-[var(--color-boldTextTwo)]">Bookings</p>
           <div className="flex items-center space-x-2">
             <h2 className="text-2xl font-bold text-[var(--color-boldTextTwo)]">2,345</h2>
             <p className="text-green-400 text-xs">+8% this month</p>

@@ -15,13 +15,13 @@ const DashboardPage = () => {
         <Professionals />
         <Tabs />
         <div className="space-y-5">
-          <h1 className="text-[var(--color-accent)] tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-poppins">
+          <h1 className="text-[var(--color-accent)] text-sm sm:text-lg tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-Robot">
             Key Metrics
           </h1>
           <CalculateCard />
         </div>
         <div className="space-y-5">
-          <h1 className="text-[var(--color-accent)] tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold">
+          <h1 className="text-[var(--color-accent)] text-sm sm:text-lg tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-Robot">
             Booking Trends & Revenue Insights
           </h1>
           <AllCharts />
