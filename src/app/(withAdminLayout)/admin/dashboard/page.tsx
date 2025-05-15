@@ -15,7 +15,7 @@ const DashboardPage = () => {
         <Professionals />
         <Tabs />
         <div className="space-y-5">
-          <h1 className="text-[var(--color-accent)] tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold">
+          <h1 className="text-[var(--color-accent)] tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-poppins">
             Key Metrics
           </h1>
           <CalculateCard />

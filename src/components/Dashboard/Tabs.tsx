@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const Tabs = () => {
   const [tabs] = useState<boolean>(true);
   return (
-    <Wrapper>
+   
       <div>
         <div className="flex items-center border-b-[1px]">
           <button
@@ -26,7 +26,7 @@ const Tabs = () => {
           </button>
         </div>
       </div>
-    </Wrapper>
+    
   );
 };
 

@@ -19,6 +19,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
 
 import logo from "../../../assets/icon/logo1.png";
+import logout from "../../../assets/icon/logout.svg";
 import profile from "../../../assets/images/profile.png";
 
 import { cn } from "@/lib/utils";
@@ -87,7 +88,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <div className="flex items-center justify-between mb-6 h-[48px] ">
             <div className="flex items-center gap-2">
-              <div className=" w-[42px] h-[48px]">
+              <div className=" w-[42px] h-[46px]">
                 <Image src={logo} alt="Logo" width={52} height={52} />
               </div>
               {!collapsed && (
@@ -105,7 +106,9 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           {!collapsed && (
-            <div className="text-[var(--color-textThree)] mb-2">Menu</div>
+            <div className="text-[var(--color-textThree)] mb-5  font-Robot">
+              Menu
+            </div>
           )}
           <nav className="flex-grow space-y-4">
             {navItems.map((item) => (
@@ -113,31 +116,33 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-4 px-4 py-3 rounded transition",
+                  "flex items-center gap-4 px-4 py-3 rounded transition text-[var(--color-textThree)] ",
                   pathname.startsWith(item.href)
                     ? "bg-[var(--color-accent)] text-white"
                     : "hover:bg-gray-200 dark:hover:bg[var(--color-textThree)]"
                 )}
               >
-                <item.icon className="h-5 w-5 shrink-0" />
+                <item.icon className="h-5 w-5 shrink-0 font-Robot font-[20px]" />
                 {!collapsed && <span>{item.title}</span>}
               </Link>
             ))}
           </nav>
 
-          <div className="mt-auto">
+          <div className="mt-auto mb-20">
             <Button
               variant="destructive"
               className={cn(
-                "w-full justify-start gap-3",
+                "w-full justify-start gap-3 ",
                 collapsed
                   ? "bg-white hover:bg-gray-100 px-2 py-2"
                   : "bg-white hover:bg-gray-100"
               )}
               onClick={() => alert("Logout")}
             >
-              <TbLogout className="h-5 w-5 text-red-600" />
-              {!collapsed && <span className="text-black">Logout</span>}
+              <TbLogout className="h-6 w-6 text-red-600" />
+              {!collapsed && (
+                <span className="text-black font-Robot">Log Out</span>
+              )}
             </Button>
           </div>
         </aside>
@@ -199,14 +204,14 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 
               <Button
                 variant="destructive"
-                className="w-full justify-start gap-3 mt-6"
+                className="w-full justify-start gap-3 mt-80"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   alert("Logout");
                 }}
               >
-                <TbLogout className="h-5 w-5 text-red-600" />
-                <span className="text-black">Logout</span>
+                <TbLogout className="h-6 w-6 text-red-600" />
+                <span className="text-black">Log Out</span>
               </Button>
             </aside>
             <div

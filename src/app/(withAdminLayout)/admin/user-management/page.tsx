@@ -1,13 +1,9 @@
-import Profile from "@/components/reuseabelComponents/profile";
+import Management from "@/components/Dashboard/management";
 
 const UserManagementPage = () => {
   return (
     <div>
-      {/* <ReuseProfile />
-      <UserManagement />
-      <MapReuseComponent /> */}
-      {/* <Management /> */}
-      <Profile />
+      <Management />
     </div>
   );
 };
