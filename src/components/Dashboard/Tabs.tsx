@@ -8,7 +8,7 @@ const Tabs = () => {
   return (
    
       <div>
-        <div className="flex items-center border-b-[1px]">
+        <div className="flex items-center border-b-[1px] font-FontFit">
           <button
             className={cn(
               "py-[8px] sm:py-[12px] px-[15px] sm:px-[25px] text-xs sm:text-sm text-[var(--color-normalText)] cursor-pointer",

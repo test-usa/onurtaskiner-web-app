@@ -53,7 +53,7 @@ const invoices = [
 
 export const ActivityTable = () => {
   return (
-    <div className="w-full sm:max-w-[60%] bg-white p-2 rounded-2xl h-[346px]">
+    <div className="w-full sm:max-w-[60%] font-Robot bg-white p-2 rounded-2xl h-[346px]">
       {" "}
       <Table>
         <TableHeader>
@@ -67,7 +67,7 @@ export const ActivityTable = () => {
           {invoices.map((invoice) => (
             <TableRow key={invoice.invoice}>
               <TableCell className="font-medium">
-                <Avatar>
+                <Avatar className="w-10 h-10">
                   <AvatarImage
                     src="https://github.com/shadcn.png"
                     alt="@shadcn"
@@ -75,8 +75,9 @@ export const ActivityTable = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </TableCell>
-              <TableCell>New Booking: Venue A</TableCell>
-              <TableCell>25 March,2025</TableCell>
+           
+              <TableCell className="text-[15px] leading-[100%]">New Booking: Venue A</TableCell>
+              <TableCell className="text-[15px] leading-[100%]">25 March,2025</TableCell>
             </TableRow>
           ))}
         </TableBody>

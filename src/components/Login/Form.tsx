@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const LoginForm = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white font-Robot">
       <div className="flex items-center justify-center h-screen p-3">
         <div className="w-full max-w-md space-y-10">
           <h1 className="text-4xl sm:text-5xl font-semibold text-center text-[var(--color-secondary)]">
