@@ -2,6 +2,7 @@ import bgImage from "@/assets/images/profilebg.jpg";
 import profile12 from "@/assets/images/profile12.png";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Wrapper from "@/components/wrapper/wrapper";
 
 const ReuseProfile = () => {
   return (
@@ -16,13 +17,14 @@ const ReuseProfile = () => {
       className="max-w-full mx-auto h-48 relative "
     >
       {/* BG IMAGE TO OVERLAY PROFILE SECTION */}
+
       <div className="space-y-5">
         <div className="space-y-[8px] pt-36 gap-9 ml-[40px]">
           <Avatar className="w-28 h-28 border-2 border-white">
             <AvatarImage src={profile12.src} alt="profile-photo" />
             <AvatarFallback>Alex</AvatarFallback>
           </Avatar>
-          <div className="ml-5 flex flex-col md:flex-row gap-3.5">
+          <div className=" flex flex-col md:flex-row gap-3.5">
             {/* Name And Email */}
             <div className="flex justify-start items-center">
               <div>
@@ -59,48 +61,50 @@ const ReuseProfile = () => {
         </div>
 
         {/* Part -2 */}
-        <div className="space-y-8">
-          <div className="flex justify-between items-center ">
-            <h2 className="overflow-hidden text-[#333] text-ellipsis font-roboto text-2xl font-semibold leading-[120%]">
-              The Grand Hall
-            </h2>
+        <Wrapper>
+          <div className="space-y-8">
+            <div className="flex justify-between items-center ">
+              <h2 className="overflow-hidden text-[#333] text-ellipsis font-roboto text-2xl font-semibold leading-[120%]">
+                The Grand Hall
+              </h2>
 
-            <Button
-              size="lg"
-              className="bg-[var(--color-grayTwo)] hover:bg-[var(--color-grayTwo)] cursor-pointer px-[24px] py-[16px] flex items-center gap-[10px] mt-4"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="w-7 h-7"
+              <Button
+                size="lg"
+                className="bg-[var(--color-grayTwo)] hover:bg-[var(--color-grayTwo)] cursor-pointer px-[24px] py-[16px] flex items-center gap-[10px] mt-4"
               >
-                <mask
-                  id="mask0_549_9774"
-                  style={{ maskType: "alpha" }}
-                  maskUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="w-7 h-7"
                 >
-                  <rect width="24" height="24" fill="#D9D9D9" />
-                </mask>
-                <g mask="url(#mask0_549_9774)">
-                  <path
-                    d="M6 18L3.7 20.3C3.38333 20.6167 3.02083 20.6875 2.6125 20.5125C2.20417 20.3375 2 20.025 2 19.575V4C2 3.45 2.19583 2.97917 2.5875 2.5875C2.97917 2.19583 3.45 2 4 2H20C20.55 2 21.0208 2.19583 21.4125 2.5875C21.8042 2.97917 22 3.45 22 4V16C22 16.55 21.8042 17.0208 21.4125 17.4125C21.0208 17.8042 20.55 18 20 18H6ZM5.15 16H20V4H4V17.125L5.15 16ZM7 14H13C13.2833 14 13.5208 13.9042 13.7125 13.7125C13.9042 13.5208 14 13.2833 14 13C14 12.7167 13.9042 12.4792 13.7125 12.2875C13.5208 12.0958 13.2833 12 13 12H7C6.71667 12 6.47917 12.0958 6.2875 12.2875C6.09583 12.4792 6 12.7167 6 13C6 13.2833 6.09583 13.5208 6.2875 13.7125C6.47917 13.9042 6.71667 14 7 14ZM7 11H17C17.2833 11 17.5208 10.9042 17.7125 10.7125C17.9042 10.5208 18 10.2833 18 10C18 9.71667 17.9042 9.47917 17.7125 9.2875C17.5208 9.09583 17.2833 9 17 9H7C6.71667 9 6.47917 9.09583 6.2875 9.2875C6.09583 9.47917 6 9.71667 6 10C6 10.2833 6.09583 10.5208 6.2875 10.7125C6.47917 10.9042 6.71667 11 7 11ZM7 8H17C17.2833 8 17.5208 7.90417 17.7125 7.7125C17.9042 7.52083 18 7.28333 18 7C18 6.71667 17.9042 6.47917 17.7125 6.2875C17.5208 6.09583 17.2833 6 17 6H7C6.71667 6 6.47917 6.09583 6.2875 6.2875C6.09583 6.47917 6 6.71667 6 7C6 7.28333 6.09583 7.52083 6.2875 7.7125C6.47917 7.90417 6.71667 8 7 8Z"
-                    fill="#003366"
-                  />
-                </g>
-              </svg>
-              <span className="text-[16px] font-medium text-[var(--color-accent)]">
-                Messagee
-              </span>
-            </Button>
+                  <mask
+                    id="mask0_549_9774"
+                    style={{ maskType: "alpha" }}
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="24"
+                    height="24"
+                  >
+                    <rect width="24" height="24" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_549_9774)">
+                    <path
+                      d="M6 18L3.7 20.3C3.38333 20.6167 3.02083 20.6875 2.6125 20.5125C2.20417 20.3375 2 20.025 2 19.575V4C2 3.45 2.19583 2.97917 2.5875 2.5875C2.97917 2.19583 3.45 2 4 2H20C20.55 2 21.0208 2.19583 21.4125 2.5875C21.8042 2.97917 22 3.45 22 4V16C22 16.55 21.8042 17.0208 21.4125 17.4125C21.0208 17.8042 20.55 18 20 18H6ZM5.15 16H20V4H4V17.125L5.15 16ZM7 14H13C13.2833 14 13.5208 13.9042 13.7125 13.7125C13.9042 13.5208 14 13.2833 14 13C14 12.7167 13.9042 12.4792 13.7125 12.2875C13.5208 12.0958 13.2833 12 13 12H7C6.71667 12 6.47917 12.0958 6.2875 12.2875C6.09583 12.4792 6 12.7167 6 13C6 13.2833 6.09583 13.5208 6.2875 13.7125C6.47917 13.9042 6.71667 14 7 14ZM7 11H17C17.2833 11 17.5208 10.9042 17.7125 10.7125C17.9042 10.5208 18 10.2833 18 10C18 9.71667 17.9042 9.47917 17.7125 9.2875C17.5208 9.09583 17.2833 9 17 9H7C6.71667 9 6.47917 9.09583 6.2875 9.2875C6.09583 9.47917 6 9.71667 6 10C6 10.2833 6.09583 10.5208 6.2875 10.7125C6.47917 10.9042 6.71667 11 7 11ZM7 8H17C17.2833 8 17.5208 7.90417 17.7125 7.7125C17.9042 7.52083 18 7.28333 18 7C18 6.71667 17.9042 6.47917 17.7125 6.2875C17.5208 6.09583 17.2833 6 17 6H7C6.71667 6 6.47917 6.09583 6.2875 6.2875C6.09583 6.47917 6 6.71667 6 7C6 7.28333 6.09583 7.52083 6.2875 7.7125C6.47917 7.90417 6.71667 8 7 8Z"
+                      fill="#003366"
+                    />
+                  </g>
+                </svg>
+                <span className="text-[16px] font-medium text-[var(--color-accent)]">
+                  Messagee
+                </span>
+              </Button>
+            </div>
           </div>
-        </div>
+        </Wrapper>
       </div>
     </div>
   );

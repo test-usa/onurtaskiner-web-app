@@ -1,20 +1,23 @@
 import MapReuseComponent from "@/components/AdminPage/Shared/MapReuseComponent";
 import ReuseProfile from "@/components/AdminPage/Shared/ReuseProfile";
+import MoneyRefond from "@/components/AdminPage/VenueManagement/MoneyRefond";
 import MoneyRefundForm from "@/components/AdminPage/VenueManagement/MoneyRefundForm";
-import PaymentProfile from "@/components/AdminPage/VenueManagement/PaymentProfile";
 import Wrapper from "@/components/wrapper/wrapper";
+import React from "react";
 
-const MoneyRefund = () => {
+const MoneyRefundConfirm = () => {
   return (
     <div>
       <ReuseProfile />
       <Wrapper>
-        <PaymentProfile />
-        <MapReuseComponent />
-        <MoneyRefundForm />
+        <div className="space-y-[28px]">
+          <MoneyRefond />
+          <MapReuseComponent />
+          <MoneyRefundForm />
+        </div>
       </Wrapper>
     </div>
   );
 };
 
-export default MoneyRefund;
+export default MoneyRefundConfirm;

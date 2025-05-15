@@ -6,7 +6,7 @@ import React from "react";
 const venueManagementPage = () => {
   return (
     <Wrapper>
-      <div className="space-y-4">
+      <div className="space-y-[28px]">
         <CalculateCard />
         <VenueListTable />
       </div>

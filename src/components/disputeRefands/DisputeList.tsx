@@ -35,7 +35,7 @@ export default function DisputeList() {
     },
   ];
 
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
   const totalPages = Math.ceil(disputes.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -61,13 +61,13 @@ export default function DisputeList() {
           <div key={index} className="rounded-lg bg-[#E1E3E9] shadow-sm ">
             <div className="flex flex-col sm:flex-row gap-4 mb-3">
               {/* Image section */}
-              <div className="w-full sm:w-[200px] flex-shrink-0">
+              <div className="w-full sm:w-[220px] flex-shrink-0">
                 <Image
                   src={disputeImg}
                   alt="disputeImg"
-                  width={200}
-                  height={150}
-                  className="h-[150px] w-full rounded-md object-cover"
+                  width={220}
+                  height={170}
+                  className="h-[170px] w-full rounded-md object-cover"
                 />
               </div>
 

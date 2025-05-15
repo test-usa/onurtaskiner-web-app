@@ -65,6 +65,7 @@ const InputStatusForm = () => {
             className="bg-white text-[15px]"
             type="text"
             placeholder="$ 12,245.63"
+            readOnly
           />
         </div>
         <div className="flex-1 min-w-[300px]">
@@ -79,6 +80,7 @@ const InputStatusForm = () => {
             className="bg-white text-[15px]"
             type="text"
             placeholder="$ 2,245.63"
+            readOnly
           />
         </div>
       </div>
@@ -96,6 +98,7 @@ const InputStatusForm = () => {
               className="bg-white text-[15px]"
               type="text"
               placeholder="john.doe@example.com"
+              readOnly
             />
           </div>
           <div className="flex-1 min-w-[300px]">
@@ -107,6 +110,7 @@ const InputStatusForm = () => {
               className="bg-white text-[15px]"
               type="text"
               placeholder="+123456789"
+              readOnly
             />
           </div>
         </div>
@@ -122,6 +126,7 @@ const InputStatusForm = () => {
           className="bg-white text-[15px]"
           type="text"
           placeholder="Venue Owner"
+          readOnly
         />
       </div>
 
@@ -134,6 +139,7 @@ const InputStatusForm = () => {
           id="notes"
           className="bg-white h-[76px]"
           placeholder="Additional info."
+          readOnly
         />
       </div>
     </div>

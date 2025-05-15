@@ -10,7 +10,7 @@ const PaymentProfile = () => {
       <div className="flex flex-wrap justify-baseline items-center mt-2 space-x-7.5">
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <Image src={iconLocation} alt="" height={24} width={24} />
-          <p className="text-base">New York, USA</p>
+          <p className="text-base">New York, USAA</p>
         </div>
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <Image src={iconStar} alt="" height={24} width={24} />

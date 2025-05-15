@@ -139,8 +139,8 @@ const MoneyRefundForm = () => {
         </div>
         <div className="flex space-x-2">
           <div>
-            <Button className="bg-[var(--color-secondary)] text-white hover:opacity-90 w-26 h-9">
-              Pay Refund
+            <Button className="bg-[var(--color-secondary)] text-white hover:opacity-90 w-32 h-9">
+              Confirm Refund
             </Button>
           </div>
 

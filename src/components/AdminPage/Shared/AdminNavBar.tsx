@@ -4,8 +4,10 @@ import Image from "next/image";
 import { IoIosSearch, IoMdNotificationsOutline } from "react-icons/io";
 
 import profile from "../../../assets/images/profile.png";
-import searchSliders from "../../../assets/icon/searchSliders1.png";
-import fIcon from "../../../assets/icon/fIcon1.png";
+import { FaUserCheck } from "react-icons/fa6";
+import { IoSettingsOutline } from "react-icons/io5";
+/* import searchSliders from "../../../assets/icon/searchSliders1.png";
+import fIcon from "../../../assets/icon/fIcon3.png"; */
 
 const AdminNavBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -30,7 +32,7 @@ const AdminNavBar = () => {
               </div>
 
               {/* Right - Filter & Slider Icons */}
-              <div className="flex items-center gap-1 pl-2">
+              {/* <div className="flex items-center gap-1 pl-2">
                 <Image
                   src={searchSliders}
                   alt="Search Sliders"
@@ -41,11 +43,11 @@ const AdminNavBar = () => {
                 <Image
                   src={fIcon}
                   alt="Filter Icon"
-                  width={14}
-                  height={10}
+                  width={10}
+                  height={9}
                   className="cursor-pointer"
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* Icons below Search Bar aligned right */}
@@ -53,7 +55,7 @@ const AdminNavBar = () => {
 
           {/* Notification & Profile */}
           <div className="flex items-center justify-center gap-4 relative ml-auto">
-            <button className="btn btn-primary text-white h-10 w-10 flex items-center justify-center">
+            <button className="btn btn-primary text-black h-10 w-10 flex items-center justify-center">
               <IoMdNotificationsOutline size={25} />
             </button>
 
@@ -65,12 +67,22 @@ const AdminNavBar = () => {
             </div>
 
             {isDropdownOpen && (
-              <div className="absolute top-[50px] right-0 bg-white shadow-md rounded-lg w-40 p-2 flex flex-col items-start">
-                <button className="text-sm text-gray-600 hover:bg-gray-200 w-full text-left px-4 py-2">
-                  Profile
+              <div className="absolute top-14 right-0 bg-white shadow-lg rounded-lg w-48 py-2 z-50 transition-all duration-200 ease-in-out">
+                <button className=" text-sm text-gray-700 hover:bg-gray-100 w-full text-left px-5 py-2 transition-colors duration-150">
+                  <div className="flex justy-center item-center gap-2">
+                    <div>
+                      <FaUserCheck />
+                    </div>
+                    <div>Profile</div>
+                  </div>
                 </button>
-                <button className="text-sm text-gray-600 hover:bg-gray-200 w-full text-left px-4 py-2">
-                  Settings
+                <button className="  text-sm text-gray-700 hover:bg-gray-100 w-full text-left px-5 py-2 transition-colors duration-150">
+                  <div className="flex justify-start item-center gap-2">
+                    <div>
+                      <IoSettingsOutline />
+                    </div>
+                    <div> Settings</div>
+                  </div>
                 </button>
               </div>
             )}

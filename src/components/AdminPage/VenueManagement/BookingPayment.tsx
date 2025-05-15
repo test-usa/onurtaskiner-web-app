@@ -25,6 +25,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import venuphoto1 from "@/assets/images/venuphoto1.png";
+import Link from "next/link";
 
 export type Venue = {
   id: string;
@@ -149,7 +150,7 @@ export const columns = (
   },
   {
     accessorKey: "venueName",
-    header: "Venue Name",
+    header: "Booking Name",
     cell: ({ row }) => {
       const venueName = row.getValue("venueName") as string;
       const venuePhotoUrl = row.original.photo;
@@ -204,7 +205,7 @@ export const columns = (
       return (
         <div className="flex items-center justify-start">
           <span
-            className={`capitalize px-2 py-1 rounded-full text-xs font-semibold ${bg} ${textColor}`}
+            className={`capitalize px-2 py-1 rounded text-xs font-semibold ${bg} ${textColor}`}
           >
             {text}
           </span>
@@ -212,6 +213,7 @@ export const columns = (
       );
     },
   },
+
   {
     accessorKey: "address",
     header: "Address",
@@ -233,22 +235,23 @@ export const columns = (
     id: "details",
     header: () => <div className="text-center">Action</div>,
     cell: ({ row }) => (
-      <div className="flex items-center justify-center space-x-2">
-        <a
-          href="/admin/chat-conversation"
-          onClick={() => alert(`Chat with ${row.getValue("venueName")}`)}
-          className="flex justify-center items-center bg-[var(--color-grayTwo)] w-[89px] h-auto px-[10px] py-[7px] rounded-[8px] gap-[10px] text-[var(--color-primary)] cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
-        >
-          Chat
-        </a>
-
-        <a
-          href="/admin/user-payment"
-          onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
-          className="text-[var(--color-accent)] underline cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
-        >
-          Details
-        </a>
+      <div className="flex items-center justify-center space-x-5 w-[188px] ml-40">
+        <div>
+          <Link
+            href="/admin/chat-conversation"
+            className="flex justify-center items-center bg-[var(--color-grayTwo)] w-[89px] h-[28px] px-[10px] py-[7px] rounded-[8px] gap-[10px] text-[var(--color-primary)] cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
+          >
+            Chat
+          </Link>
+        </div>
+        <div>
+          <Link
+            href={`/admin/booking-payment/details/${row.original.id}`}
+            className="text-[var(--color-accent)] underline cursor-pointer font-roboto font-medium text-[14px] leading-[14px]"
+          >
+            Details
+          </Link>
+        </div>
       </div>
     ),
   },

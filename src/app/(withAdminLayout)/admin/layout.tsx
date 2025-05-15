@@ -66,6 +66,15 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Hide Navbar on specific and dynamic routes
+  const hideNavBar =
+    pathname === "/admin/active-user-details" ||
+    pathname === "/admin/user-payment" ||
+    pathname === "/admin/memnoy-refund/" ||
+    pathname.startsWith("/admin/booking-payment/") ||
+    pathname.startsWith("/admin/memnoy-refund") ||
+    pathname.startsWith("/admin/venue-management/");
+
   return (
     <div className="flex flex-col min-h-screen bg-[#F4F4F4] overflow-hidden">
       <div className="flex flex-col md:flex-row h-screen overflow-hidden">
@@ -76,13 +85,13 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
             collapsed ? "w-[80px]" : "w-74"
           )}
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 h-[48px] ">
             <div className="flex items-center gap-2">
-              <div className=" w-[40px] h-[40px]">
+              <div className=" w-[42px] h-[48px]">
                 <Image src={logo} alt="Logo" width={52} height={52} />
               </div>
               {!collapsed && (
-                <h1 className="text-xl font-bold bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text">
+                <h1 className="text-[36px] font-bold leading-normal font-['Sansita_Swashed'] bg-gradient-to-b from-[#408DF0] to-[#0E579E] text-transparent bg-clip-text">
                   Blinqo
                 </h1>
               )}
@@ -105,7 +114,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                 href={item.href}
                 className={cn(
                   "flex items-center gap-4 px-4 py-3 rounded transition",
-                  pathname === item.href
+                  pathname.startsWith(item.href)
                     ? "bg-[var(--color-accent)] text-white"
                     : "hover:bg-gray-200 dark:hover:bg[var(--color-textThree)]"
                 )}
@@ -134,7 +143,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
         </aside>
 
         {/* Mobile Topbar */}
-        <div className=" md:hidden sticky top-0 z-20 bg-black/20 backdrop-blur-lg shadow-sm flex justify-between items-center px-4 py-3">
+        <div className=" md:hidden sticky top-0 z-20 bg-[#003366]/20 backdrop-blur-lg shadow-sm flex justify-between items-center px-4 py-3">
           <Image src={logo} alt="Logo" width={40} height={40} />
           <div className="flex items-center gap-4">
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -215,10 +224,11 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           )}
         >
           {/* Desktop Topbar */}
-          <div className="hidden md:block sticky top-0 z-10">
-            <AdminNavBar />
-          </div>
-
+          {!hideNavBar && (
+            <div className="hidden md:block sticky top-0 z-10">
+              <AdminNavBar />
+            </div>
+          )}
           <div className="">{children}</div>
         </main>
       </div>
