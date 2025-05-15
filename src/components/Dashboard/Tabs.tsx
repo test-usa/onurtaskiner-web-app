@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Wrapper from "../wrapper/wrapper";
+// import Wrapper from "../wrapper/wrapper";
 import { cn } from "@/lib/utils";
 
 const Tabs = () => {

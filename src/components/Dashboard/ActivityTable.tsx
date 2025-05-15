@@ -13,12 +13,6 @@ import { AvatarFallback } from "@radix-ui/react-avatar";
 
 const invoices = [
   {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
     invoice: "INV002",
     paymentStatus: "Pending",
     totalAmount: "$150.00",
@@ -48,7 +42,6 @@ const invoices = [
     totalAmount: "$450.00",
     paymentMethod: "Credit Card",
   },
-
 ];
 
 export const ActivityTable = () => {
@@ -64,8 +57,8 @@ export const ActivityTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice) => (
-            <TableRow key={invoice.invoice}>
+          {invoices.map((invoice, index) => (
+            <TableRow key={index}>
               <TableCell className="font-medium">
                 <Avatar className="w-10 h-10">
                   <AvatarImage
@@ -75,9 +68,13 @@ export const ActivityTable = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </TableCell>
-           
-              <TableCell className="text-[15px] leading-[100%]">New Booking: Venue A</TableCell>
-              <TableCell className="text-[15px] leading-[100%]">25 March,2025</TableCell>
+
+              <TableCell className="text-[15px] leading-[100%]">
+                New Booking: Venue A
+              </TableCell>
+              <TableCell className="text-[15px] leading-[100%]">
+                25 March,2025
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

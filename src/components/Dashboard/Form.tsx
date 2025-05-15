@@ -11,32 +11,32 @@ import { Button } from "@/components/ui/button";
 
 const Form = () => {
   return (
-    <div className="w-full">
-      <h1 className="text-sm sm:text-xl">User Information</h1>
+    <div className="w-full font-Robot">
+      <h1 className="text-sm sm:text-[20px]">User Information</h1>
       <div className="space-y-3 my-4">
         <div className="w-full flex flex-col sm:flex-row items-center gap-4">
           <div className="flex flex-col w-full space-y-3">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="text-sm sm:text-[15px]">Email</label>
             <input
               type="email"
               placeholder="Enter your mail"
-              className="bg-white py-2 px-4 w-full rounded-lg"
+              className="bg-white py-2 px-4 w-full rounded-lg text-xs sm:text-sm "
             />
           </div>
           <div className="flex flex-col w-full  space-y-3">
-            <label htmlFor="email">Phone</label>
+            <label htmlFor="email" className="text-sm sm:text-[15px] ">Phone</label>
             <input
               type="tel"
               placeholder="Enter your phone"
-              className="bg-white py-2 px-4 w-full rounded-lg"
+              className="bg-white py-2 px-4 w-full rounded-lg text-xs sm:text-sm "
             />
           </div>
         </div>
         <div className="flex flex-col w-full space-y-3">
-          <label htmlFor="email">Role</label>
+          <label htmlFor="email" className="text-sm sm:text-[15px]">Role</label>
           <Select>
-            <SelectTrigger className="w-full bg-white py-5">
-              <SelectValue placeholder="Role" />
+            <SelectTrigger className="w-full bg-white py-5 ">
+              <SelectValue placeholder="Role" className="text-xs sm:text-sm " />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -51,12 +51,12 @@ const Form = () => {
           </Select>
         </div>
         <div className="flex flex-col w-full space-y-3">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="text-sm sm:text-[15px]">Email</label>
           <textarea
             placeholder="Additional info"
             rows={4}
             cols={50}
-            className="bg-white py-2 px-4 w-full rounded-lg"
+            className="bg-white py-2 px-4 w-full rounded-lg text-xs sm:text-sm "
           />
         </div>
 

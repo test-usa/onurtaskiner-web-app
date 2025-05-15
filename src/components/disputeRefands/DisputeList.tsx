@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import disputeImg from "../../assets/images/dispute.png";
+import Link from "next/link";
 
 export default function DisputeList() {
   const disputes = [
@@ -110,22 +111,22 @@ export default function DisputeList() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2 pt-6">
-                  <a href="/admin/user-payment">
+                  <Link href="/admin/user-payment">
                     <button className="rounded-lg bg-[#003366] px-4 py-2 text-sm text-white w-full sm:w-auto">
                       View Details
                     </button>
-                  </a>
-                  <a href="/admin/chat-conversation">
+                  </Link>
+                  <Link href="/admin/chat-conversation">
                     <button className="rounded-lg border border-[#003366] bg-white px-4 py-2 text-sm text-[#003366] w-full sm:w-auto">
                       Chat
                     </button>
-                  </a>
+                  </Link>
 
-                  <a href="/admin/money-refund">
+                  <Link href="/admin/money-refund">
                     <button className="rounded-lg bg-[#D4AF37] px-4 py-2 text-sm text-white w-full sm:w-auto">
                       Pay Refund
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

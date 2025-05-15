@@ -1,9 +1,17 @@
-"use client"
+"use client";
 
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceDot, LabelList } from "recharts"
-import { ArrowUpRight, MapPin } from "lucide-react"
-import Image from "next/image"
-import bookingImg from "@/assets/images/booking.png"
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  Tooltip,
+  ResponsiveContainer,
+  ReferenceDot,
+  LabelList,
+} from "recharts";
+import { ArrowUpRight, MapPin } from "lucide-react";
+import Image from "next/image";
+import bookingImg from "@/assets/images/booking.png";
 
 const data = [
   { name: "Jan", bookings: 3200 },
@@ -12,7 +20,7 @@ const data = [
   { name: "April", bookings: 4700 },
   { name: "May", bookings: 5100 },
   { name: "June", bookings: 5700 },
-]
+];
 
 const venues = [
   {
@@ -30,7 +38,7 @@ const venues = [
     location: "New York",
     image: bookingImg,
   },
-]
+];
 
 export default function BookingsDashboard() {
   return (
@@ -38,21 +46,35 @@ export default function BookingsDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Bookings Section */}
         <div>
-          <h1 className="text-2xl font-medium text-[#003366] mb-4">Bookings</h1>
+          <h1 className="text-[var(--color-accent)] text-sm sm:text-lg tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-Robot pb-5">
+            Bookings
+          </h1>
           <div className="w-full rounded-xl bg-white p-4 shadow-md h-[238px]">
             <div className="w-full h-full">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={data}>
                   <defs>
-                    <linearGradient id="colorBookings" x1="0" y1="0" x2="0" y2="1">
+                    <linearGradient
+                      id="colorBookings"
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
                       <stop offset="0%" stopColor="#B1B9F8" stopOpacity={0.9} />
                       <stop offset="100%" stopColor="#B1B9F8" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <XAxis dataKey="name" tick={{ fill: "#6B7280", fontSize: 12 }} />
-                  <YAxis hide />
+                  <XAxis
+                    dataKey="name"
+                    axisLine={false}
+                    tick={{ fill: "#6B7280", fontSize: 12 }}
+                  />
+                  
                   <Tooltip
-                    formatter={(value) => `${(value as number).toLocaleString()}k`}
+                    formatter={(value) =>
+                      `${(value as number).toLocaleString()}k`
+                    }
                     labelStyle={{ color: "#1F2937" }}
                   />
                   <Area
@@ -60,6 +82,7 @@ export default function BookingsDashboard() {
                     dataKey="bookings"
                     stroke="#3B82F6"
                     strokeWidth={2}
+                   
                     fill="url(#colorBookings)"
                     activeDot={{ r: 6 }}
                   >
@@ -69,7 +92,14 @@ export default function BookingsDashboard() {
                       formatter={(val: number) => `${(val / 1000).toFixed(1)}k`}
                     />
                   </Area>
-                  <ReferenceDot x="May" y={5100} r={5} fill="#2563EB" stroke="white" strokeWidth={2} />
+                  <ReferenceDot
+                    x="May"
+                    y={5100}
+                    r={5}
+                    fill="#2563EB"
+                    stroke="white"
+                    strokeWidth={2}
+                  />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -78,9 +108,11 @@ export default function BookingsDashboard() {
 
         {/* Top Venues Section */}
         <div>
-          <h2 className="text-2xl font-medium text-[#003366] mb-4">Top Venues</h2>
-          <div className=" p-3 h-[238px] ">
-            <div className="space-y-3 ">
+          <h2 className="text-[var(--color-accent)] text-sm sm:text-lg tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-Robot pb-5">
+            Top Venues
+          </h2>
+          <div className=" h-[238px] ">
+            <div className="space-y-8">
               {venues.map((venue, index) => (
                 <div
                   key={index}
@@ -95,7 +127,9 @@ export default function BookingsDashboard() {
                       className="rounded-md object-cover"
                     />
                     <div>
-                      <p className="text-base font-semibold text-[#333333]">{venue.name}</p>
+                      <p className="text-base font-semibold text-[#333333]">
+                        {venue.name}
+                      </p>
                       <div className="flex items-center text-xs text-gray-500 gap-1">
                         <MapPin size={12} />
                         <span>{venue.location}</span>
@@ -103,9 +137,8 @@ export default function BookingsDashboard() {
                     </div>
                   </div>
                   <div className="h-5 w-5 flex items-center justify-center rounded-full bg-[#D9D9D9]">
-                          <ArrowUpRight className="text-[#003366]" />
+                    <ArrowUpRight className="text-[#003366]" />
                   </div>
-            
                 </div>
               ))}
             </div>
@@ -113,5 +146,5 @@ export default function BookingsDashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
