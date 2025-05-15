@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Wrapper from "@/components/wrapper/wrapper";
 import { MapPin } from "lucide-react";
-import Venue from "@/components/Dashboard/Venue";
+// import Venue from "@/components/Dashboard/Venue";
 import Status from "@/components/Dashboard/Status";
 import Form from "@/components/Dashboard/Form";
 import Service from "@/components/Dashboard/Service";

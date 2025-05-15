@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EventOne from "@/assets/images/serviceOne.jpg";
 import EventTow from "@/assets/images/serviceTwo.jpg";
 import EventThree from "@/assets/images/serviceThree.jpg";
@@ -6,7 +6,7 @@ import EventFour from "@/assets/images/serviceFour.jpg";
 import EventFive from "@/assets/images/serviceFive.jpg";
 import EventSix from "@/assets/images/serviceSix.jpg";
 const GridImage = () => {
-  const [tabChange] = useState<boolean>(true);
+  // const [tabChange] = useState<boolean>(true);
   const event = [
     {
       eventTitle: "Tech Innovators Summit 2025",

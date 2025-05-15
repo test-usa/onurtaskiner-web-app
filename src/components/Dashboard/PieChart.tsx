@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryPie, VictoryLabel, VictoryTheme } from "victory";
+import { VictoryPie, VictoryLabel } from "victory";
 const PieCharts = () => {
   const donutData = [
     { x: "Subscriptions", y: 26.9 },

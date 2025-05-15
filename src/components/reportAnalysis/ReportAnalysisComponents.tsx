@@ -9,16 +9,15 @@ import CalculateCard from "../reuseabelComponents/calculateCard";
 import RevenueDashboard from "./RevenueDashboard";
 import ActiveUsersDashboard from "./ActiveUsersDashboard";
 import BookingsDashboard from "./BookingsDashboard";
+import Title from "../reuseabelComponents/Title";
 
 const ReportAnalysisComponents = () => {
   return (
     <div className="w-full  mx-auto  ">
       <div className="flex justify-between items-center mb-10">
-        <h1 className="text-4xl font-medium text-primary ">
-          Reports & Analytics
-        </h1>
+        <Title title="Reports & Analytics" />
         <Select>
-          <SelectTrigger className="w-[120px] bg-white border-[#EBEBEB] text-base text-primary">
+          <SelectTrigger className="max-w-[180px] bg-white border-[#EBEBEB] text-base text-primary">
             <SelectValue placeholder="Select time" />
           </SelectTrigger>
           <SelectContent>
@@ -29,7 +28,7 @@ const ReportAnalysisComponents = () => {
           </SelectContent>
         </Select>
       </div>
-      <h2 className="text-xl text-primary font-semibold pb-5">Key Metrics</h2>
+      <h2 className="text-[var(--color-accent)] text-sm sm:text-lg tracking-[-0.4px] leading-[12px] sm:leading-[24px] font-semibold font-Robot pb-5">Key Metrics</h2>
 
       <CalculateCard />
       <RevenueDashboard />

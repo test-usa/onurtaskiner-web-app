@@ -52,6 +52,7 @@ export function LineCharts({ data }: BookingsChartProps) {
             stroke="rgba(255,255,255,0.1)"
             vertical={false}
           />
+          
           <XAxis
             dataKey="name"
             tick={{ fill: "rgba(255,255,255,0.6)", fontSize: 12 }}
