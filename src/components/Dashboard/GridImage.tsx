@@ -56,10 +56,10 @@ const GridImage = () => {
           <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent bg-opacity-50 brightness-75 group-hover:brightness-100 transition-all duration-500" />
 
           <div className="relative z-10 p-4 text-white transition-opacity duration-500 group-hover:opacity-0">
-            <h1 className="text-xl sm:text-2xl font-semibold">
+            <h1 className="text-xl sm:text-2xl font-medium font-Pop">
               {data.eventTitle}
             </h1>
-            <p className="text-sm text-[var(--color-secondary)] bg-white/5 inline-block">
+            <p className="text-sm text-[var(--color-secondary)] bg-white/5 inline-block font-Robot">
               {data.eventOwner}
             </p>
           </div>

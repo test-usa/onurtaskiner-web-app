@@ -71,6 +71,7 @@ const BarCharts = () => {
               border: "none",
               borderRadius: "8px",
               color: "#fff",
+              fontSize: 12,
             }}
           />
           <Bar dataKey="pv" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={45} />
