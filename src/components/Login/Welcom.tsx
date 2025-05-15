@@ -14,7 +14,7 @@ const Welcome = () => {
           <h1 className="text-4xl sm:text-5xl font-semibold font-Robot mb-2">
             Welcome Back!
           </h1>
-          <p className="text-sm text-center max-w-xs">
+          <p className="text-sm text-center max-w-xs font-Montserrat tracking-widest leading-[20px]">
             To keep connected with us please login with your personal info
           </p>
         </div>
