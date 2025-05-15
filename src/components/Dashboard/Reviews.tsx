@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const Reviews = () => {
   const [tabChange] = useState<boolean>(false);
   return (
-    <div className="w-full flex flex-col gap-y-8">
+    <div className="w-full flex flex-col gap-y-8 font-Robot">
       {/* star section */}
       <div className="flex flex-col w-full">
         <>
@@ -459,7 +459,7 @@ const Reviews = () => {
 
       {/* users reviews */}
       <div className="space-y-3">
-        <h1>Reviews</h1>
+        <h1 className="text-sm sm:text-[16px] font-semibold">Reviews</h1>
         {/* main review description */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -474,7 +474,7 @@ const Reviews = () => {
             </div>
 
             <div>
-              <h1>Floyd Miles</h1>
+              <h1 className="text-sm sm:text-[16px] font-medium">Floyd Miles</h1>
               <div className="flex items-center space-x-0.5">
                 <>
                   <svg

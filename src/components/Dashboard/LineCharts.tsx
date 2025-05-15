@@ -7,10 +7,10 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis
+  YAxis,
 } from "recharts";
 const LineCharts = () => {
-//   const COLORS = ["#D1A13D", "#2D4CE0", "#58B1AC"];
+  //   const COLORS = ["#D1A13D", "#2D4CE0", "#58B1AC"];
   const chartData = [
     { name: "Jan", eventPlanner: 1000, venueOwner: 900, serviceProvider: 800 },
     {
@@ -45,7 +45,7 @@ const LineCharts = () => {
     },
   ];
   return (
-    <div className="sm:w-[60%] w-full">
+    <div className="xl:w-[60%] w-full font-Robot">
       <Card className=" bg-[var(--color-accent)] text-white h-full">
         <div className="h-full">
           <ResponsiveContainer width="100%" height={300}>
@@ -59,9 +59,9 @@ const LineCharts = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#1a4d7c" />
-              <XAxis dataKey="name" tick={{ fill: "#C0C0C0" }} />
+              <XAxis dataKey="name" tick={{ fill: "#C0C0C0", fontSize: 14 }} />
               <YAxis
-                tick={{ fill: "#C0C0C0" }}
+                tick={{ fill: "#C0C0C0", fontSize: 14 }}
                 tickFormatter={(value) => `${value / 1000}k`}
                 domain={[0, 10000]}
                 ticks={[
@@ -74,6 +74,7 @@ const LineCharts = () => {
                 contentStyle={{
                   backgroundColor: "#003366",
                   borderColor: "#1a4d7c",
+                  fontSize: 14,
                 }}
                 labelStyle={{ color: "#ffffff" }}
                 itemStyle={{ color: "#ffffff" }}
@@ -104,18 +105,18 @@ const LineCharts = () => {
               />
             </LineChart>
           </ResponsiveContainer>
-          <div className="flex justify-center space-x-8 mt-2">
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-[#ffd700] rounded-full mr-2"></div>
-              <span>Event Planner</span>
+          <div className="flex flex-wrap items-center justify-center space-x-8 mt-2">
+            <div className="flex flex-col space-y-2 items-center">
+              <div className="w-[130px] h-[3px] bg-[#ffd700] rounded mr-2"></div>
+              <span className="text-xs sm:text-sm ">Event Planner</span>
             </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-[#4287f5] rounded-full mr-2"></div>
-              <span>Venue Owner</span>
+            <div className="flex flex-col space-y-2 items-center">
+              <div className="w-[130px] h-[3px] bg-[#4287f5] rounded-full mr-2"></div>
+              <span className="text-xs sm:text-sm ">Venue Owner</span>
             </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-[#8fffff] rounded-full mr-2"></div>
-              <span>Service Provider</span>
+            <div className="flex flex-col space-y-2 items-center">
+              <div className="w-[130px] h-[3px] bg-[#8fffff] rounded-full mr-2"></div>
+              <span className="text-xs sm:text-sm ">Service Provider</span>
             </div>
           </div>
         </div>

@@ -2,11 +2,11 @@ import React from "react";
 
 const Status = () => {
   return (
-    <div className="space-y-7">
-      <h1 className="text-sm sm:text-2xl">Account Status</h1>
+    <div className="space-y-7 font-Robot">
+      <h1 className="text-sm sm:text-[20px]">Account Status</h1>
       <div className="flex justify-between ">
         <div>
-          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
+          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-[16px]">
             Active
           </h1>
           <p className="text-xs sm:text-sm">Toggle user status</p>
@@ -28,7 +28,7 @@ const Status = () => {
       </div>
       <div className="flex justify-between ">
         <div>
-          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
+          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-[16px]">
             Suspended
           </h1>
           <p className="text-xs sm:text-sm">Toggle user status</p>
@@ -50,7 +50,7 @@ const Status = () => {
       </div>
       <div className="flex justify-between ">
         <div>
-          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
+          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-[16px]">
             Reset Password
           </h1>
           <p className="text-xs sm:text-sm">Toggle user status</p>
@@ -72,7 +72,7 @@ const Status = () => {
       </div>
       <div className="flex justify-between ">
         <div>
-          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-lg">
+          <h1 className="text-[var(--color-accent)] font-semibold text-sm sm:text-[16px]">
             View Booking History
           </h1>
           <p className="text-xs sm:text-sm">Toggle user status</p>

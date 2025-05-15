@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Wrapper from "@/components/wrapper/wrapper";
 import { MapPin } from "lucide-react";
-import Venue from "@/components/Dashboard/Venue";
+// import Venue from "@/components/Dashboard/Venue";
 import Status from "@/components/Dashboard/Status";
 import Form from "@/components/Dashboard/Form";
 import Service from "@/components/Dashboard/Service";
@@ -37,7 +37,7 @@ const UserProfile = () => {
           <div className="flex flex-col lg:flex-row gap-10">
             <div>
               <div className="flex items-center space-x-3">
-                <h1>Alex Jones</h1>
+                <h1 className="text-sm sm:text-[16px] font-semibold">Alex Jones</h1>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
@@ -54,7 +54,7 @@ const UserProfile = () => {
                   />
                 </svg>
               </div>{" "}
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <p>@alex.jones</p>
                 <p>Photographer</p>
                 <div className="flex items-center space-x-1">

@@ -32,7 +32,7 @@ const Management = () => {
           </Select>
         </div>
         {/* Right side - Line chart */}
-        <div className="flex flex-col sm:flex-row items-center gap-x-4 w-full space-y-3">
+        <div className="flex flex-col xl:flex-row  gap-x-4 w-full space-y-3">
           <LineCharts />
           <PieCharts />
         </div>

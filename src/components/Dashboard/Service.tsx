@@ -13,9 +13,9 @@ const Service = () => {
         <button
           onClick={() => setTabsChange(!tabsChange)}
           className={cn(
-            "text-[var(--color-boldText)] text-sm sm:text-lg cursor-pointer",
+            "text-[var(--color-boldText)] text-sm sm:text-[16px] cursor-pointer",
             tabsChange &&
-              "text-[var(--color-secondary)] font-semibold border-b-[1px] border-[var(--color-secondary)] text-sm sm:text-lg"
+              "text-[var(--color-secondary)]  border-b-[1px] border-[var(--color-secondary)] text-sm sm:text-lg"
           )}
         >
           Work
@@ -23,9 +23,9 @@ const Service = () => {
         <button
           onClick={() => setTabsChange(!tabsChange)}
           className={cn(
-            "text-[var(--color-boldText)] text-sm sm:text-lg cursor-pointer",
+            "text-[var(--color-boldText)] text-sm sm:text-[16px] cursor-pointer",
             !tabsChange &&
-              "text-[var(--color-secondary)] font-semibold border-b-[1px] border-[var(--color-secondary)] text-sm sm:text-lg"
+              "text-[var(--color-secondary)]  border-b-[1px] border-[var(--color-secondary)] text-sm sm:text-lg"
           )}
         >
           Review
