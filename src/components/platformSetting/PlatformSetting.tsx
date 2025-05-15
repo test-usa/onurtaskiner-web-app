@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { EllipsisVertical, Plus } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { EllipsisVertical, Plus } from "lucide-react";
+import Title from "../reuseabelComponents/Title";
 
 export default function PlatformSettings() {
-
   return (
     <div className="">
-      <h1 className="md:text-4xl text-2xl font-medium text-primary ">Platform Setting</h1>
+      <Title title="Platform Setting"></Title>
       {/* Booking Commissions Section */}
-    <div className="mb-10 pt-10">
+      <div className="mb-10 pt-10">
         <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
-          <h2 className="text-2xl md:text-[28px] font-bold text-[#1D1B28]">
+          <h2 className="text-2xl md:text-[28px] font-bold text-[#1D1B28] font-Robot">
             Booking Commissions
           </h2>
           <EllipsisVertical className="h-5 w-5 text-[#D4AF37]" />
@@ -24,11 +24,7 @@ export default function PlatformSettings() {
               Venue :
             </label>
             <div className="relative  w-full">
-              <Input
-                type="text"
-                className="pr-8 w-full"
-                placeholder="5%"
-              />
+              <Input type="text" className="pr-8 w-full" placeholder="5%" />
             </div>
           </div>
 
@@ -37,17 +33,13 @@ export default function PlatformSettings() {
               Service Provider :
             </label>
             <div className="relative  w-full">
-              <Input
-                type="text"
-                placeholder="5%"
-                className="pr-8 w-full"
-              />
+              <Input type="text" placeholder="5%" className="pr-8 w-full" />
             </div>
           </div>
         </div>
 
         <div className="flex justify-end">
-          <Button className="bg-[#003366] hover:bg-[#0a3b6d]/90">
+          <Button className="bg-[#003366] hover:bg-[#0a3b6d]/90 font-Robot">
             Update Commissions
           </Button>
         </div>
@@ -56,7 +48,9 @@ export default function PlatformSettings() {
       {/* Compare Plans Section */}
       <div>
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl md:text-[28px] font-bold text-[#1D1B28]">Compare Plans</h2>
+          <h2 className="text-2xl md:text-[28px] font-semibold text-[#1D1B28] font-Robot">
+            Compare Plans
+          </h2>
           <Button variant="ghost" className="h-8 px-2 text-[#D4AF37]">
             Add <Plus className="h-4 w-4 ml-1" />
           </Button>
@@ -66,8 +60,12 @@ export default function PlatformSettings() {
           {/* Standard Plan */}
           <div className="p-6 border-r-2 border-l-2  ">
             <div className="text-center mb-3">
-              <p className="text-base font-bold text-[#1D1B28] mb-1">Standard</p>
-              <p className="md:text-[28px] text-lg font-bold text-[#1D1B28]">Free</p>
+              <p className="text-base font-bold text-[#1D1B28] mb-1">
+                Standard
+              </p>
+              <p className="md:text-[28px] text-lg font-bold text-[#1D1B28]">
+                Free
+              </p>
             </div>
 
             <button className="w-full mb-2 px-2 py-3 border border-transparent rounded-lg hover:border-[#50496E33]">
@@ -80,12 +78,16 @@ export default function PlatformSettings() {
               Only Plan
             </button>
           </div>
-          
+
           {/* Featured Plan */}
           <div className="p-6 ">
             <div className="text-center mb-6">
-              <p className="text-base font-bold text-[#003366] mb-1">Featured</p>
-              <p className="md:text-[28px] text-lg font-bold text-[#1D1B28]">$20</p>
+              <p className="text-base font-bold text-[#003366] mb-1">
+                Featured
+              </p>
+              <p className="md:text-[28px] text-lg font-bold text-[#1D1B28]">
+                $20
+              </p>
             </div>
             <button className="w-full mb-2 px-2 py-3 border border-transparent rounded-lg hover:bg-[#003366] hover:text-[#E0E0E0]">
               Start with Plus
@@ -100,5 +102,5 @@ export default function PlatformSettings() {
         </div>
       </div>
     </div>
-  )
+  );
 }

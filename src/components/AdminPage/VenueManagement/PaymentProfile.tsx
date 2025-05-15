@@ -29,7 +29,7 @@ const PaymentProfile = () => {
 
       {/* Amenitics */}
       <div>
-        <h2 className="text-[#333] font-roboto text-[20px] font-semibold leading-[120%] capitalize">
+        <h2 className="text-[#333] font-Robot text-[20px] font-semibold leading-[120%] capitalize">
           Amenities
         </h2>
         <div className="flex justify-baseline items-center mt-4 mb-4 space-x-7.5">

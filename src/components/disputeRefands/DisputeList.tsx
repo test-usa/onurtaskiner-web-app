@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import disputeImg from "../../assets/images/dispute.png";
+import Link from "next/link";
 
 export default function DisputeList() {
   const disputes = [
@@ -33,9 +34,33 @@ export default function DisputeList() {
       venue: "Sydney Opera House",
       disputeNumber: 6,
     },
+    {
+      id: 12351,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
+    {
+      id: 12352,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
+    {
+      id: 12353,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
+    {
+      id: 12354,
+      user: "Bruno Mars",
+      venue: "Sydney Opera House",
+      disputeNumber: 6,
+    },
   ];
 
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
   const totalPages = Math.ceil(disputes.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -61,13 +86,13 @@ export default function DisputeList() {
           <div key={index} className="rounded-lg bg-[#E1E3E9] shadow-sm ">
             <div className="flex flex-col sm:flex-row gap-4 mb-3">
               {/* Image section */}
-              <div className="w-full sm:w-[200px] flex-shrink-0">
+              <div className="w-full sm:w-[220px] flex-shrink-0">
                 <Image
                   src={disputeImg}
                   alt="disputeImg"
-                  width={200}
-                  height={150}
-                  className="h-[150px] w-full rounded-md object-cover"
+                  width={220}
+                  height={170}
+                  className="h-[170px] w-full rounded-md object-cover"
                 />
               </div>
 
@@ -86,22 +111,22 @@ export default function DisputeList() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2 pt-6">
-                  <a href="/admin/user-payment">
+                  <Link href="/admin/user-payment">
                     <button className="rounded-lg bg-[#003366] px-4 py-2 text-sm text-white w-full sm:w-auto">
                       View Details
                     </button>
-                  </a>
-                  <a href="/admin/chat-conversation">
+                  </Link>
+                  <Link href="/admin/chat-conversation">
                     <button className="rounded-lg border border-[#003366] bg-white px-4 py-2 text-sm text-[#003366] w-full sm:w-auto">
                       Chat
                     </button>
-                  </a>
+                  </Link>
 
-                  <a href="/admin/money-refund">
+                  <Link href="/admin/money-refund">
                     <button className="rounded-lg bg-[#D4AF37] px-4 py-2 text-sm text-white w-full sm:w-auto">
                       Pay Refund
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

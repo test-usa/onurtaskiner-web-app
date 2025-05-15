@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 const InputForm = () => {
+  const _id = "12345";
   return (
     <div>
       {/* Showing  Form Data */}
@@ -11,7 +13,7 @@ const InputForm = () => {
           <div className="flex-1 min-w-[395px]">
             <Label
               htmlFor="event"
-              className="mb-2 text-[20px] font-normal leading-6 text-[var(--color-textPrimary)] font-['Roboto'] truncate"
+              className="mb-2 text-[20px] font-normal leading-6 text-[var(--color-textPrimary)] font- truncate"
             >
               Event Name
             </Label>
@@ -177,16 +179,16 @@ const InputForm = () => {
         </div>
 
         <div className="flex space-x-2">
-          <div>
-            <Button className="bg-[var(--color-secondary)] text-white hover:opacity-90 w-26 h-9">
+          <Link href={`/admin/money-refund/${_id}`}>
+            <Button className="bg-[var(--color-secondary)] text-white hover:opacity-90 h-[36px] w-[91px]">
               Pay Refund
             </Button>
-          </div>
+          </Link>
 
           <div>
             <Button
-              className="bg-white text-[var(--color-secondary)] hover:opacity-90 w-26 h-9"
               variant="outline"
+              className="text-yellow-500 border border-yellow-500 h-[36px] w-[91px]"
             >
               Declined
             </Button>

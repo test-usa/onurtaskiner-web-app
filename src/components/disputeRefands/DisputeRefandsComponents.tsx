@@ -1,14 +1,13 @@
 import React from "react";
 import CalculateCard from "../reuseabelComponents/calculateCard";
 import DisputeList from "./DisputeList";
+import Title from "../reuseabelComponents/Title";
 
 const DisputeRefandsComponents = () => {
   return (
     <div className="w-full  mx-auto  ">
       <div className="flex justify-between items-center mb-10">
-        <h1 className="md:text-4xl text-2xl font-medium text-primary ">
-          Dispute & Refund Management
-        </h1>
+        <Title title="Dispute & Refund Management"></Title>
       </div>
       <h2 className="text-xl text-primary font-semibold pb-5">Key Metrics</h2>
       <CalculateCard />

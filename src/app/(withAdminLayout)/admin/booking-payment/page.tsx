@@ -7,7 +7,7 @@ const bookingPaymentPage = () => {
   return (
     <div className="">
       <Wrapper>
-        <div className="space-y-4 ">
+        <div className="space-y-[28px]">
           <Title title="Booking Payment" />
           <CalculateCard />
           <BookingPayment />

@@ -40,7 +40,7 @@ const MapReuseComponent = () => {
 
   return (
     <div className="w-full ">
-      <h2 className="text-1xl font-semibold text-start text-[#0C121D] mb-4 ">
+      <h2 className="text-[20px] font-Robot font-semibold text-start text-[#0C121D] mb-4 mt-4 ">
         Map
       </h2>
       <div className="mapouter relative w-full h-[389px] mb-6">

@@ -273,8 +273,7 @@ export const getColumns = (
       <ul>
         <div className="flex justify-end">
           <a
-            href="/admin/active-user-details"
-            onClick={() => alert(`Details for ${row.getValue("venueName")}`)}
+            href={`/admin/venue-management/${row.original.id}`}
             className="text-[var(--color-accent)] underline cursor-pointer w-[44px] h-[16px] font-roboto font-medium text-[14px] leading-[14px] flex items-center justify-end"
           >
             Details
