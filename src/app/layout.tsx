@@ -1,26 +1,8 @@
 import type { Metadata } from "next";
-import { Poppins, Outfit, Roboto } from "next/font/google";
 import "./globals.css";
 import ReduxProviderWrapper from "@/redux/redux-provider/reduxProviderWrapper";
 import { DashboardToaster } from "@/components/ui/Toster";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-poppins",
-});
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-roboto",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-outfit",
-});
 
 
 export const metadata: Metadata = {
@@ -35,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${roboto.variable} ${outfit.variable}  antialiased`}>
+      <body
+        className={`  antialiased`}
+      >
         <ReduxProviderWrapper>{children}</ReduxProviderWrapper>
         <DashboardToaster />
       </body>
