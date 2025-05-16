@@ -8,7 +8,7 @@ export function DashboardToaster() {
       position="top-right"
       toastOptions={{
         style: {
-          background: "#1f2937",
+          background: "#003366",
           color: "#f9fafb", //
           border: "1px solid #334155",
           padding: "14px 16px",
