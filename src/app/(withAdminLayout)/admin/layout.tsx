@@ -75,7 +75,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 
   const handleLogout = () => {
     dispatch(logOut());
-    router.push("/login");
+    router.push("/");
   };
   const hideNavBar =
     pathname === "/admin/active-user-details" ||

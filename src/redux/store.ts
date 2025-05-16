@@ -24,6 +24,7 @@ export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     auth: persiterReducer,
+    
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
