@@ -26,6 +26,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import AdminNavBar from "@/components/AdminPage/Shared/AdminNavBar";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/redux-hook";
+import { logOut } from "@/redux/features/auth/authSlice";
 
 interface NavItem {
   title: string;
@@ -73,14 +74,8 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const user = useAppSelector((store) => store.auth.user);
 
   const handleLogout = () => {
-    // Clear any auth tokens (optional if you use cookies/localStorage)
-    localStorage.removeItem("accessToken");
-
-    // Dispatch logout action to Redux
-    dispatch(logout());
-
-    // Redirect to home or login page
-    router.push("/");
+    dispatch(logOut());
+    router.push("/login");
   };
   const hideNavBar =
     pathname === "/admin/active-user-details" ||
