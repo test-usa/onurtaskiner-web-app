@@ -2,12 +2,12 @@ import LoginForm from "@/components/Login/Form";
 import Welcome from "@/components/Login/Welcom";
 import React from "react";
 
-const Page = async () => {
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("janina");
-    }, 2000);
-  }); // just see loader use-case only
+const Page =  () => {
+  // await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve("janina");
+  //   }, 2000);
+  // }); // just see loader use-case only
   
   return (
     <div className="bg-[var(--color-bgPrimary)] px-4 sm:px-20">
