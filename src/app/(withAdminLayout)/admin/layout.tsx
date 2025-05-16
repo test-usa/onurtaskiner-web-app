@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -25,6 +25,8 @@ import profile from "../../../assets/images/profile.png";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import AdminNavBar from "@/components/AdminPage/Shared/AdminNavBar";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks/redux-hook";
+import { logOut } from "@/redux/features/auth/authSlice";
 
 interface NavItem {
   title: string;
@@ -67,6 +69,14 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const user = useAppSelector((store) => store.auth.user);
+
+  const handleLogout = () => {
+    dispatch(logOut());
+    router.push("/");
+  };
   const hideNavBar =
     pathname === "/admin/active-user-details" ||
     pathname === "/admin/user-payment" ||
@@ -136,7 +146,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                   ? "bg-white hover:bg-gray-100 px-2 py-2"
                   : "bg-white hover:bg-gray-100"
               )}
-              onClick={() => alert("Logout")}
+              onClick={handleLogout}
             >
               <TbLogout className="h-6 w-6 text-red-600" />
               {!collapsed && (
