@@ -115,7 +115,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-4 px-4 py-3 rounded transition text-[var(--color-textThree)]",
+                  "flex items-center gap-4 px-[14px] py-3 rounded transition text-[var(--color-textThree)]",
                   pathname.startsWith(item.href)
                     ? "bg-[var(--color-accent)] text-white"
                     : "hover:bg-gray-200 dark:hover:bg-[var(--color-textThree)]"
