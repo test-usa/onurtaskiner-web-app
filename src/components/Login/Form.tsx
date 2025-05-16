@@ -1,14 +1,37 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
-
+import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/redux/features/auth/authSlice";
+import { Loader } from "lucide-react";
+import cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 const LoginForm = () => {
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const navigate = useRouter();
+  const [login, { isLoading }] = useLoginMutation();
+  const dispatch = useDispatch();
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const email = form.email.value;
     const password = form.password.value;
-    console.log("Hello world", email, password);
+    // console.log("Hello world", email, password);
+    const LoginData = { email, password };
+    if (LoginData) {
+      const response = await login(LoginData);
+      if (response?.data?.success && response?.data?.statusCode === 200) {
+        const user = response?.data?.data?.user;
+        const token = response?.data?.data?.access_token;
+        console.log(user, token);
+        const setCookies = cookies.set("token", token);
+        if (setCookies) {
+          dispatch(setUser({ user, token }));
+          navigate.push("/admin/dashboard");
+          // console.log(cookies.get("token"), "find token in cookies");
+        }
+      }
+    }
   };
   return (
     <div className="w-full bg-white font-Robot">
@@ -47,7 +70,11 @@ const LoginForm = () => {
                 type="submit"
                 className="hover:bg-purple-800 cursor-pointer w-full bg-[var(--color-accent)] py-5.5 px-5 sm:px-6 text-sm sm:text-[17px]"
               >
-                Login
+                {isLoading ? (
+                  <Loader className="animate-spin w-2 h-2" />
+                ) : (
+                  "Login"
+                )}
               </Button>
             </div>
           </form>
