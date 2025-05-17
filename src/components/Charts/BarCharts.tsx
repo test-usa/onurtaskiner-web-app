@@ -19,6 +19,7 @@ const BarCharts = () => {
     { name: "May", pv: 280000 },
     { name: "June", pv: 400000 },
   ];
+  
   return (
     <div className="rounded-2xl bg-[var(--color-accent)] p-6 text-white h-full shadow-md w-full sm:w-1/2">
       <div className="flex justify-between items-start space-y-8">

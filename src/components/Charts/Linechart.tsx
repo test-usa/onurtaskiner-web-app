@@ -21,7 +21,7 @@ import {
 
 export function LineCharts() {
   const { data, isLoading } = useGetDashboardAnalyticsQuery();
-  console.log(data, "linecharts");
+  console.log(data?.data?.monthlyBookingTrends, "linecharts");
   return (
     <div className="rounded-2xl bg-[var(--color-accent)] p-6 text-white h-full shadow-md w-full sm:w-1/2 font-Robot">
       <div className="flex justify-between items-start space-y-8">
