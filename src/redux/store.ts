@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "@/redux/features/auth/authSlice";
+import venueReducer from "@/redux/features/venue/venueSlice";
 import { baseApi } from "./hooks/baseApi";
 import {
   PERSIST,
@@ -24,8 +25,7 @@ export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     auth: persiterReducer,
-    
-    
+    venue: venueReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

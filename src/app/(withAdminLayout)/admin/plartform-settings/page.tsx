@@ -1,8 +1,13 @@
+import PlatformSettings from "@/components/platformSetting/PlatformSetting";
+import PrivacyPolicy from "@/components/platformSetting/PrivacyPolicy";
+import Wrapper from "@/components/wrapper/wrapper";
+
 const partformSettingPage = () => {
   return (
-    <div>
-      <h1>partformSettingPage</h1>
-    </div>
+    <Wrapper>
+      <PlatformSettings />
+      <PrivacyPolicy />
+    </Wrapper>
   );
 };
 

@@ -1,8 +1,11 @@
+import DisputeRefandsComponents from "@/components/disputeRefands/DisputeRefandsComponents";
+import Wrapper from "@/components/wrapper/wrapper";
+
 const disputeRefundsPage = () => {
   return (
-    <div>
-      <h1>disputeRefundsPage</h1>
-    </div>
+    <Wrapper>
+      <DisputeRefandsComponents />
+    </Wrapper>
   );
 };
 

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const middleware = (request: NextRequest) => {
-  const isAuthenticated = request.cookies.get("token");
-
-  if (!isAuthenticated && request.nextUrl.pathname.startsWith("/admin")) {
+  const token = request.cookies.get("token")?.value;
+  console.log(token, "middlewares");
+  if (!token && request.nextUrl.pathname.startsWith("/admin")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
@@ -11,5 +11,5 @@ export const middleware = (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: ["/admin/:path*",],
+  matcher: ["/admin/:path*"],
 };

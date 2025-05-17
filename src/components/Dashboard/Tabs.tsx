@@ -1,0 +1,33 @@
+"use client";
+import React, { useState } from "react";
+// import Wrapper from "../wrapper/wrapper";
+import { cn } from "@/lib/utils";
+
+const Tabs = () => {
+  const [tabs] = useState<boolean>(true);
+  return (
+   
+      <div>
+        <div className="flex items-center border-b-[1px] font-FontFit">
+          <button
+            className={cn(
+              "py-[8px] sm:py-[12px] px-[15px] sm:px-[25px] text-xs sm:text-sm text-[var(--color-normalText)] cursor-pointer",
+              tabs &&
+                "border-b-[2.5px] border-[var(--color-accent)] text-[var(--color-accent)] font-semibold"
+            )}
+          >
+            Overview
+          </button>
+          <button className="py-[8px] sm:py-[12px] px-[15px] sm:px-[25px] text-xs sm:text-sm text-[var(--color-normalText)] cursor-pointer">
+            Reports
+          </button>
+          <button className="py-[8px] sm:py-[12px] px-[15px] sm:px-[25px] text-xs sm:text-sm text-[var(--color-normalText)] cursor-pointer">
+            Settings
+          </button>
+        </div>
+      </div>
+    
+  );
+};
+
+export default Tabs;

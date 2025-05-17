@@ -1,21 +1,24 @@
-"use client";
+import LoginForm from "@/components/Login/Form";
+import Welcome from "@/components/Login/Welcom";
 import React from "react";
-import Login from "./(main)/login/page";
-import { useGetPostsQuery } from "@/redux/features/auth/authApi";
-import { toast } from "sonner";
 
-const Page = () => {
-  const { data } = useGetPostsQuery(undefined);
-  console.log(data, "jsonplaceholder data");
+const Page =  () => {
+  // await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve("janina");
+  //   }, 2000);
+  // }); // just see loader use-case only
+  
   return (
-    <div>
-      <Login />
-      <button
-        onClick={() => toast.success("Dashboard updated successfully!")}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
-      >
-        Show Toast
-      </button>
+    <div className="bg-[var(--color-bgPrimary)] px-4 sm:px-20">
+      <div className="flex flex-col md:flex-row ">
+        <div className="w-full h-screen lg:block hidden">
+          <Welcome />
+        </div>
+        <div className="w-full">
+          <LoginForm />
+        </div>
+      </div>
     </div>
   );
 };

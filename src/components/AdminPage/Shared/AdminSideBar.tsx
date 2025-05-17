@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 import logo from "../../../assets/icon/logo1.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,7 +16,7 @@ import Image from "next/image";
 import { SlCalender } from "react-icons/sl";
 import { SiSimpleanalytics } from "react-icons/si";
 import { IoSettingsOutline } from "react-icons/io5";
-import { HiReceiptRefund } from "react-icons/hi";
+import { RiSupabaseLine } from "react-icons/ri";
 
 interface NavItem {
   title: string;
@@ -45,11 +45,11 @@ const navItems: NavItem[] = [
   {
     title: "Dispute & Refunds",
     href: "/admin/dispute-refunds",
-    icon: HiReceiptRefund,
+    icon: RiSupabaseLine,
   },
   {
-    title: "Plartform Settings",
-    href: "/admin/plartform-settings",
+    title: "Platform Settings",
+    href: "/admin/platform-settings",
     icon: IoSettingsOutline,
   },
 ];
@@ -59,7 +59,7 @@ export function AdminSideBar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="h-full w-[300px] max-auto  ">
+    <div className="max-auto">
       <button
         className="md:hidden p-4 fixed top-4 left-8 z-50"
         onClick={() => setToggle(!toggle)}
@@ -123,7 +123,7 @@ export function AdminSideBar() {
       </motion.aside>
 
       <aside className="hidden md:flex w-72 h-screen flex-col bg-[#FFFFFF] dark:bg-gray-900 text-gray-800 dark:text-white  p-6">
-        <div className="flex justify-center items-center mb-10 space-x-2">
+        <div className="flex justify-start items-center mb-10 ">
           <Image
             src={logo.src}
             alt="Logo"
@@ -132,12 +132,12 @@ export function AdminSideBar() {
             height={42}
           />
 
-          <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-sansita">
+          <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-['Sansita_Swashed']">
             Blinqo
           </h1>
         </div>
         <div className="mb-4 text-[var(--color-textThree)]">Menu</div>
-        <nav className="flex-grow  w-[227px] h-[40px]">
+        <nav className="flex-grow w-[227px] h-[40px]">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -170,65 +170,176 @@ export function AdminSideBar() {
   );
 }
 
-export default AdminSideBar;
+export default AdminSideBar; */
 
-/* 
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+import { MdDashboard } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa6";
+import { PiBuildingApartmentFill } from "react-icons/pi";
+import { SlCalender } from "react-icons/sl";
+import { SiSimpleanalytics } from "react-icons/si";
+import {
+  RiSupabaseLine,
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+} from "react-icons/ri";
+import { IoSettingsOutline } from "react-icons/io5";
+import { TbLogout } from "react-icons/tb";
 import logo from "../../../assets/icon/logo1.png";
 
-import { FaRegUser } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
-import { PiBuildingApartmentFill } from "react-icons/pi";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import AdminNavBar from "./AdminNavBar";
 
-const AdminSideBar = () => {
+interface NavItem {
+  title: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const navItems: NavItem[] = [
+  { title: "Dashboard", href: "/admin/dashboard", icon: MdDashboard },
+  { title: "User Management", href: "/admin/user-management", icon: FaRegUser },
+  {
+    title: "Venue Management",
+    href: "/admin/venue-management",
+    icon: PiBuildingApartmentFill,
+  },
+  {
+    title: "Booking & Payment",
+    href: "/admin/booking-payment",
+    icon: SlCalender,
+  },
+  {
+    title: "Reports & Analytics",
+    href: "/admin/report-analysis",
+    icon: SiSimpleanalytics,
+  },
+  {
+    title: "Dispute & Refunds",
+    href: "/admin/dispute-refunds",
+    icon: RiSupabaseLine,
+  },
+  {
+    title: "Platform Settings",
+    href: "/admin/platform-settings",
+    icon: IoSettingsOutline,
+  },
+];
+
+const AdminSideBar = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <aside className="bg-white text-black min-h-screen w-full px-4 py-6 shadow-lg">
-      <div className="flex justify-center items-center mb-10 space-x-2">
-        <Image
-          src={logo.src}
-          alt="Logo"
-          className="w-[42px] h-[42px]"
-          width={42}
-          height={42}
-        />
+    <div className="flex flex-col min-h-screen bg-[#F4F4F4]">
+      <div className="flex flex-col md:flex-row min-h-screen">
+        <aside
+          className={cn(
+            "transition-all duration-300 h-screen flex flex-col bg-white dark:bg-gray-900 shadow-md p-4",
+            collapsed ? "w-[300px]" : "w-302"
+          )}
+        >
+          <div className="flex items-center justify-between mb-6 mt-16">
+            <div className="flex items-center gap-2">
+              <Image
+                src={logo.src}
+                alt="Logo"
+                width={42}
+                height={42}
+                className="min-w-[42px]"
+              />
+              {!collapsed && (
+                <h1 className="text-xl font-bold bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-['Sansita_Swashed']">
+                  Blinqo
+                </h1>
+              )}
+            </div>
+            <button
+              onClick={() => setCollapsed((prev) => !prev)}
+              className="text-xl text-gray-500"
+            >
+              {collapsed ? <RiArrowRightSLine /> : <RiArrowLeftSLine />}
+            </button>
+          </div>
 
-        <h1 className="w-[75px] h-[29px] text-[24px] font-bold leading-[100%] tracking-[0] bg-gradient-to-r from-[#003366] to-[#518BEC] text-transparent bg-clip-text font-sansita">
-          Blinqo
-        </h1>
+          {!collapsed && (
+            <div className="text-[var(--color-textThree)] mb-2">Menu</div>
+          )}
+          <nav className="flex-grow">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-4 px-4 py-3 rounded transition mb-1",
+                  pathname === item.href
+                    ? "bg-[var(--color-accent)] text-white dark:bg-red-500"
+                    : "hover:bg-gray-200 dark:hover:bg-gray-700"
+                )}
+              >
+                <item.icon className="h-5 w-5 shrink-0" />
+                {!collapsed && <span>{item.title}</span>}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-auto">
+            <Button
+              variant="destructive"
+              className={cn(
+                "w-full justify-start gap-3 text-black",
+                collapsed
+                  ? "bg-white hover:bg-gray-100 px-2 py-2"
+                  : "bg-white hover:bg-gray-100"
+              )}
+              onClick={() => alert("Logout function here")}
+            >
+              <TbLogout className="h-5 w-5 text-red-600" />
+              {!collapsed && <span>Logout</span>}
+            </Button>
+          </div>
+        </aside>
+
+        <main className="h-full flex-1 overflow bg-base-200 mt-10 md:mt-0">
+          <div className="hidden lg:block w-full">
+            {/* <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 mt-4 px-4">
+              <div className="w-full sm:w-auto">
+                <div className="w-full sm:w-[782px] h-[44px] bg-white border rounded-[10px] px-4 py-2 flex items-center">
+                  <button className="text-gray-500 hover:text-gray-700 mr-2">
+                    <IoIosSearch />
+                  </button>
+                  <input
+                    type="text"
+                    placeholder="Searchsssss..."
+                    className="w-full outline-none bg-transparent"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <button className="btn btn-primary h-10 w-10 flex items-center justify-center">
+                  <IoMdNotificationsOutline className="h-5 w-4 mx-auto" />
+                </button>
+                <div className="h-10 w-10 rounded-full overflow-hidden">
+                  <Image src={profile} alt="Profile" height={40} width={40} />
+                </div>
+              </div>
+            </div> */}
+            <AdminNavBar />
+          </div>
+
+          <div className="p-4">{children}</div>
+        </main>
       </div>
-
-      <nav>
-        <ul className="space-y-3">
-          <p>Menu</p>
-          <li>
-            <Link href="/admin/dashboard">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <MdDashboard className="text-lg" />
-                <span>Dashboard</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/user-management">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <FaRegUser className="text-lg" />
-                <span>User Management</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/venue-management">
-              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-[#003366] hover:text-white text-left font-medium border border-transparent  cursor-pointer">
-                <PiBuildingApartmentFill className="text-lg" />
-                <span>Venu Management</span>
-              </div>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+    </div>
   );
 };
 
-export default AdminSideBar; */
+export default AdminSideBar;

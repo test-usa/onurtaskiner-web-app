@@ -1,9 +1,9 @@
-import React from "react";
+import Management from "@/components/Dashboard/management";
 
 const UserManagementPage = () => {
   return (
     <div>
-      <h1>UserManagementPage</h1>
+      <Management />
     </div>
   );
 };
