@@ -1,3 +1,4 @@
+"use client";
 import Professionals from "@/components/Dashboard/proffesionals";
 import Tabs from "@/components/Dashboard/Tabs";
 import CalculateCard from "@/components/reuseabelComponents/calculateCard";
@@ -8,6 +9,8 @@ import { Calendar } from "@/components/Dashboard/Calendar";
 import { ActivityTable } from "@/components/Dashboard/ActivityTable";
 
 const DashboardPage = () => {
+  
+  
   return (
     <Wrapper>
       <div className="w-full  min-h-screen space-y-4 ">
