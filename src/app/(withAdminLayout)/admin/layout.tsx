@@ -25,9 +25,10 @@ import profile from "../../../assets/images/profile.png";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import AdminNavBar from "@/components/AdminPage/Shared/AdminNavBar";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks/redux-hook";
+import { useAppDispatch } from "@/redux/hooks/redux-hook";
 import { logOut } from "@/redux/features/auth/authSlice";
-
+import cookies from "js-cookie";
+import { toast } from "sonner";
 interface NavItem {
   title: string;
   href: string;
@@ -71,10 +72,11 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
 
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const user = useAppSelector((store) => store.auth.user);
 
   const handleLogout = () => {
+    cookies.remove("token");
     dispatch(logOut());
+    toast.success("Admin Logged out successfully!");
     router.push("/");
   };
   const hideNavBar =
@@ -108,7 +110,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
             <button
               onClick={() => setCollapsed(!collapsed)}
-              className="text-3xl text-[var(--color-textThree)]"
+              className="text-3xl text-[var(--color-textThree)] "
             >
               {collapsed ? <RiArrowRightSLine /> : <RiArrowLeftSLine />}
             </button>
@@ -141,7 +143,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
             <Button
               variant="destructive"
               className={cn(
-                "w-full justify-start gap-3",
+                "w-full justify-start gap-3 cursor-pointer",
                 collapsed
                   ? "bg-white hover:bg-gray-100 px-2 py-2"
                   : "bg-white hover:bg-gray-100"

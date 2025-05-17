@@ -1,5 +1,236 @@
 "use client";
 
+import React from "react";
+import Image from "next/image";
+import { IoChevronDown } from "react-icons/io5";
+import {
+  useReactTable,
+  ColumnDef,
+  getCoreRowModel,
+  flexRender,
+} from "@tanstack/react-table";
+
+import venuphoto1 from "@/assets/images/venuphoto1.png";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+import { useGetAllVenuesQuery } from "@/redux/features/venue/venueApi";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks/redux-hook";
+import { setFilterStatus } from "@/redux/features/venue/venueSlice";
+import { Venue } from "@/redux/types/venue.type";
+
+// Status filter dropdown component
+const StatusHeader: React.FC<{
+  setStatusFilter: (status: string | null) => void;
+  currentStatus: string | null;
+}> = ({ setStatusFilter, currentStatus }) => {
+  const [open, setOpen] = React.useState(false);
+  const statusOptions = ["All", "Active", "Hold", "Suspend"];
+
+  return (
+    <div className="relative inline-block text-left">
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="flex items-center gap-1 font-medium text-sm text-gray-800 hover:text-black"
+      >
+        <span>
+          {currentStatus
+            ? statusOptions.find(
+                (opt) => opt.toUpperCase() === currentStatus
+              ) || "Status"
+            : "Status"}
+        </span>
+        <IoChevronDown />
+      </button>
+      {open && (
+        <div className="absolute mt-2 w-40 bg-white border rounded shadow z-10">
+          {statusOptions.map((option) => (
+            <div
+              key={option}
+              onClick={() => {
+                setStatusFilter(option === "All" ? null : option.toUpperCase());
+                setOpen(false);
+              }}
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer capitalize"
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const statusMap = {
+  ACTIVE: { text: "Active", color: "bg-green-500" },
+  HOLD: { text: "Hold", color: "bg-yellow-500" },
+  SUSPEND: { text: "Suspend", color: "bg-red-500" },
+};
+
+// Define column structure
+const getColumns = (
+  setStatusFilter: (status: string | null) => void,
+  currentStatus: string | null
+): ColumnDef<Venue>[] => [
+  {
+    accessorKey: "name",
+    header: () => <span className="font-semibold">Venue Name</span>,
+    cell: ({ row }) => {
+      const name = row.getValue("name") as string;
+      const imageSrc = row.original.coverImage || venuphoto1.src;
+
+      return (
+        <div className="flex items-center gap-3">
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={40}
+            height={40}
+            className="rounded w-[40px] h-[40px] object-cover"
+          />
+          <span className="font-semibold">{name}</span>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "status",
+    header: () => (
+      <StatusHeader
+        setStatusFilter={setStatusFilter}
+        currentStatus={currentStatus}
+      />
+    ),
+    cell: ({ row }) => {
+      const status = row.getValue("status") as keyof typeof statusMap;
+      const { text, color } = statusMap[status] || {
+        text: "Unknown",
+        color: "bg-gray-400",
+      };
+      return (
+        <div className="flex items-center gap-2">
+          <span className={`w-2.5 h-2.5 rounded-full ${color}`} />
+          <span className="capitalize">{text}</span>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "address",
+    header: () => <span className="font-semibold">Address</span>,
+    cell: ({ row }) => <span>{row.getValue("address") || "N/A"}</span>,
+  },
+  {
+    accessorKey: "totalEarning",
+    header: () => <div className="text-right font-semibold">Total Earning</div>,
+    cell: ({ row }) => {
+      const val = Number(row.getValue("totalEarning")) || 0;
+      return <div className="text-right font-medium">${val.toFixed(2)}</div>;
+    },
+  },
+  {
+    accessorKey: "commission",
+    header: () => <div className="text-right font-semibold">Commission</div>,
+    cell: ({ row }) => {
+      const val = Number(row.getValue("commission")) || 0;
+      return <div className="text-right font-medium">${val.toFixed(2)}</div>;
+    },
+  },
+  {
+    id: "details",
+    cell: ({ row }) => (
+      <div className="flex justify-end">
+        <a
+          href={`/admin/venue-management/${row.original.id}`}
+          className="text-blue-600 underline text-sm"
+        >
+          Details
+        </a>
+      </div>
+    ),
+  },
+];
+console.log(
+  "Venue Data:",
+  getColumns((status) => console.log("Set status:", status), "ACTIVE")
+);
+
+export function VenueListTable() {
+  const dispatch = useAppDispatch();
+  const filterStatus = useAppSelector((state) => state.venue.filterStatus);
+
+  const { data, isLoading, isError } = useGetAllVenuesQuery(
+    filterStatus ? { status: filterStatus } : {}
+  );
+
+  const venueList: Venue[] = React.useMemo(() => data || [], [data]);
+
+  const table = useReactTable({
+    data: venueList,
+    columns: getColumns(
+      (status) => dispatch(setFilterStatus(status)),
+      filterStatus
+    ),
+    getCoreRowModel: getCoreRowModel(),
+  });
+
+  if (isLoading) return <div className="text-center p-4">Loading...</div>;
+  if (isError)
+    return (
+      <div className="text-center p-4 text-red-500">Error loading data</div>
+    );
+
+  return (
+    <div className="p-4 bg-white rounded shadow">
+      <Table>
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <TableHead key={header.id}>
+                  {flexRender(
+                    header.column.columnDef.header,
+                    header.getContext()
+                  )}
+                </TableHead>
+              ))}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={6} className="text-center text-gray-500">
+                No venues found.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
+
+/* 
+"use client";
+
 import venuphoto1 from "@/assets/images/venuphoto1.png";
 import * as React from "react";
 import {
@@ -26,7 +257,6 @@ import {
 import Image from "next/image";
 import { IoChevronDown } from "react-icons/io5";
 
-// ------------------ TYPES ------------------
 export type Venue = {
   id: string;
   venueName: string;
@@ -35,9 +265,9 @@ export type Venue = {
   totalEarning: number;
   commission: number;
   photo: string;
+  coverImage?: string; // Added coverImage property
 };
 
-// ------------------ DUMMY DATA ------------------
 const data: Venue[] = [
   {
     id: "v001",
@@ -122,7 +352,6 @@ const data: Venue[] = [
   },
 ];
 
-// ------------------ STATUS DROPDOWN HEADER ------------------
 const StatusHeader: React.FC<{
   setStatusFilter: (status: string | null) => void;
 }> = ({ setStatusFilter }) => {
@@ -164,7 +393,6 @@ const StatusHeader: React.FC<{
   );
 };
 
-// ------------------ COLUMNS ------------------
 export const getColumns = (
   setStatusFilter: (status: string | null) => void
 ): ColumnDef<Venue>[] => [
@@ -182,6 +410,7 @@ export const getColumns = (
     ),
     cell: ({ row }) => (
       <Checkbox
+        className="cursor-pointer"
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
@@ -197,15 +426,15 @@ export const getColumns = (
       const venueName = row.getValue("venueName") as string;
       const venuePhotoUrl = row.original.photo;
       return (
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 ">
           <Image
             src={venuePhotoUrl}
             alt={venueName}
-            className="w-10 h-10 object-cover rounded"
+            className="w-10 h-10 object-cover rounded "
             width={40}
             height={40}
           />
-          <span className="font-medium">{venueName}</span>
+          <span className="font-medium ">{venueName}</span>
         </div>
       );
     },
@@ -225,7 +454,7 @@ export const getColumns = (
         color: "bg-gray-500",
       };
       return (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 cursor-pointer">
           <span className={`inline-block w-2.5 h-2.5 rounded-full ${color}`} />
           <span className="capitalize text-sm font-medium">{text}</span>
         </div>
@@ -284,7 +513,6 @@ export const getColumns = (
   },
 ];
 
-// ------------------ COMPONENT ------------------
 export function VenueListTable() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -372,3 +600,4 @@ export function VenueListTable() {
     </div>
   );
 }
+ */

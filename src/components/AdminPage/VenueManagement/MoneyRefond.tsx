@@ -21,7 +21,7 @@ const MoneyRefond = () => {
             5.0
           </p>
           <p className="text-[#ABB7C2] font-roboto text-base not-italic font-normal leading-[120%]">
-            (345 reviews)
+            (345 reviewss)
           </p>
         </div>
       </div>

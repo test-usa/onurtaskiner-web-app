@@ -20,7 +20,10 @@ const InputStatusForm = () => {
       {/* Status Field with Color Indicator */}
       <div className="flex flex-col space-y-3 w-full">
         <div className="flex items-center space-x-2">
-          <Label htmlFor="status" className="text-[20px] font-Robot">
+          <Label
+            htmlFor="status"
+            className="text-[20px] font-Robot cursor-pointer"
+          >
             Status
           </Label>
         </div>
