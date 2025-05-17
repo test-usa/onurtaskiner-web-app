@@ -1,12 +1,12 @@
+import { useUserAnalyticsForBarChartsQuery } from "@/redux/features/user_managment/user_analytics";
 import React from "react";
 import { VictoryPie, VictoryLabel } from "victory";
 const PieCharts = () => {
-  const donutData = [
-    { x: "Subscriptions", y: 26.9 },
-    { x: "Bookings", y: 48.8 },
-    { x: "Ads", y: 24.3 },
-  ];
-
+  const { data } = useUserAnalyticsForBarChartsQuery();
+  const donutData = data?.data?.map((item: any) => ({
+    x: item.role,
+    y: item.percentage,
+  }));
   const COLORS = ["#6CB9AD", "#324DDD", "#D4AF37"];
   return (
     <div className="w-full xl:w-[40%] mx-auto relative font-Robot bg-[#FBF7EB] rounded-2xl">
@@ -14,8 +14,8 @@ const PieCharts = () => {
         <VictoryPie
           standalone={false}
           width={400}
-          height={350}
           data={donutData}
+          height={350}
           innerRadius={55}
           labelRadius={80}
           labelPlacement={"perpendicular"}
