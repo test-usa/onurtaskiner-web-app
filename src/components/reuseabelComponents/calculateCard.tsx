@@ -1,6 +1,10 @@
 import React from "react";
-
-const CalculateCard = () => {
+interface ICard {
+  title: string;
+  amount: string;
+  charge: string;
+}
+const CalculateCard = ({ title, amount, charge }: ICard) => {
   const data = [
     {
       title: "Refund Amount",
