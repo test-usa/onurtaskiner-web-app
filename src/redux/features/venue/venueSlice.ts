@@ -1,5 +1,5 @@
 // src/redux/features/venue/venueSlice.ts
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Venue } from "@/redux/types/venue.type";
 
 interface VenueState {
@@ -9,17 +9,17 @@ interface VenueState {
 
 const initialState: VenueState = {
   currentVenue: null,
-  filterStatus: null,
+  filterStatus: "ACTIVE", // Changed to uppercase to match API
 };
 
 const venueSlice = createSlice({
   name: "venue",
   initialState,
   reducers: {
-    setCurrentVenue: (state, action) => {
+    setCurrentVenue: (state, action: PayloadAction<Venue | null>) => {
       state.currentVenue = action.payload;
     },
-    setFilterStatus: (state, action) => {
+    setFilterStatus: (state, action: PayloadAction<string | null>) => {
       state.filterStatus = action.payload;
     },
   },

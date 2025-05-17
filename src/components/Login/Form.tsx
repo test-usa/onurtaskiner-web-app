@@ -7,6 +7,7 @@ import { setUser } from "@/redux/features/auth/authSlice";
 import { Loader } from "lucide-react";
 import cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 const LoginForm = () => {
   const navigate = useRouter();
   const [login, { isLoading }] = useLoginMutation();
@@ -28,6 +29,7 @@ const LoginForm = () => {
         if (setCookies) {
           dispatch(setUser({ user, token }));
           navigate.push("/admin/dashboard");
+          toast.success("Login Successful");
           // console.log(cookies.get("token"), "find token in cookies");
         }
       }

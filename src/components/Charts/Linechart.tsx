@@ -1,5 +1,6 @@
 "use client";
 
+import { useGetDashboardAnalyticsQuery } from "@/redux/features/user_managment/user_management";
 import { MoreHorizontal } from "lucide-react";
 import {
   LineChart,
@@ -11,14 +12,16 @@ import {
   Tooltip,
 } from "recharts";
 
-interface BookingsChartProps {
-  data: {
-    name: string;
-    bookings: number;
-  }[];
-}
+// interface BookingsChartProps {
+//   data: {
+//     name: string;
+//     bookings: number;
+//   }[];
+// }
 
-export function LineCharts({ data }: BookingsChartProps) {
+export function LineCharts() {
+  const { data, isLoading } = useGetDashboardAnalyticsQuery();
+  console.log(data, "linecharts");
   return (
     <div className="rounded-2xl bg-[var(--color-accent)] p-6 text-white h-full shadow-md w-full sm:w-1/2 font-Robot">
       <div className="flex justify-between items-start space-y-8">
@@ -52,7 +55,7 @@ export function LineCharts({ data }: BookingsChartProps) {
             stroke="rgba(255,255,255,0.1)"
             vertical={false}
           />
-          
+
           <XAxis
             dataKey="name"
             tick={{ fill: "rgba(255,255,255,0.6)", fontSize: 12 }}

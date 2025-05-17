@@ -4,15 +4,18 @@ import { Venue } from "@/redux/types/venue.type";
 
 const venueApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllVenues: builder.query<Venue[], void>({
-      query: () => ({
-        url: "/venue/filter",
+    getAllVenues: builder.query<Venue[], { status?: string }>({
+      query: (params) => ({
+        url: `/admin/venue/all`,
         method: "GET",
+        params: params,
       }),
+      transformResponse: (response: { data: { venues: Venue[] } }) =>
+        response.data.venues,
     }),
     createVenue: builder.mutation<Venue, Partial<Venue>>({
       query: (newVenue) => ({
-        url: "/venues",
+        url: "/admin/venue",
         method: "POST",
         body: newVenue,
       }),
