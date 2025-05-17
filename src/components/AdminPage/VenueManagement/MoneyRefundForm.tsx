@@ -115,7 +115,7 @@ const MoneyRefundForm = () => {
                 <div className="flex justify-between items-center">
                   <p className="text-[var(--color-normalText)]">Total Cost</p>
                   <p className="text-[var(--color-accent)] font-semibold">
-                    $ 8000
+                    $ 80000
                   </p>
                 </div>
                 <div className="flex justify-between items-center ">
@@ -130,7 +130,7 @@ const MoneyRefundForm = () => {
                 <div className="flex justify-between items-center ">
                   <p className="text-[var(--color-normalText)]">Due</p>
                   <p className="text-[var(--color-accent)] font-semibold">
-                    $ 6500
+                    $ 65000
                   </p>
                 </div>
               </div>
