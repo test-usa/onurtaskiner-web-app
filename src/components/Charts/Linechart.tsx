@@ -42,7 +42,7 @@ export function LineCharts() {
       </div>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart
-          data={data}
+          data={data?.data?.monthlyBookingTrends}
           margin={{
             top: 5,
             right: 10,
