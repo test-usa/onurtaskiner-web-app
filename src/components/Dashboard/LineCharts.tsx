@@ -9,6 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { useLazyUserAnalyticsForLineChartsQuery } from "@/redux/features/user_managment/user_analytics";
 const LineCharts = () => {
   //   const COLORS = ["#D1A13D", "#2D4CE0", "#58B1AC"];
   const chartData = [
@@ -44,6 +45,8 @@ const LineCharts = () => {
       serviceProvider: 3400,
     },
   ];
+  const { data } = useLazyUserAnalyticsForLineChartsQuery();
+  console.log(data, "49 no line");
   return (
     <div className="xl:w-[60%] w-full font-Robot">
       <Card className=" bg-[var(--color-accent)] text-white h-full">

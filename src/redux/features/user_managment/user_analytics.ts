@@ -8,7 +8,13 @@ const user_analytics = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    userAnalyticsForLineCharts: builder.query<any, void>({
+      query: () => ({
+        url: "analytics/user-analytics",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useUserAnalyticsForBarChartsQuery } = user_analytics;
+export const { useUserAnalyticsForBarChartsQuery,useLazyUserAnalyticsForLineChartsQuery } = user_analytics;
